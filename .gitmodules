@@ -1,3 +1,6 @@
 [submodule ".zprezto"]
 	path = .zprezto
 	url = git@github.com:OscarOrSomething/prezto.git
+[submodule ".local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/sevenhud"]
+	path = .local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/sevenhud
+	url = git@github.com:OscarOrSomething/7HUD.git
