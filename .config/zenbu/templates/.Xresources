@@ -1,0 +1,46 @@
+!rofi.font: Anonymous Pro, Regular, 20
+rofi.font: Fira Mono, Regular, 30
+
+rofi.color-enabled: true
+rofi.color-window: {{ colors.background }}, {{ colors.accent }}, {{ colors.background }}
+rofi.color-normal: {{ colors.foreground }}, {{ colors.background }}, {{ colors.foreground }}, {{ colors.background }}, {{ colors.foreground }}
+rofi.color-active: {{ colors.foreground }}, {{ colors.background }}, {{ colors.foreground }}, {{ colors.background }}, {{ colors.foreground }}
+rofi.color-urgent: {{ colors.accent }}, {{ colors.foreground }}, {{ colors.accent }}, {{ colors.foreground }}, {{ colors.accent }}, {{ colors.foreground }}
+
+! special
+*.foreground:   {{ colors.foreground }}
+*.background:   {{ colors.background }}
+*.cursorColor:  {{ colors.foreground }}
+
+! black
+*.color0:       {{ colors.black.normal }}
+*.color8:       {{ colors.black.bold }}
+
+! red
+*.color1:       {{ colors.red.normal }}
+*.color9:       {{ colors.red.bold }}
+
+! green
+*.color2:       {{ colors.green.normal }}
+*.color10:      {{ colors.green.bold }}
+
+! yellow
+*.color3:       {{ colors.yellow.normal }}
+*.color11:      {{ colors.yellow.bold }}
+
+! blue
+*.color4:       {{ colors.blue.normal }}
+*.color12:      {{ colors.blue.bold }}
+
+! magenta
+*.color5:       {{ colors.magenta.normal }}
+*.color13:      {{ colors.magenta.bold }}
+
+! cyan
+*.color6:       {{ colors.cyan.normal }}
+*.color14:      {{ colors.cyan.bold }}
+
+! white
+*.color7:       {{ colors.white.normal }}
+*.color15:      {{ colors.white.bold }}
+

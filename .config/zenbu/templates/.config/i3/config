@@ -1,0 +1,175 @@
+set $mod Mod4
+
+floating_modifier $mod
+
+bindsym $mod+t exec termite 
+
+bindsym $mod+Shift+q kill
+
+font pango:Roboto 10
+
+bindsym $mod+Return exec i3-dmenu-desktop --dmenu='rofi -dmenu -sidebar -mode-font "ubuntu mono 18" -width 50 -padding 12 -opacity "85" -eh 1 -lines 5 -padding 20 -hide-scrollbar -font "System San Francisco Display 18" -i'
+
+bindsym $mod+Tab workspace back_and_forth
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+semicolon split h
+
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+
+set $workspace1  1:
+set $workspace2  2:
+set $workspace3  3:
+set $workspace4  4:
+set $workspace5  5:
+set $workspace6  6:
+set $workspace7  7
+set $workspace8  8
+set $workspace9  9
+set $workspace10 10
+
+bindsym $mod+g exec shutdown-menu
+
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+assign [class="chrome"] $workspace1
+
+assign [class="Termite"] $workspace2
+
+assign [class="Subl3"] $workspace3
+
+assign [class="Deluge"] $workspace6
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+m exec --no-startup-id termite -e ncmpcpp
+
+exec --no-startup-id feh --bg-scale {{wallpaper}}
+exec --no-startup-id mpdas
+
+mode "resize" {
+  bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
+
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+hide_edge_borders both
+
+client.focused          {{colors.accent}} {{colors.background}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
+client.focused_inactive {{colors.background}} {{colors.background}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
+client.unfocused        {{colors.background}} {{colors.background}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
+client.urgent           {{colors.background}} {{colors.accent}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
+client.placeholder      {{colors.background}} {{colors.background}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
+
+client.background       {{colors.background}}
+
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id demopan -w ~/.steam/steam/steamapps/common/Team\ Fortress\ 2/tf/demos
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+new_window none
+new_float none
+
+bindsym $mod+X exec i3lock-fancy
+
+gaps inner 5
+gaps outer 5
+
+set $mode_monitor (1) monitor (2) laptop
+mode "$mode_monitor" {
+	bindsym $mod+1 exec --no-startup-id display-monitor, mode "default"
+	bindsym $mod+2 exec --no-startup-id display-laptop, mode "default"
+
+	bindsym $mod+Escape mode "default"
+}
+bindsym $mod+o mode "$mode_monitor"
+
+
+bar 
+{
+	colors {
+		background {{colors.background}}
+		statusline {{colors.foreground}}
+
+		focused_workspace {{colors.accent}} {{colors.background}} {{colors.foreground}}
+		active_workspace {{colors.background}} {{colors.background}} {{colors.foreground}}
+		urgent_workspace {{colors.accent}} {{colors.accent}} {{colors.foreground}}
+	}
+	strip_workspace_numbers yes
+	position bottom
+	mode hide
+	status_command i3status
+}
