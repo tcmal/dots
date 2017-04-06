@@ -23,7 +23,7 @@ cursor_blink = on
 # "block", "underline" or "ibeam"
 cursor_shape = ibeam
 
-font = DejaVu Sans Mono, 10
+font = Sauce Code Powerline, 10
 
 [colors]
 

@@ -4,3 +4,6 @@
 [submodule ".local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/sevenhud"]
 	path = .local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/sevenhud
 	url = git@github.com:OscarOrSomething/7HUD.git
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = git@github.com:VundleVim/Vundle.vim.git
