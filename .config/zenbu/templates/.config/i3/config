@@ -125,6 +125,7 @@ client.placeholder      {{colors.background}} {{colors.background}} {{colors.for
 
 client.background       {{colors.background}}
 
+exec --no-startup-id polybar top
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id demopan -w ~/.steam/steam/steamapps/common/Team\ Fortress\ 2/tf/demos
 exec --no-startup-id redshift
@@ -159,18 +160,18 @@ mode "$mode_monitor" {
 bindsym $mod+o mode "$mode_monitor"
 
 
-bar 
-{
-	colors {
-		background {{colors.background}}
-		statusline {{colors.foreground}}
-
-		focused_workspace {{colors.accent}} {{colors.background}} {{colors.foreground}}
-		active_workspace {{colors.background}} {{colors.background}} {{colors.foreground}}
-		urgent_workspace {{colors.accent}} {{colors.accent}} {{colors.foreground}}
-	}
-	strip_workspace_numbers yes
-	position bottom
-	mode hide
-	status_command i3status
-}
+#bar 
+#{
+#	colors {
+#		background {{colors.background}}
+#		statusline {{colors.foreground}}
+#
+#		focused_workspace {{colors.accent}} {{colors.background}} {{colors.foreground}}
+#		active_workspace {{colors.background}} {{colors.background}} {{colors.foreground}}
+#		urgent_workspace {{colors.accent}} {{colors.accent}} {{colors.foreground}}
+#	}
+#	strip_workspace_numbers yes
+#	position bottom
+#	mode hide
+#	status_command i3status
+#}
