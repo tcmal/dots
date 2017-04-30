@@ -23,7 +23,7 @@ cursor_blink = on
 # "block", "underline" or "ibeam"
 cursor_shape = ibeam
 
-font = Sauce Code Powerline, 10
+font = Source Code Pro for Powerline, 10
 
 [colors]
 
