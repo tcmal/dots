@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
 	url = git@github.com:VundleVim/Vundle.vim.git
+[submodule ".local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/carrothud"]
+	path = .local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/carrothud
+	url = git@github.com:OscarOrSomething/_CarrotHUD.git
