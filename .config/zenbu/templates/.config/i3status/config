@@ -1,0 +1,12 @@
+order += "mpd"
+order += "tztime local"
+
+mpd {
+        format_up = "%title"
+        format_down = "silence"
+}
+
+tztime local {
+	format = "%H:%M"
+}
+
