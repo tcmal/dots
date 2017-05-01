@@ -10,3 +10,6 @@
 [submodule ".local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/carrothud"]
 	path = .local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/carrothud
 	url = git@github.com:OscarOrSomething/_CarrotHUD.git
+[submodule ".local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/rayshud"]
+	path = .local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/rayshud
+	url = git@github.com:raysfire/rayshud.git
