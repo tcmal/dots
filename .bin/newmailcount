@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+count=$(ls -1 /home/oscar/Mail/INBOX/new | wc -l)
+
+if [ $count -eq 0 ]; then
+	exit 0;
+fi
+
+echo " $count"
