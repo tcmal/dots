@@ -181,8 +181,8 @@ bar
 		active_workspace {{colors.background}} {{colors.background}} {{colors.foreground}}
 		urgent_workspace {{colors.accent}} {{colors.accent}} {{colors.foreground}}
 	}
-	strip_workspace_numbers yes
+  strip_workspace_numbers yes
 	position bottom
 	mode hide
-	status_command i3status-custom
+	status_command ~/.bin/i3status-custom
 }
