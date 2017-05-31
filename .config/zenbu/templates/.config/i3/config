@@ -89,6 +89,10 @@ assign [class="Subl3"] $workspace3
 
 assign [class="Unity"] $workspace3
 
+assign [class="csgo_linux64"] $workspace5
+
+assign [class="hl2_linux"] $workspace5
+
 assign [class="Deluge"] $workspace6
 
 assign [class="discord"] $workspace7
@@ -180,5 +184,4 @@ bar
 	strip_workspace_numbers yes
 	position bottom
 	mode hide
-  status_command i3status
 }
