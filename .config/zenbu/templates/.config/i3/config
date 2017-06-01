@@ -93,6 +93,8 @@ assign [class="csgo_linux64"] $workspace5
 
 assign [class="hl2_linux"] $workspace5
 
+assign [class="hl_linux"] $workspace5
+
 assign [class="Deluge"] $workspace6
 
 assign [class="discord"] $workspace7
