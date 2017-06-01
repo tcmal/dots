@@ -1,8 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
 i3status | while :
 do
-    read line
-		gmail="$(newmailcount) |"
-    echo "$gmail $line" || exit 1
+	read line
+	emailcount=$(~/.bin/newmailcount)
+	if [ $? -eq 0 ]; then
+			email="$emailcount |"
+	else
+			email=""
+		fi
+  	  
+	echo "$email $line" || exit 1
 done

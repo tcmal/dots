@@ -5,7 +5,7 @@ general {
 order += "mpd"
 order += "tztime local"
 mpd {
-        format_up = " %title"
+        format_up = " %title | "
         format_down = ""
 }
 tztime local {
