@@ -146,7 +146,7 @@ client.background       {{colors.background}}
 
 #exec --no-startup-id polybar top
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec --no-startup-id demopan -w ~/.steam/steam/steamapps/common/Team\ Fortress\ 2/tf/demos
+#exec --no-startup-id demopan -w ~/.steam/steam/steamapps/common/Team\ Fortress\ 2/tf/demos
 exec --no-startup-id redshift
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
