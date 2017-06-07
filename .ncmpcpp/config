@@ -1,4 +1,3 @@
 user_interface = "alternative"
 
 media_library_primary_tag = "album_artist" # Order by Album Artist
-media_library_albums_split_by_date = "no"
