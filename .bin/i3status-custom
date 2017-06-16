@@ -3,12 +3,20 @@
 i3status | while :
 do
 	read line
+	
 	emailcount=$(~/.bin/newmailcount)
 	if [ $? -eq 0 ]; then
-			email="$emailcount |"
+		email="$emailcount |"
 	else
-			email=""
-		fi
+		email=""
+	fi
   	  
-	echo "$email $line" || exit 1
+	taskcount=$(~/.bin/taskcount)
+	if [ $? -eq 0 ]; then
+		tasks="$taskcount | "
+	else
+		tasks=""
+	fi
+
+	echo "$tasks $email $line" || exit 1
 done
