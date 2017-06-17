@@ -10,13 +10,6 @@ do
 	else
 		email=""
 	fi
-  	  
-	taskcount=$(~/.bin/taskcount)
-	if [ $? -eq 0 ]; then
-		tasks="$taskcount | "
-	else
-		tasks=""
-	fi
 
-	echo "$tasks $email $line" || exit 1
+	echo "$email $line" || exit 1
 done
