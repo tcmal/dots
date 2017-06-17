@@ -114,8 +114,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+m exec --no-startup-id termite -e ncmpcpp
 bindsym $mod+e exec --no-startup-id termite -e mutt
 
+
 exec --no-startup-id feh --bg-scale {{wallpaper}}
 exec --no-startup-id mpdas
+exec --no-startup-id conky
 
 mode "resize" {
   bindsym j resize shrink width 10 px or 10 ppt
