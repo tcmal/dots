@@ -118,6 +118,7 @@ bindsym $mod+e exec --no-startup-id termite -e mutt
 exec --no-startup-id feh --bg-scale {{wallpaper}}
 exec --no-startup-id mpdas
 exec --no-startup-id conky
+exec --no-startup-id discord
 
 mode "resize" {
   bindsym j resize shrink width 10 px or 10 ppt
