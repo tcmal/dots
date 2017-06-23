@@ -101,6 +101,8 @@ assign [class="RocketLeague"] $workspace5
 
 assign [class="Tower-Linux-Shipping"] $workspace5
 
+assign [class="explorer.exe"] $workspace5
+
 assign [class="Deluge"] $workspace6
 
 assign [class="discord"] $workspace7
