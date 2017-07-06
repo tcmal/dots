@@ -172,8 +172,8 @@ new_float none
 bindsym $mod+X exec i3lock-fancy
 
 
-gaps inner 5
-gaps outer 5
+gaps inner {{i3.gap}}
+gaps outer {{i3.gap}}
 
 set $mode_monitor (1) monitor (2) laptop
 mode "$mode_monitor" {
