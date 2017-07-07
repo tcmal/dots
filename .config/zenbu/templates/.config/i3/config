@@ -117,7 +117,7 @@ bindsym $mod+m exec --no-startup-id termite -e ncmpcpp
 bindsym $mod+e exec --no-startup-id termite -e mutt
 
 
-exec --no-startup-id feh --bg-scale {{wallpaper}}
+exec --no-startup-id feh --bg-scale {{background}}
 exec --no-startup-id mpdas
 exec --no-startup-id conky
 exec --no-startup-id discord
