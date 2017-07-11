@@ -89,6 +89,8 @@ assign [class="Subl3"] $workspace3
 
 assign [class="Unity"] $workspace3
 
+assign [class="libreoffice"] $workspace3
+
 assign [class="csgo_linux64"] $workspace5
 
 assign [class="hl2_linux"] $workspace5
