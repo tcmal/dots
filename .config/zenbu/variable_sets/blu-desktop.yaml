@@ -26,6 +26,8 @@ colors:
     white:
         normal:       "#d8d8d8"
         bold:         "#f8f8f8"
+keys:
+    sidemouse: "MOUSE5"
 conky:
     gap_y: "50"
 i3:
