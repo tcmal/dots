@@ -1,7 +1,7 @@
 colors:
-    background: "#212330"
+    background: "#091332"
     foreground: "#eeeeee"
-    accent: "#566A9D"
+    accent: "#e5eef9"
     black:
         normal:       "#181818"
         bold:         "#585858"
