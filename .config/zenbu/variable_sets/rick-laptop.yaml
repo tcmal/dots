@@ -29,7 +29,7 @@ colors:
 keys:
     sidemouse: "MOUSE3"
 conky:
-    gap_y: "175"
+    gap_y: "125"
 i3:
     gap: "0"
 wallpaper: "/home/oscar/Pictures/Wallpapers/morty.jpg"
