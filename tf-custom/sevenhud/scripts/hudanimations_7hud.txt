@@ -6,7 +6,7 @@ event DamagedPlayer
 {
 	Animate fogCrosshair 	FgColor 	"255 0 0 255" 	Linear 0.0 0.00001
 	Animate fogCrosshair 	FgColor 	"WhiteS" 	Linear 0.20 0.10001
-	
+  RunEvent ScopeRemoval 0.0	
 	// Set the second line ("255 255 255 255") to whatever color you have changed
 	// your crosshair to be. So if you crosshair is green, the second line should
 	// also have that same value.
@@ -330,6 +330,11 @@ event RDNegativeScorePulse
 event WinPanel_CompPos
 {
 	Animate WinPanel ypos r132 Linear 0 0
+}
+
+event ScopeRemoval
+{
+Animate HudScope Position	"9999 9999" Linear 0.0 0.0
 }
 
 event WinPanel_NormalPos
