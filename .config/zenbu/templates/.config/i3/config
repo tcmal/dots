@@ -46,7 +46,7 @@ bindsym $mod+space focus mode_toggle
 
 bindsym $mod+a focus parent
 
-set $workspace1  1:
+set $workspace1  1:
 set $workspace2  2:
 set $workspace3  3:
 set $workspace4  4:
@@ -82,6 +82,8 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="chrome"] $workspace1
+
+assign [class="Firefox"] $workspace1
 
 assign [class="Termite"] $workspace2
 
