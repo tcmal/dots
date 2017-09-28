@@ -8,4 +8,12 @@ progressbar_look = "─╼ "
 
 message_delay_time = "1"
 
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "10" 
+visualizer_in_stereo = "no"
+visualizer_type = "wave_filled"
+visualizer_look = "●▋"
+visualizer_color = "white"
+
 media_library_primary_tag = "album_artist" # Order by Album Artist
