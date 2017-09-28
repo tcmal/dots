@@ -14,6 +14,10 @@ visualizer_sync_interval = "10"
 visualizer_in_stereo = "no"
 visualizer_type = "wave_filled"
 visualizer_look = "●▋"
-visualizer_color = "white"
+visualizer_color = "blue"
+
+startup_screen = "playlist"
+startup_slave_screen = "visualizer"
+display_volume_level = "yes"
 
 media_library_primary_tag = "album_artist" # Order by Album Artist
