@@ -110,6 +110,7 @@ assign [class="explorer.exe"] $workspace5
 assign [class="Deluge"] $workspace6
 
 assign [class="discord"] $workspace7
+assign [class="mumble"] $workspace7
 
 assign [class="Steam"] $workspace8
 
