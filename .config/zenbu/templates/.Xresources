@@ -1,11 +1,8 @@
-!rofi.font: Anonymous Pro, Regular, 20
-rofi.font: Fira Mono, Regular, 30
-
-rofi.color-enabled: true
-rofi.color-window: {{ colors.background }}, {{ colors.accent }}, {{ colors.background }}
-rofi.color-normal: {{ colors.foreground }}, {{ colors.background }}, {{ colors.foreground }}, {{ colors.background }}, {{ colors.foreground }}
-rofi.color-active: {{ colors.foreground }}, {{ colors.background }}, {{ colors.foreground }}, {{ colors.background }}, {{ colors.foreground }}
-rofi.color-urgent: {{ colors.accent }}, {{ colors.foreground }}, {{ colors.accent }}, {{ colors.foreground }}, {{ colors.accent }}, {{ colors.foreground }}
+URxvt*scrollTtyKeypress:  true
+URxvt*skipScroll:  true
+URxvt*scrollBar:  false
+URxvt*visualBell:  true
+URxvt.font:     xft:Source Code Pro for Powerline:size=12:antialias=true:hinting=true,xft:PowerlineSymbols:size=12:antialias=true:hinting=true
 
 ! special
 *.foreground:   {{ colors.foreground }}
