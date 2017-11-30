@@ -8,7 +8,7 @@ bindsym $mod+Shift+q kill
 
 font pango:Roboto 10
 
-bindsym $mod+Return exec i3-dmenu-desktop --dmenu='rofi -dmenu -sidebar -mode-font "ubuntu mono 18" -width 50 -padding 12 -opacity "85" -eh 1 -lines 5 -padding 20 -hide-scrollbar -font "System San Francisco Display 18" -i'
+bindsym $mod+Return exec i3-dmenu-desktop
 
 bindsym $mod+Tab workspace back_and_forth
 
