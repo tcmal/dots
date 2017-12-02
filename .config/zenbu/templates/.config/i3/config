@@ -86,7 +86,7 @@ assign [class="chrome"] $workspace1
 assign [class="Firefox"] $workspace1
 
 assign [class="Termite"] $workspace2
-assign [class="urxvt"] $workspace2
+assign [class="URxvt"] $workspace2
 
 assign [class="Subl3"] $workspace3
 
