@@ -1,5 +1,5 @@
 colors:
-    background: "#222222"
+    background: "#000000"
     foreground: "#eeeeee"
     accent: "#566A9D"
     black:
@@ -29,7 +29,7 @@ colors:
 keys:
     sidemouse: "MOUSE3"
 conky:
-    gap_y: "40"
+    gap_y: "10"
 i3:
     gap: "0"
 wallpaper: "/home/oscar/Pictures/Wallpapers/labs.png"
