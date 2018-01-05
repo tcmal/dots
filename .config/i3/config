@@ -1,6 +1,6 @@
 set $mod Mod4
 
-floating_modifier $mod
+floating_modifier Mod1 
 
 bindsym $mod+t exec termite 
 
@@ -174,3 +174,20 @@ new_float none
 gaps inner 0
 gaps outer 0
 
+
+bar
+{
+	colors {
+		background #1d1f22
+		statusline #c5c8c5
+
+		focused_workspace #566A9D #1d1f22 #eeeeee
+		active_workspace #1d1f22 #1d1f22 #eeeeee
+		inactive_workspace #1d1f22 #1d1f22 #eeeeee
+		urgent_workspace #566A9D #566A9D #eeeeee
+	}
+  strip_workspace_numbers yes
+	position bottom
+	mode hide
+	modifier Mod1
+}
