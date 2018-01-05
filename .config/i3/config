@@ -2,7 +2,7 @@ set $mod Mod4
 
 floating_modifier $mod
 
-bindsym $mod+t exec urxvt 
+bindsym $mod+t exec termite 
 
 bindsym $mod+Shift+q kill
 
@@ -119,12 +119,13 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+m exec --no-startup-id urxvt -e ncmpcpp
-bindsym $mod+e exec --no-startup-id urxvt -e mutt
-
+bindsym $mod+m exec --no-startup-id termite -e ncmpcpp
+bindsym $mod+e exec --no-startup-id termite -e mutt
+bindsym Mod1+a exec --no-startup-id /home/oscar/.bin/togglebar
 
 exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/colour.png"
 exec --no-startup-id mpdas
+exec --no-startup-id xcompmgr
 #exec --no-startup-id conky
 #exec --no-startup-id discord
 
@@ -167,43 +168,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
 new_window none
 new_float none
-
-bindsym $mod+X exec i3lock-fancy
-
 
 gaps inner 0
 gaps outer 0
 
-set $mode_monitor (1) monitor (2) laptop
-mode "$mode_monitor" {
-	bindsym $mod+1 exec --no-startup-id display-monitor, mode "default"
-	bindsym $mod+2 exec --no-startup-id display-laptop, mode "default"
-
-	bindsym $mod+Escape mode "default"
-}
-bindsym $mod+o mode "$mode_monitor"
-
-
-bar 
-{
-	colors {
-		background #1d1f22
-		statusline #c5c8c5
-
-		focused_workspace #566A9D #1d1f22 #eeeeee
-		active_workspace #1d1f22 #1d1f22 #eeeeee
-		inactive_workspace #1d1f22 #1d1f22 #eeeeee
-		urgent_workspace #566A9D #566A9D #eeeeee
-	}
-  strip_workspace_numbers yes
-	position bottom
-	mode hide
-	status_command ~/.bin/i3status-custom
-}

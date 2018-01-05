@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+pid=$(pidof "lemonbar")
+
+if [ $pid ]; then
+	echo "Killing bar"
+	kill -9 "$pid"
+else
+	echo "Starting bar"
+	$HOME/.bin/bar.sh & echo $!
+fi
