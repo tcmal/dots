@@ -27,25 +27,25 @@
 
 [frame]
 	width = 5
-	color = "{{ colors.accent }}"
+	color = "#566A9D"
 
 [shortcuts]
 	close = ctrl+space
 	close_all = ctrl+shift+space
 
 [urgency_low]
-	background = "{{colors.background}}"
-	foreground = "{{colors.foreground}}"
+	background = "#000000"
+	foreground = "#eeeeee"
 	timeout = 1
 
 [urgency_normal]
-	background = "{{colors.foreground}}"
-	foreground = "{{colors.background}}"
+	background = "#eeeeee"
+	foreground = "#000000"
 	timeout = 10
 
 [urgency_critical]
-	background = "{{colors.accent}}"
-	foreground = "{{colors.foreground}}"
+	background = "#566A9D"
+	foreground = "#eeeeee"
 	timeout = 0
 
 # vim:ft=conf

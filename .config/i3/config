@@ -123,9 +123,9 @@ bindsym $mod+m exec --no-startup-id urxvt -e ncmpcpp
 bindsym $mod+e exec --no-startup-id urxvt -e mutt
 
 
-exec --no-startup-id feh --bg-scale "{{wallpaper}}"
+exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/colour.png"
 exec --no-startup-id mpdas
-exec --no-startup-id conky
+#exec --no-startup-id conky
 #exec --no-startup-id discord
 
 mode "resize" {
@@ -147,13 +147,13 @@ bindsym $mod+r mode "resize"
 
 hide_edge_borders both
 
-client.focused          {{colors.accent}} {{colors.background}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
-client.focused_inactive {{colors.background}} {{colors.background}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
-client.unfocused        {{colors.background}} {{colors.background}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
-client.urgent           {{colors.background}} {{colors.accent}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
-client.placeholder      {{colors.background}} {{colors.background}} {{colors.foreground}} {{colors.background}}   {{colors.background}}
+client.focused          #566A9D #1d1f22 #eeeeee #1d1f22   #1d1f22
+client.focused_inactive #1d1f22 #1d1f22 #eeeeee #1d1f22   #1d1f22
+client.unfocused        #1d1f22 #1d1f22 #eeeeee #1d1f22   #1d1f22
+client.urgent           #1d1f22 #566A9D #eeeeee #1d1f22   #1d1f22
+client.placeholder      #1d1f22 #1d1f22 #eeeeee #1d1f22   #1d1f22
 
-client.background       {{colors.background}}
+client.background       #1d1f22
 
 #exec --no-startup-id polybar top
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
@@ -178,8 +178,8 @@ new_float none
 bindsym $mod+X exec i3lock-fancy
 
 
-gaps inner {{i3.gap}}
-gaps outer {{i3.gap}}
+gaps inner 5
+gaps outer 5
 
 set $mode_monitor (1) monitor (2) laptop
 mode "$mode_monitor" {
@@ -194,13 +194,13 @@ bindsym $mod+o mode "$mode_monitor"
 bar 
 {
 	colors {
-		background {{colors.background}}
-		statusline {{colors.foreground}}
+		background #1d1f22
+		statusline #c5c8c5
 
-		focused_workspace {{colors.accent}} {{colors.background}} {{colors.foreground}}
-		active_workspace {{colors.background}} {{colors.background}} {{colors.foreground}}
-		inactive_workspace {{colors.background}} {{colors.background}} {{colors.foreground}}
-		urgent_workspace {{colors.accent}} {{colors.accent}} {{colors.foreground}}
+		focused_workspace #566A9D #1d1f22 #eeeeee
+		active_workspace #1d1f22 #1d1f22 #eeeeee
+		inactive_workspace #1d1f22 #1d1f22 #eeeeee
+		urgent_workspace #566A9D #566A9D #eeeeee
 	}
   strip_workspace_numbers yes
 	position bottom
