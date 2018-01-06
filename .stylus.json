@@ -1,0 +1,146 @@
+[
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/99467.json",
+		"md5Url": "https://update.userstyles.org/99467.md5",
+		"url": "http://userstyles.org/styles/99467",
+		"originalMd5": "a4129d71a40fb605179d95a102ec63ac",
+		"sections": [
+			{
+				"code": "@namespace url(http://www.w3.org/1999/xhtml);\n.lobbyOverviewHeader{width:1200px;padding:0px;text-align:center;}\r\n    #mainHeader .lobbyVoteCreate {margin-top: -36px;}\r\n#mainHeader .lobbyVoteCreate h1, #mainHeader .lobbyVoteCreate h3 {padding-left: 0px;}\r\n.lobbyVoteCreate .buttonContainer {/* padding-top: 38px; */}\r\n.lobbyVoteCreate .buttonContainer button {float: left;margin-right: 0px;}\r\n.lobbyVoteCreate .buttonContainer button:last-child {margin-right: 0;}\r\n.mostVotedMaps {margin-top: 0px;}\r\n.mostVotedHeader {color: #5c5b57;font-size: 16px;}\r\n.mostVotedFilter {margin: 0px;color: #8f8d88;font-size: 14px;}\r\n.mostVotedFilter {margin-right: 0px;}\r\n\r\n#mainHeader .mostVotedMaps {margin-top: -138px;}\r\n    .chatContainer{\r\n    height:600px;\r\n    width:400px;\r\n  }\r\n.ym-inner-grid,#content-holder,.mainbox,#players-online{\r\n      height:0px;\r\n      width:0px;\r\n     left:-9999px;\r\n      top:-9999px;\r\n    }\r\n.ym-g1220-8,.speechBubble,.classImage,.backgroundMain,.backgroundLeft\r\n\t{\r\n      /*chat box and players online*/\r\n      height:0px;\r\n      width:0px;\r\n      left:-9999px;\r\n      top:-9999px;\r\n    }\r\n\r\n#lobbyContainer,.contentWrapper,#content-holder,.ym-grid{\r\n  width:100%;\r\n}\r\n#mainHeader h1, #mainHeader h2, #mainHeader h3, #mainHeader h4{\r\n    font-size:0px;\r\n  }\r\n.mainHeaderContainer,#mainHeader,.mostVotedMaps,#idf5{\r\n    height:55px;\r\n}\r\n    .lobbySubPanel{width:1200px;}\r\n    .lobbyOverviewPanel{width:1200px;}\r\n/*.buttonContainer{\r\n\tpadding-top:0px;      \r\n    margin:0px;\r\n    }\r\n    .lobbyVoteCreate .buttonContainer button {\r\n\tfloat: center;\r\n\tmargin-right: 0px;}*/",
+				"urls": [
+					"http://rc.tf2center.com/"
+				],
+				"urlPrefixes": [],
+				"domains": [],
+				"regexps": []
+			}
+		],
+		"name": "TF2Center",
+		"originalDigest": "a2095a5b572c8f55199e0542dd8673d10cf1fc80",
+		"id": 15
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"name": "Youtube Styling",
+		"sections": [
+			{
+				"code": "#container.ytd-masthead,\n#search-icon-legacy\n{\n    background: #2a424a;\n}\n\n#content,\n#container.ytd-searchbox\n{\n    background: #1d1f22 !important;\n}\n\n#search-form\n{\n    width: auto;\n    margin: 0 auto;\n}\n\n#container.ytd-searchbox\n{\n    border-radius: 20px 0 0 20px !important;\n}\n\n#search-icon-legacy.ytd-searchbox\n{\n    border-radius: 0px 20px 20px 0 !important;\n}\n\nytd-topbar-logo-renderer\n{\n    display: none;\n}\n\nytd-button-renderer.ytd-masthead,\nytd-topbar-menu-button-renderer\n{\n    display: none !important;\n}\n\n#page-manager.ytd-app\n{\n    margin-left: 0px !important;\n}\n\nytd-watch\n{\n    background: none !important;\n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"youtube.com"
+				],
+				"regexps": []
+			}
+		],
+		"id": 16,
+		"installDate": 1515252914591
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"name": "Hide scrollbar",
+		"sections": [
+			{
+				"code": "html {\n\toverflow: overlay;\n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [],
+				"regexps": []
+			}
+		],
+		"id": 17,
+		"installDate": 1515254460148
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"name": "Disable text under bar",
+		"sections": [
+			{
+				"code": ".tag-home\n{\n \tdisplay: none;   \n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"duckduckgo.com"
+				],
+				"regexps": []
+			}
+		],
+		"id": 18
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"name": "Hide twitter link",
+		"sections": [
+			{
+				"code": ".js-showcase-twitter\n{\n \tdisplay: none !important;   \n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"duckduckgo.com"
+				],
+				"regexps": []
+			}
+		],
+		"id": 19,
+		"installDate": 1515255180032
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"name": "Header/background styling",
+		"sections": [
+			{
+				"code": "._2t-a._50tj\n{\n \tbackground-color: #2a424a;   \n}\n._4kny._50tm,#u_0_a\n{\n    display: none !important;\n}\n._2t-e ._4kny\n{\n    margin: 0 auto;\n}\n._4sp8\n{\n \tbackground: #1d1f22 !important;  \n}\n._1ht6,._1ht7,._3oh-,._3szq,._2jnv,._1lj0,._4rpj,._364g,._43by ._aok span {\n    color: white !important;\n}\n._3oh-._58nk \n{\n \tcolor: black !important;   \n}\n\n._3rh8\n{\n    display: none !important;\n}\n",
+				"urls": [],
+				"urlPrefixes": [
+					"https://www.facebook.com/messages/"
+				],
+				"domains": [],
+				"regexps": []
+			}
+		],
+		"id": 20,
+		"installDate": 1515255559183
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"name": "Reddit re-colouring",
+		"sections": [
+			{
+				"code": "#header,\n#sr-header-area,\n.subbarlink,\n#srDropdownContainer a,\n#header-bottom-right\n{\n    background: #2a424a !important;\n    color: white !important;\n}\n\n#header-bottom-left\n{\n    padding-top: 1rem;\n}\n\n#sr-header-area\n{\n    border-bottom: 0px;\n}\n\n#header-img,\n#RESShortcutsEditContainer,\n.listing-chooser,\n.onboardingbar,\n.trending-subreddits-content\n{\n    display: none !important;\n}\n\n.tabmenu li .choice,\nbody,\n.content,\n.res-filterline\n{\n    background: #1d1f22 !important;\n    color: white !important;\n}\n\n.tabmenu li.selected .choice\n{\n    border: 1px solid #518bb2 !important;\n    border-bottom: 0px !important;\n}\n\n.content\n{\n    padding: 0 2.5rem;\n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"reddit.com"
+				],
+				"regexps": []
+			}
+		],
+		"id": 21,
+		"installDate": 1515257933120
+	}
+]
