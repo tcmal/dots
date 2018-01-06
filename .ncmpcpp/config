@@ -21,4 +21,4 @@ startup_slave_screen = "visualizer"
 display_volume_level = "yes"
 
 media_library_primary_tag = "album_artist" # Order by Album Artist
-execute_on_song_change = "/home/oscar/.bin/ncmc_coverart"
+#execute_on_song_change = "/home/oscar/.bin/ncmc_coverart"
