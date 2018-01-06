@@ -121,7 +121,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+m exec --no-startup-id termite -e ncmpcpp
 bindsym $mod+e exec --no-startup-id termite -e mutt
+
 bindsym Mod1+a exec --no-startup-id /home/oscar/.bin/togglebar
+bindsym Mod1+p exec --no-startup-id mpc toggle
+bindsym Mod1+Right exec --no-startup-id mpc next
+bindsym Mod1+Left exec --no-startup-id mpc prev
 
 exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/colour.png"
 exec --no-startup-id mpdas
@@ -173,7 +177,6 @@ new_float none
 
 gaps inner 0
 gaps outer 0
-
 
 bar
 {
