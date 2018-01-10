@@ -130,6 +130,7 @@ bindsym Mod1+Left exec --no-startup-id mpc prev
 exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/colour.png"
 exec --no-startup-id mpdas
 exec --no-startup-id xcompmgr
+exec --no-startup-id lxsession
 #exec --no-startup-id conky
 #exec --no-startup-id discord
 
