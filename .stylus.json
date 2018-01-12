@@ -1,5 +1,6 @@
 [
 	{
+		"installDate": 1515435081422,
 		"enabled": true,
 		"updateUrl": "https://userstyles.org/styles/chrome/99467.json",
 		"md5Url": "https://update.userstyles.org/99467.md5",
@@ -21,6 +22,7 @@
 		"id": 15
 	},
 	{
+		"installDate": 1515252914591,
 		"enabled": true,
 		"updateUrl": null,
 		"md5Url": null,
@@ -38,10 +40,10 @@
 				"regexps": []
 			}
 		],
-		"id": 16,
-		"installDate": 1515252914591
+		"id": 16
 	},
 	{
+		"installDate": 1515254460148,
 		"enabled": true,
 		"updateUrl": null,
 		"md5Url": null,
@@ -57,10 +59,10 @@
 				"regexps": []
 			}
 		],
-		"id": 17,
-		"installDate": 1515254460148
+		"id": 17
 	},
 	{
+		"installDate": 1515435081538,
 		"enabled": true,
 		"updateUrl": null,
 		"md5Url": null,
@@ -81,6 +83,7 @@
 		"id": 18
 	},
 	{
+		"installDate": 1515255180032,
 		"enabled": true,
 		"updateUrl": null,
 		"md5Url": null,
@@ -98,10 +101,10 @@
 				"regexps": []
 			}
 		],
-		"id": 19,
-		"installDate": 1515255180032
+		"id": 19
 	},
 	{
+		"installDate": 1515255559183,
 		"enabled": true,
 		"updateUrl": null,
 		"md5Url": null,
@@ -119,10 +122,10 @@
 				"regexps": []
 			}
 		],
-		"id": 20,
-		"installDate": 1515255559183
+		"id": 20
 	},
 	{
+		"installDate": 1515257933120,
 		"enabled": true,
 		"updateUrl": null,
 		"md5Url": null,
@@ -140,7 +143,27 @@
 				"regexps": []
 			}
 		],
-		"id": 21,
-		"installDate": 1515257933120
+		"id": 21
+	},
+	{
+		"installDate": 1515435285742,
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"name": "Twitter recolouring",
+		"sections": [
+			{
+				"code": ".topbar,\n.global-nav-inner,\n.tweet:hover,\ninput,\ntextarea,\ndiv[contenteditable],\n.RichEditor\n{\n    background: #2a424a !important;\n    border: 0px !important;\n}\n\nbody,\n.tweet,\n.stream-item,\n.home-tweet-box,\n.timeline-tweet-box,\n.inline-reply-tweetbox,\n.search-input,\n.trends\n{\n    background: #1d1f22 !important;\n    border: 0px !important;\n}\n\n.dashboard-right,\n.DashboardProfileCard,\n.js-nav .text,\n.global-dm-nav .text,\n.change-trends,\n.trends-container .flex-module-header .middot\n{\n    display: none !important;\n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"twitter.com"
+				],
+				"regexps": []
+			}
+		],
+		"id": 22
 	}
 ]
