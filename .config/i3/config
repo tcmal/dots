@@ -4,6 +4,8 @@ floating_modifier Mod1
 
 bindsym $mod+t exec termite 
 
+bindsym $mod+b exec ~/.bin/i3_quickterm shell
+
 bindsym $mod+Shift+q kill
 
 font pango:Roboto 10
@@ -127,7 +129,7 @@ bindsym Mod1+p exec --no-startup-id mpc toggle
 bindsym Mod1+Right exec --no-startup-id mpc next
 bindsym Mod1+Left exec --no-startup-id mpc prev
 
-exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/colour.png"
+exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/bg.png"
 exec --no-startup-id mpdas
 exec --no-startup-id xcompmgr
 exec --no-startup-id lxsession

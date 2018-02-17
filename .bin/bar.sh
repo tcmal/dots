@@ -43,7 +43,7 @@ email() {
 	if [ "$email" != 0 ]; then
 		echo "$p$email$p"
 	else
-		:	
+		:
 	fi
 }
 

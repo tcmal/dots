@@ -12,8 +12,8 @@ txt="%{F$text}"
 wrn="%{F$warning}"
 
 # accents
-acc0="#2a424a"
-acc1="#518bb2"
+acc0="#477a7a"
+acc1="#d1587a"
 acc2="#1d1f22"
 
 # background accents
