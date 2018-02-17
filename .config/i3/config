@@ -4,8 +4,6 @@ floating_modifier Mod1
 
 bindsym $mod+t exec termite 
 
-bindsym $mod+b exec ~/.bin/i3_quickterm shell
-
 bindsym $mod+Shift+q kill
 
 font pango:Roboto 10
