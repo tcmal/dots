@@ -8,6 +8,8 @@
 	{	
 		StopEvent		HitMarker				0.00
 		RunEvent 		HitMarker 				0.01
+
+		RunEvent ScopeRemoval 0.0
 	}
 	
 	event HitMarker
