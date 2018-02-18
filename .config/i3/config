@@ -127,6 +127,9 @@ bindsym Mod1+o exec --no-startup-id playerctl play-pause
 bindsym Mod1+p exec --no-startup-id mpc toggle
 bindsym Mod1+Right exec --no-startup-id mpc next
 bindsym Mod1+Left exec --no-startup-id mpc prev
+bindsym Mod1+l exec --no-startup-id playerctl next
+bindsym Mod1+j exec --no-startup-id playerctl previous 
+
 
 exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/bg.png"
 exec --no-startup-id mpdas
