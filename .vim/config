@@ -1,7 +1,6 @@
 " GENERAL
 set number
-set showbreak=   
-set textwidth=100
+set showbreak=100   
 set showmatch
 set errorbells
 set visualbell
@@ -24,6 +23,10 @@ set autowriteall
  
 set undolevels=1000
 set backspace=indent,eol,start
+
+set wrap
+set linebreak
+set nolist
 
 set nocompatible
 filetype off
