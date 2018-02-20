@@ -1,6 +1,6 @@
 " GENERAL
 set number
-set showbreak=100   
+set showbreak=+++   
 set showmatch
 set errorbells
 set visualbell
