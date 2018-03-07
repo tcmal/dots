@@ -71,7 +71,7 @@
 		"name": "Disable text under bar",
 		"sections": [
 			{
-				"code": ".tag-home\n{\n \tdisplay: none;   \n}",
+				"code": ".header--aside__item.social,.header--aside__item.showcase.header__label,.tag-home__item\n{\n \tdisplay: none !important;\n}",
 				"urls": [],
 				"urlPrefixes": [],
 				"domains": [
@@ -146,12 +146,33 @@
 		"id": 21
 	},
 	{
-		"installDate": 1515435285742,
+		"installDate": 1515346567629,
 		"enabled": true,
 		"updateUrl": null,
 		"md5Url": null,
 		"url": null,
 		"originalMd5": null,
+		"name": "Hide feedback button",
+		"sections": [
+			{
+				"code": ".js-feedback-btn-wrap\n{\n    display: none !important;\n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"duckduckgo.com"
+				],
+				"regexps": []
+			}
+		],
+		"id": 22
+	},
+	{
+		"enabled": true,
+		"updateUrl": null,
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"installDate": 1515435285742,
 		"name": "Twitter recolouring",
 		"sections": [
 			{
@@ -164,6 +185,6 @@
 				"regexps": []
 			}
 		],
-		"id": 22
+		"id": 24
 	}
 ]
