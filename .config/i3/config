@@ -162,13 +162,13 @@ bindsym $mod+r mode "resize"
 
 hide_edge_borders both
 
-client.focused          #566A9D #1d1f22 #eeeeee #1d1f22   #1d1f22
-client.focused_inactive #1d1f22 #1d1f22 #eeeeee #1d1f22   #1d1f22
-client.unfocused        #1d1f22 #1d1f22 #eeeeee #1d1f22   #1d1f22
-client.urgent           #1d1f22 #566A9D #eeeeee #1d1f22   #1d1f22
-client.placeholder      #1d1f22 #1d1f22 #eeeeee #1d1f22   #1d1f22
+client.focused          #566A9D #1a1d26 #eeeeee #1a1d26   #1d1f22
+client.focused_inactive #1a1d26 #1a1d26 #eeeeee #1d1f22   #1d1f22
+client.unfocused        #1a1d26 #1a1d26 #eeeeee #1d1f22   #1d1f22
+client.urgent           #1a1d26 #566A9D #eeeeee #1a1d26   #1d1f22
+client.placeholder      #1a1d26 #1a1d26 #eeeeee #1d1f22   #1d1f22
 
-client.background       #1d1f22
+client.background       #1a1d26
 
 #exec --no-startup-id polybar top
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
@@ -191,12 +191,12 @@ gaps outer 0
 bar
 {
 	colors {
-		background #1d1f22
+		background #1a1d26
 		statusline #c5c8c5
 
-		focused_workspace #566A9D #1d1f22 #eeeeee
-		active_workspace #1d1f22 #1d1f22 #eeeeee
-		inactive_workspace #1d1f22 #1d1f22 #eeeeee
+		focused_workspace #566A9D #1a1d26 #eeeeee
+		active_workspace #1a1d26 #1a1d26 #eeeeee
+		inactive_workspace #1a1d26 #1a1d26 #eeeeee
 		urgent_workspace #566A9D #566A9D #eeeeee
 	}
   strip_workspace_numbers yes

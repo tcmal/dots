@@ -28,7 +28,7 @@ font = Source Code Pro for Powerline,14
 [colors]
 # special
 foreground =   #c5c8c5
-background =   #1d1f22
+background =   #1a1d26
 cursorColor =  #c5c8c5
 
 # black
