@@ -21,7 +21,7 @@ search_wrap = true
 cursor_blink = on
 
 # "block", "underline" or "ibeam"
-cursor_shape = ibeam
+cursor_shape = block
 
 font = Source Code Pro for Powerline,14 
 

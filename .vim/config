@@ -34,6 +34,9 @@ filetype off
 " Turn on syntax highlighting
 syntax on
 
+" Monokai colour scheme
+colorscheme monokai
+
 " Don't use arrow keys doofus.
 noremap <Up> <NOP>
 noremap <Down> <NOP>
