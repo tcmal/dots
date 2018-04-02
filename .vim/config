@@ -10,12 +10,6 @@ set smartcase
 set ignorecase
 set incsearch
 
-set autoindent
-
-set noexpandtab
-set tabstop=4
-set shiftwidth=4
-
 set ruler
  
 set autochdir
@@ -30,6 +24,12 @@ set nolist
 
 set nocompatible
 filetype off
+
+set autoindent
+
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
 
 " Turn on syntax highlighting
 syntax on
@@ -59,7 +59,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()
-filetype plugin indent on
 
 " Ctrl+P
 let g:ctrlp_working_path_mode = 'ra'
