@@ -57,6 +57,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 
 call vundle#end()
 
@@ -68,3 +74,69 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" asyncomplete
+
+" Tab completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+" Force refresh
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+" Remove duplicates
+let g:asyncomplete_remove_duplicates = 1
+
+" Rust
+let g:rustfmt_autosave = 1
+let g:syntastic_rust_checkers = ['rustc']
+
+let g:LanguageClient_autoStart = 1
+
+au User lsp_setup call lsp#register_server({
+	\ 'name': 'rls',
+	\ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+	\ 'whitelist': ['rust'],
+	\ })
+
+" Status line
+
+let g:currentmode={ 'n' : 'n', 'no' : 'N·Operator Pending', 'v' : 'v', 'V' : 'V·Line', '^V' : 'V·Block', 's' : 'Select', 'S': 'S·Line', '^S' : 'S·Block', 'i' : 'i', 'R' : 'r', 'Rv' : 'V·Replace', 'c' : 'Command', 'cv' : 'Vim Ex', 'ce' : 'Ex', 'r' : 'Prompt', 'rm' : 'More', 'r?' : 'Confirm', '!' : 'Shell', 't' : 'Terminal'}
+
+function! ModeCurrent() abort
+    let l:modecurrent = mode()
+    let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block '))
+    let l:current_status_mode = l:modelist
+    return l:current_status_mode
+endfunction
+
+" Always show statusline
+set laststatus=2
+
+hi User1 ctermbg=237 ctermfg=white guibg=black guifg=white			" Regular
+hi User2 ctermbg=blue   ctermfg=black  guibg=blue   guifg=black 	" Emphasis
+hi User3 ctermbg=red  ctermfg=black guibg=red guifg=black			" LOOK NOW
+
+set statusline=%1*\ 
+set statusline+=%2*\ %{ModeCurrent()}\ 
+set statusline+=%1*\ 
+set statusline+=%f\ 
+set statusline+=%m
+set statusline+=%3*%r
+set statusline+=%h
+set statusline+=%w%1*
+
+set statusline+=%=
+set statusline+=%Y\ 
+
