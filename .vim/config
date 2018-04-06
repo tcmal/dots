@@ -63,8 +63,7 @@ Plugin 'rust-lang/rust.vim'
 
 Plugin 'vim-syntastic/syntastic'
 
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/async.vim'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plugin 'racer-rust/vim-racer'
 
@@ -89,22 +88,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" asyncomplete
-
-" Tab completion
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-
-" Force refresh
-imap <c-space> <Plug>(asyncomplete_force_refresh)
-
-" Remove duplicates
-let g:asyncomplete_remove_duplicates = 1
+" YouCompleteMe 
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_server_python_interpreter = 'python2'
 
 " Rust
 let g:rustfmt_autosave = 1
-let g:syntastic_rust_checkers = ["cargo"]
+let g:syntastic_rust_checkers = []
 
 set hidden
 let g:racer_experimental_completer = 1
@@ -157,3 +147,10 @@ nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
+
+" check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
+set autoread
+au CursorHold * checktime
+
+" relative numbers
+set number relativenumber
