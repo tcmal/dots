@@ -121,6 +121,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+m exec --no-startup-id termite -e ncmpcpp
 bindsym $mod+e exec --no-startup-id termite -e mutt
+bindsym $mod+i exec --no-startup-id termite -e weechat 
 
 bindsym Mod1+a exec --no-startup-id /home/oscar/.bin/togglebar
 
@@ -140,6 +141,7 @@ exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/bg.png"
 exec --no-startup-id mpdas
 exec --no-startup-id xcompmgr
 exec --no-startup-id lxsession
+#exec --no-startup-id termite -e "weechat" 
 #exec --no-startup-id conky
 #exec --no-startup-id discord
 
