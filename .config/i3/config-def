@@ -139,7 +139,7 @@ bindsym Mod1+j exec --no-startup-id playerctl previous
 
 exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/bg.png"
 exec --no-startup-id mpdas
-exec --no-startup-id xcompmgr
+exec --no-startup-id compton 
 exec --no-startup-id lxsession
 #exec --no-startup-id termite -e "weechat" 
 #exec --no-startup-id conky
@@ -185,8 +185,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 new_window none
 new_float none
 
-gaps inner 0
-gaps outer 0
+gaps inner 5
+gaps outer 5
 
 bar
 {
