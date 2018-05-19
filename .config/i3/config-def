@@ -2,7 +2,7 @@ set $mod Mod4
 
 floating_modifier Mod1 
 
-bindsym $mod+t exec termite 
+bindsym $mod+t exec tilix 
 
 bindsym $mod+Shift+q kill
 
@@ -85,7 +85,7 @@ assign [class="chrome"] $workspace1
 
 assign [class="Firefox"] $workspace1
 
-assign [class="Termite"] $workspace2
+assign [class="tilix"] $workspace2
 assign [class="URxvt"] $workspace2
 
 assign [class="Subl3"] $workspace3
@@ -119,9 +119,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+m exec --no-startup-id termite -e ncmpcpp
-bindsym $mod+e exec --no-startup-id termite -e mutt
-bindsym $mod+i exec --no-startup-id termite -e weechat 
+bindsym $mod+m exec --no-startup-id tilix -e ncmpcpp
+bindsym $mod+e exec --no-startup-id tilix -e mutt
+bindsym $mod+i exec --no-startup-id tilix -e weechat 
 
 bindsym Mod1+a exec --no-startup-id /home/oscar/.bin/togglebar
 
@@ -141,7 +141,7 @@ exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/bg.png"
 exec --no-startup-id mpdas
 exec --no-startup-id xcompmgr
 exec --no-startup-id lxsession
-#exec --no-startup-id termite -e "weechat" 
+#exec --no-startup-id tilix -e "weechat" 
 #exec --no-startup-id conky
 #exec --no-startup-id discord
 
@@ -206,3 +206,5 @@ bar
 	mode hide
 	modifier Mod1
 }
+
+exec --no-startup-id ~/.bin/day-night-cycle
