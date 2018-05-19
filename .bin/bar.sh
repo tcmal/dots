@@ -25,13 +25,13 @@ ensure_length ()
 # functions
 song() {
 	playing="$(mpc status | grep -o 'playing' )"
-	spotify="$(~/.bin/sp current | grep -o 'Title')"
+	#spotify="$(~/.bin/sp current | grep -o 'Title')"
 
 	if [ "$playing" == "playing" ]; then
 		echo "$p$(mpc current --format %title%)$p"
-	elif [ "$spotify" == "Title" ]; then
-		eval $(~/.bin/sp eval)
-		echo "$p$SPOTIFY_TITLE$p"
+	#elif [ "$spotify" == "Title" ]; then
+	#	eval $(~/.bin/sp eval)
+	#	echo "$p$SPOTIFY_TITLE$p"
 	fi
 }
 
