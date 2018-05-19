@@ -7,14 +7,15 @@ export BG="#eeeeee"
 export FG="#1d1f22"
 
 sed -e "/focused_workspace/c\focused_workspace $ACCENT $BG $FG
-/client.focused/c\client.focused          $ACCENT $BG $FG $BG   $BG
-/client.focused_inactive/c\client.focused_inactive $BG $BG $FG $BG   $BG
-/client.unfocused/c\client.unfocused        $BG $BG $FG $BG   $BG
-/client.urgent/c\client.urgent           $BG $ACCENT $FG $BG   $BG
-/client.placeholder/c\client.placeholder      $BG $BG $FG $BG   $BG
-/active_workspace/c\active_workspace $BG $BG $FG
-/inactive_workspace/c\inactive_workspace $BG $BG $FG
-/urgent_workspace/c\urgent_workspace $ACCENT $ACCENT $FG" ~/.config/i3/config-def > ~/.config/i3/config
+/^client.focused/c\client.focused          $ACCENT $BG $FG $BG   $BG
+/^client.focused_inactive/c\client.focused_inactive $BG $BG $FG $BG   $BG
+/^client.unfocused/c\client.unfocused        $BG $BG $FG $BG   $BG
+/^client.urgent/c\client.urgent           $BG $ACCENT $FG $BG   $BG
+/^client.placeholder/c\client.placeholder      $BG $BG $FG $BG   $BG
+/^active_workspace/c\active_workspace $BG $BG $FG
+/^inactive_workspace/c\inactive_workspace $BG $BG $FG
+/^background/c\background $BG
+/^urgent_workspace/c\urgent_workspace $ACCENT $ACCENT $FG" ~/.config/i3/config-def > ~/.config/i3/config
 
 i3-msg restart
 feh --bg-scale ~/Pictures/Wallpapers/day.jpg

@@ -1,0 +1,21 @@
+#!/bin/bash
+# export DBUS_SESSION_BUS_ADDRESS environment variable because cron hates me
+TIME="$(date '+%H%M')"
+echo "The current time is $TIME"
+
+CIVS="$(find-twilight | cut -f1 -d\ )"
+CIVE="$(find-twilight | cut -f2 -d\ )"
+echo "Daylight starts at $CIVS ends at $CIVE"
+if [ $TIME -ge $CIVS ] && [ $TIME -le $CIVE ] ; then
+	echo "Switching to Day mode"
+	RESP=exec day 
+else
+	echo "Switching to Night mode"
+	RESP=exec night 
+fi
+
+if [[ $RESP ]] ; then
+	echo "Switch failure"
+else
+	echo "Switch sucess"
+fi
