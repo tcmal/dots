@@ -62,7 +62,7 @@ loop-desktop() {
 	
 	lemonbar \
 	    -f 'Roboto:size=18' \
-			-g ""$barw"x"$barh"+"$margin_w"+"$margin_h"" \
+			-g "${barw}x${barh}+${margin_w}+${margin_h}" \
 	    -d \
 			-b \
 	    | bash
