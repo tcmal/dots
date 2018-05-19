@@ -1,0 +1,1 @@
+Before loading the project run ..\runAsApp.cmd first. This will generate all required binaries.
