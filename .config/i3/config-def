@@ -142,7 +142,7 @@ bindsym Mod1+j exec --no-startup-id playerctl previous
 bindsym Mod1+e exec --no-startup-id termite -c ~/.config/termite/config-bg -e cava --geometry=1920x1080
 
 
-exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/bg.png"
+#exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/bg.png"
 exec --no-startup-id mpdas
 exec --no-startup-id compton 
 exec --no-startup-id lxsession
@@ -209,4 +209,4 @@ urgent_workspace #566A9D #566A9D #eeeeee
 	modifier Mod1
 }
 
-exec --no-startup-id ~/.bin/day-night-cycle
+exec --no-startup-id /home/oscar/.bin/day-night-cycle
