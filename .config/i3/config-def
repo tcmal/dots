@@ -185,8 +185,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 new_window none
 new_float none
 
-gaps inner 0
-gaps outer 0
+gaps inner 5
+gaps outer 5
 
 bar
 {

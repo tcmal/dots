@@ -58,14 +58,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-
-Plugin 'rust-lang/rust.vim'
-
-Plugin 'vim-syntastic/syntastic'
-
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
-Plugin 'racer-rust/vim-racer'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 
@@ -78,26 +76,10 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Ale
+let g:ale_fix_on_save = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" YouCompleteMe 
-let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_server_python_interpreter = 'python2'
-
-" Rust
-let g:rustfmt_autosave = 1
-let g:syntastic_rust_checkers = []
-
-set hidden
-let g:racer_experimental_completer = 1
+let g:ale_linters = {'rust': ['rls'], 'python': ['pylint'], 'javascript': ['eslint']}
 
 " Status line
 
