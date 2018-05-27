@@ -86,6 +86,10 @@ assign [class="chrome"] $workspace1
 assign [class="Firefox"] $workspace1
 
 assign [class="termite"] $workspace2
+
+assign [title="cava"] $workspace2
+for_window [title="cava"] floating enable
+
 assign [class="URxvt"] $workspace2
 
 assign [class="Subl3"] $workspace3
@@ -135,11 +139,12 @@ bindsym Mod1+minus exec --no-startup-id "mpc volume -10; playerctl volume 10 -"
 bindsym Mod1+o exec --no-startup-id playerctl play-pause
 bindsym Mod1+l exec --no-startup-id playerctl next
 bindsym Mod1+j exec --no-startup-id playerctl previous 
+bindsym Mod1+e exec --no-startup-id termite -c ~/.config/termite/config-bg -e cava --geometry=1920x1080
 
 
-exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/bg.png"
+#exec --no-startup-id feh --bg-scale "/home/oscar/Pictures/Wallpapers/bg.png"
 exec --no-startup-id mpdas
-exec --no-startup-id xcompmgr
+exec --no-startup-id compton 
 exec --no-startup-id lxsession
 #exec --no-startup-id termite -e "weechat" 
 #exec --no-startup-id conky
@@ -204,4 +209,4 @@ urgent_workspace #566A9D #566A9D #eeeeee
 	modifier Mod1
 }
 
-exec --no-startup-id ~/.bin/day-night-cycle
+exec --no-startup-id /home/oscar/.bin/day-night-cycle
