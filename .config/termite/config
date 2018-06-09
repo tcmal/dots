@@ -23,14 +23,14 @@ cursor_blink = on
 # "block", "underline" or "ibeam"
 cursor_shape = block
 
-font = Source Code Pro for Powerline,14 
+font = Iosevka,14 
 
 [colors]
 
 foreground      = #d8d8d8
 foreground_bold = #e8e8e8
 cursor          = #e8e8e8
-background      = rgba(21, 21, 21, 0.9) 
+background      = rgba(21, 21, 21, 0.75)
 
 # 16 color space
 
