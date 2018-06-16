@@ -23,7 +23,7 @@ cursor_blink = on
 # "block", "underline" or "ibeam"
 cursor_shape = block
 
-font = Iosevka,14 
+font = Source Code Pro for Powerline,14 
 
 [colors]
 
