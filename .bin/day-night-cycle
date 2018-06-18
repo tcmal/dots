@@ -8,10 +8,10 @@ CIVE="$(find-twilight | cut -f2 -d\ )"
 echo "Daylight starts at $CIVS ends at $CIVE"
 if [ $TIME -ge $CIVS ] && [ $TIME -le $CIVE ] ; then
 	echo "Switching to Day mode"
-	RESP=/home/oscar/.bin/day 
+	RESP=exec /home/oscar/.bin/day 
 else
 	echo "Switching to Night mode"
-	RESP=/home/oscar/.bin/night 
+	RESP=exec /home/oscar/.bin/night 
 fi
 
 if [[ $RESP ]] ; then
