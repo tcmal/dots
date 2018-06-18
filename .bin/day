@@ -23,3 +23,6 @@ compton &
 
 feh --bg-scale ~/Pictures/Wallpapers/day.jpg
 gtkreload
+
+rm -f /home/oscar/.isnight
+touch /home/oscar/.isday
