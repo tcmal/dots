@@ -1,6 +1,6 @@
 #!/usr/bin/bash
-sed -i '/gtk-theme-name=/c\gtk-theme-name=Materia' ~/.config/gtk-3.0/settings.ini
-sed -i '/gtk-theme-name=/c\gtk-theme-name="Materia"' ~/.gtkrc-2.0
+sed -i '/gtk-theme-name=/c\gtk-theme-name=Materia' /home/oscar/.config/gtk-3.0/settings.ini
+sed -i '/gtk-theme-name=/c\gtk-theme-name="Materia"' /home/oscar/.gtkrc-2.0
 
 export ACCENT="#3F51B5"
 export BG="#eeeeee"
@@ -15,14 +15,14 @@ sed -e "/focused_workspace/c\focused_workspace $ACCENT $BG $FG
 /^active_workspace/c\active_workspace $BG $BG $FG
 /^inactive_workspace/c\inactive_workspace $BG $BG $FG
 /^background/c\background $BG
-/^urgent_workspace/c\urgent_workspace $ACCENT $ACCENT $FG" ~/.config/i3/config-def > ~/.config/i3/config
+/^urgent_workspace/c\urgent_workspace $ACCENT $ACCENT $FG" /home/oscar/.config/i3/config-def > /home/oscar/.config/i3/config
 
 i3-msg restart
 pkill compton
 compton & 
 
-feh --bg-scale ~/Pictures/Wallpapers/day.jpg
-gtkreload
+feh --bg-scale /home/oscar/Pictures/Wallpapers/day.jpg
+/home/oscar/.bin/gtkreload
 
 rm -f /home/oscar/.isnight
 touch /home/oscar/.isday

@@ -209,4 +209,6 @@ urgent_workspace #566A9D #566A9D #eeeeee
 	modifier Mod1
 }
 
+exec --no-startup-id rm /home/oscar/.isday -f
+exec --no-startup-id rm /home/oscar/.isnight -f
 exec --no-startup-id /home/oscar/.bin/day-night-cycle

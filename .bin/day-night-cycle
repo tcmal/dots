@@ -3,8 +3,8 @@
 TIME="$(date '+%H%M')"
 echo "The current time is $TIME"
 
-CIVS="$(find-twilight | cut -f1 -d\ )"
-CIVE="$(find-twilight | cut -f2 -d\ )"
+CIVS="$(/home/oscar/.bin/find-twilight | cut -f1 -d\ )"
+CIVE="$(/home/oscar/.bin/find-twilight | cut -f2 -d\ )"
 echo "Daylight starts at $CIVS ends at $CIVE"
 if [ $TIME -ge $CIVS ] && [ $TIME -le $CIVE ]; then 
 	if [ ! -f /home/oscar/.isday ]; then
