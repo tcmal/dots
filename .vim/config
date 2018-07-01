@@ -3,7 +3,7 @@ set number
 set showbreak=+++   
 set showmatch
 set errorbells
-set visualbell
+set novisualbell
  
 set hlsearch
 set smartcase
