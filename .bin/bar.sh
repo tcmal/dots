@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
 # fetch the colors
-source "/home/oscar/.bin/colors.sh"
-
+. "${HOME}/.cache/wal/colors.sh"
 
 # vars
 p="  "
-barh="50"
+barh="25"
 barw=""
-margin_w="30"
-margin_h="30"
+margin_w="0"
+margin_h="0"
 silence_message="silence"
 clear_message="none"
 
@@ -42,29 +41,27 @@ clock() {
 
 email() {
 	email="$(/home/oscar/.bin/newmailcount)"
-	if [ "$email" != 0 ]; then
+	if [ "$email" != "0" ]; then
 		echo "$p$email$p"
-	else
-		:
 	fi
 }
 
+		#%{B$color3}%{A1:termite -e mutt &:}$(email)%{A1}\
 # loops
 loop-desktop() {
 	while :; do
 		echo "%{r}\
-		$a0$txt%{A:mpc toggle &:}$(song)%{A}\
-		$a1$txt%{A1:termite -e mutt &:}$(email)%{A1}\
-		$a2$txt%{A2:urxvt -name popup -e ncmpcpp &:}%{A3:mpc toggle &:}$p$(clock)$p%{A}%{A}\
-		%{B#00000000}"
-		sleep ".2s"
+		%{B$color3}$txt%{A:mpc toggle &:}$(song)%{A}\
+		%{B$color6}$txt$(email)\
+		%{B$background}$p$(clock)$p"	
+		sleep "1s"
 	done |\
 	
 	lemonbar \
-	    -f 'Roboto:size=18' \
+	    -f 'Roboto:size=9' \
 			-g "${barw}x${barh}+${margin_w}+${margin_h}" \
-	    -d \
-			-b \
+	    -B "$background" -F "$foreground" \
+		\
 	    | bash
 }
 

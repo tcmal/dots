@@ -1,9 +1,0 @@
-#!/usr/bin/bash
-count=$(t | wc -l)
-
-
-if [ $count -eq 0 ]; then
-	exit 1;
-fi
-
-echo " $count"

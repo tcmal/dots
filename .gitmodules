@@ -13,3 +13,6 @@
 [submodule ".local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/rayshud"]
 	path = .local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/rayshud
 	url = git@github.com:raysfire/rayshud.git
+[submodule ".bin/wal-discord"]
+	path = .bin/wal-discord
+	url = https://gitlab.com/guglicap/wal-discord.git

@@ -34,9 +34,6 @@ set shiftwidth=4
 " Turn on syntax highlighting
 syntax on
 
-" Monokai colour scheme
-colorscheme monokai
-
 " Don't use arrow keys doofus.
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -65,7 +62,12 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'w0rp/ale'
 
+Plugin 'dylanaraps/wal.vim'
+
 call vundle#end()
+
+" Get colour scheme from wal
+colorscheme wal 
 
 " Ctrl+P
 let g:ctrlp_working_path_mode = 'ra'
