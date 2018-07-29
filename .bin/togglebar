@@ -7,5 +7,5 @@ if [ $pid ]; then
 	kill -9 "$pid"
 else
 	echo "Starting bar"
-	$HOME/.bin/bar.sh & echo $!
+	$HOME/.bin/bar & echo $!
 fi

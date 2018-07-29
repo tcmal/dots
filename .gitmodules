@@ -16,3 +16,6 @@
 [submodule ".bin/wal-discord"]
 	path = .bin/wal-discord
 	url = https://gitlab.com/guglicap/wal-discord.git
+[submodule ".bin/pollen"]
+	path = .bin/pollen
+	url = https://github.com/zzzeyez/Pollen.git
