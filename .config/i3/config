@@ -2,7 +2,7 @@ exec --no-startup-id wal -R
 set_from_resource $fg i3wm.foreground #f0f0f0
 set_from_resource $bg i3wm.background #f0f0f0
 
-exec --no-startup-id feh --bg-scale ~/Pictures/your_name.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/your_name.jpg
 
 set $mod Mod4
 
