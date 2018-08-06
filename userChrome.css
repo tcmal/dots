@@ -1,0 +1,10 @@
+@import url("file:///home/oscar/.cache/wal/colors.css");
+
+:root {
+	--chrome-background-color: var(--background) !important;
+	--chrome-secondary-background-color: var(--color8) !important;
+	--chrome--color: var(--foreground) !important;
+}
+#tabbrowser-tabs {
+	--tab-line-color: var(--color9) !important;
+}
