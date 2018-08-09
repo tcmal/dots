@@ -16,7 +16,7 @@ sudo oomoxify-cli ~/.cache/wal/colors-oomox
 
 if pgrep spotify; then
     pkill spotify
-    spotify
+    spotify & 
 fi
 
 # steam
