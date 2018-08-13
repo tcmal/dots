@@ -10,7 +10,7 @@ barw=""
 margin_w="0"
 margin_h="0"
 
-source ~/.bin/spotify-auth
+source ~/.bin/auth
 
 rm ~/.spotitemp
 pkill -f spotifycl
