@@ -1,21 +1,9 @@
 [submodule ".zprezto"]
 	path = .zprezto
 	url = git@github.com:OscarOrSomething/prezto.git
-[submodule ".local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/sevenhud"]
-	path = .local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/sevenhud
-	url = git@github.com:Sevin7/7HUD.git
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
 	url = git@github.com:VundleVim/Vundle.vim.git
-[submodule ".local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/carrothud"]
-	path = .local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/carrothud
-	url = git@github.com:OscarOrSomething/_CarrotHUD.git
-[submodule ".local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/rayshud"]
-	path = .local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/rayshud
-	url = git@github.com:raysfire/rayshud.git
 [submodule ".bin/wal-discord"]
 	path = .bin/wal-discord
 	url = https://gitlab.com/guglicap/wal-discord.git
-[submodule ".bin/pollen"]
-	path = .bin/pollen
-	url = https://github.com/zzzeyez/Pollen.git
