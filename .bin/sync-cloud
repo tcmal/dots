@@ -1,3 +1,0 @@
-#!/bin/bash
-source ~/.bin/auth
-PRESERVE_ACL=no PRESERVE_XATTR=no REMOTE_HOST_PING=no osync.sh --initiator="~/Cloud" --target="$CLOUD_TARGET"
