@@ -1,0 +1,3 @@
+#!/bin/bash
+source ~/.bin/auth
+rsync -rvPe ssh $CLOUD_TARGET/ ~/Cloud 
