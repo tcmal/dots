@@ -161,6 +161,7 @@ bindsym Mod1+e exec --no-startup-id termite -c ~/.config/termite/config-bg -e ca
 exec --no-startup-id mpdas
 exec --no-startup-id compton 
 exec --no-startup-id lxsession
+exec --no-startup-id mpd_discord_richpresence
 #exec --no-startup-id termite -e "weechat" 
 #exec --no-startup-id conky
 #exec --no-startup-id discord
