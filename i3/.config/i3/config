@@ -1,20 +1,14 @@
-exec --no-startup-id wal -R
-set_from_resource $fg i3wm.foreground #f0f0f0
-set_from_resource $bg i3wm.background #f0f0f0
-
-exec --no-startup-id ~/.fehbg 
-
 set $mod Mod4
 
-floating_modifier Mod1 
+floating_modifier Mod1
 
-bindsym $mod+t exec termite 
+bindsym $mod+t exec termite
 
 bindsym $mod+Shift+q kill
 
 font pango:Roboto 10
 
-bindsym $mod+Return exec i3-dmenu-desktop
+bindsym $mod+Return exec rofi -show combi
 
 bindsym $mod+Tab workspace back_and_forth
 
@@ -139,9 +133,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+m exec --no-startup-id termite -e "bash -c 'cat ~/.cache/wal/sequences & ncmpcpp'"
-bindsym $mod+e exec --no-startup-id termite -e "bash -c 'cat ~/.cache/wal/sequences & mutt'"
-#bindsym $mod+i exec --no-startup-id termite -e "bash -c 'cat ~/.cache/wal/sequences & weechat'"
+bindsym $mod+m exec --no-startup-id termite -e "bash -c 'ncmpcpp'"
+bindsym $mod+e exec --no-startup-id termite -e "bash -c 'mutt'"
+#bindsym $mod+i exec --no-startup-id termite -e "bash -c 'weechat'"
 
 bindsym Mod1+a exec --no-startup-id /home/oscar/.bin/togglebar
 
@@ -154,17 +148,12 @@ bindsym Mod1+minus exec --no-startup-id "mpc volume -10; playerctl volume 10 -"
 
 bindsym Mod1+o exec --no-startup-id playerctl play-pause
 bindsym Mod1+l exec --no-startup-id playerctl next
-bindsym Mod1+j exec --no-startup-id playerctl previous 
+bindsym Mod1+j exec --no-startup-id playerctl previous
 bindsym Mod1+e exec --no-startup-id termite -c ~/.config/termite/config-bg -e cava --geometry=1920x1080
 
-
 exec --no-startup-id mpdas
-#exec --no-startup-id compton 
 exec --no-startup-id lxsession
-exec --no-startup-id mpd_discord_richpresence
-#exec --no-startup-id termite -e "weechat" 
-#exec --no-startup-id conky
-#exec --no-startup-id discord
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/wallpaper.jpg
 
 mode "resize" {
   bindsym j resize shrink width 10 px or 10 ppt
@@ -184,15 +173,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 hide_edge_borders both
-#						border	backgr	text	indicator	childborder
-client.focused          $bg		$bg		$fg		$bg			$bg
-client.unfocused        $fg		$fg		$bg		$fg			$fg
-client.urgent			$bg		$bg		$fg		$bg			$bg
-client.placeholder		$bg		$bg		$fg		$bg			$bg
+#						             border	  backgr	 text	    indicator	 childborder
+client.focused           #190e3f	#190e3f  #fcfcfc  #fcfcfc    #fcfcfc
+client.unfocused         #4a4c8c	#4a4c8c  #fcfcfc	#fcfcfc	   #fcfcfc
+client.urgent			       #d65362	#d65362	 #fcfcfc	#fcfcfc		 #fcfcfc
+client.placeholder		   #fbbea4	#fbbea4	 #fcfcfc	#fcfcfc	   #fcfcfc
 
-#exec --no-startup-id polybar top
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-#exec --no-startup-id demopan -w ~/.steam/steam/steamapps/common/Team\ Fortress\ 2/tf/demos
 exec --no-startup-id redshift
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
@@ -205,26 +192,19 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 new_window none
 new_float none
 
-gaps inner 5
-gaps outer 5
-
 bar
 {
 	colors {
-		background $bg 
+		background #4a4c8c
 
-		# border bg textbb
-		focused_workspace	$fg		$fg		$bg
-		active_workspace 	$bg		$bg		$fg
-		inactive_workspace  $bg		$bg		$fg
-		urgent_workspace	$fg		$fg		$bg 
+		#                   border    bg        text
+		focused_workspace	  #190e3f	  #4a4c8c		#fbbea4
+    active_workspace 	  #4a4c8c		#4a4c8c		#fcfcfc
+		inactive_workspace 	  #4a4c8c		#4a4c8c		#fcfcfc
+		urgent_workspace	$fg		$fg		$bg
 	}
     strip_workspace_numbers yes
 	position bottom
 	mode hide
-	modifier Mod1
+	modifier Mod5
 }
-
-exec --no-startup-id rm /home/oscar/.isday -f
-exec --no-startup-id rm /home/oscar/.isnight -f
-exec --no-startup-id /home/oscar/.bin/day-night-cycle

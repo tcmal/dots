@@ -1,6 +1,0 @@
-#!/usr/bin/bash
-rm ~/tf-custom/configs/cfg/mouse.cfg
-rm ~/tf-custom/configs/cfg/addons.cfg
-
-ln -s ~/tf-custom/configs/cfg/mouse-laptop.cfg ~/tf-custom/configs/cfg/mouse.cfg
-ln -s ~/tf-custom/configs/cfg/addons-laptop.cfg ~/tf-custom/configs/cfg/addons.cfg

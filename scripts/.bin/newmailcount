@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-count=$(ls -1 /home/oscar/Mail/INBOX/new | wc -l)
-echo $count
-
-if [ $count -eq 0 ]; then
-	exit 1;
-fi
-
-exit 0

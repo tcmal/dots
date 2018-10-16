@@ -8,10 +8,10 @@ resize_grip = false
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
-visible_bell = true
+visible_bell = false
 mouse_autohide = false
 allow_bold = true
-dynamic_title = true
+dynamic_title = false
 urgent_on_bell = true
 clickable_url = true
 scrollback_lines = 10000
@@ -23,4 +23,43 @@ cursor_blink = on
 # "block", "underline" or "ibeam"
 cursor_shape = block
 
-font = Source Code Pro for Powerline,14 
+font = Source Code Pro for Powerline,14
+[colors]
+
+# special
+foreground      = #f1ebeb
+foreground_bold = #f1ebeb
+cursor          = #f1ebeb
+background      = #221945
+
+# black
+color0  = #48483e
+color8  = #76715e
+
+# red
+color1  = #dc2566
+color9  = #fa2772
+
+# green
+color2  = #8fc029
+color10 = #a7e22e
+
+# yellow
+color3  = #d4c96e
+color11 = #e7db75
+
+# blue
+color4  = #55bcce
+color12 = #66d9ee
+
+# magenta
+color5  = #9358fe
+color13 = #ae82ff
+
+# cyan
+color6  = #56b7a5
+color14 = #66efd5
+
+# white
+color7  = #acada1
+color15 = #cfd0c2
