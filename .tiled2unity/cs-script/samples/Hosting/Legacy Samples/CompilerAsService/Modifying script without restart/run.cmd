@@ -1,2 +1,0 @@
-..\..\..\..\..\cscs.exe host
-pause

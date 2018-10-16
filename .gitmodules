@@ -1,5 +1,5 @@
 [submodule ".zprezto"]
-	path = .zprezto
+	path = prezto/.zprezto
 	url = git@github.com:OscarOrSomething/prezto.git
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
@@ -7,3 +7,9 @@
 [submodule ".bin/wal-discord"]
 	path = .bin/wal-discord
 	url = https://gitlab.com/guglicap/wal-discord.git
+[submodule "prezto/.zprezto"]
+	path = prezto/.zprezto
+	url = git@github.com:tcmal/prezto.git
+[submodule "vim/.vim/bundle/Vundle.vim"]
+	path = vim/.vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
