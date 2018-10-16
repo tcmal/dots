@@ -54,20 +54,19 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'w0rp/ale'
-
-Plugin 'dylanaraps/wal.vim'
+Plugin 'crusoexia/vim-monokai'
 
 call vundle#end()
 
 " Get colour scheme from wal
-colorscheme wal 
+syntax on
+colorscheme monokai 
 
 " Ctrl+P
 let g:ctrlp_working_path_mode = 'ra'
@@ -113,24 +112,7 @@ set statusline+=%h
 set statusline+=%w%1*
 
 set statusline+=%=
-set statusline+=%Y\ 
-
-" fugitive git bindings
-nnoremap <space>ga :Git add %:p<CR><CR>
-nnoremap <space>gs :Gstatus<CR>
-nnoremap <space>gc :Gcommit -v -q<CR>
-nnoremap <space>gt :Gcommit -v -q %:p<CR>
-nnoremap <space>gd :Gdiff<CR>
-nnoremap <space>ge :Gedit<CR>
-nnoremap <space>gr :Gread<CR>
-nnoremap <space>gw :Gwrite<CR><CR>
-nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <space>gp :Ggrep<Space>
-nnoremap <space>gm :Gmove<Space>
-nnoremap <space>gb :Git branch<Space>
-nnoremap <space>go :Git checkout<Space>
-nnoremap <space>gps :Dispatch! git push<CR>
-nnoremap <space>gpl :Dispatch! git pull<CR>
+set statusline+=%Y\
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
 set autoread
