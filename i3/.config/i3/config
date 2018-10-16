@@ -1,51 +1,10 @@
+
+# ----- Options
 set $mod Mod4
-
 floating_modifier Mod1
-
-bindsym $mod+t exec termite
-
-bindsym $mod+Shift+q kill
-
 font pango:Roboto 10
 
-bindsym $mod+Return exec rofi -show combi
-
-bindsym $mod+Tab workspace back_and_forth
-
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-bindsym $mod+semicolon split h
-
-bindsym $mod+v split v
-
-bindsym $mod+f fullscreen toggle
-
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+Shift+space floating toggle
-
-bindsym $mod+space focus mode_toggle
-
-bindsym $mod+a focus parent
-
+# ----- Workspaces
 set $workspace1  1:
 set $workspace2  2:
 set $workspace3  3:
@@ -57,7 +16,101 @@ set $workspace8  8:
 set $workspace9  9
 set $workspace10 10
 
-bindsym $mod+g exec shutdown-menu
+
+assign [class="chrome"] $workspace1
+assign [class="Firefox"] $workspace1
+
+assign [class="termite"] $workspace2
+assign [title="cava"] $workspace2
+for_window [title="cava"] floating enable
+
+assign [class="URxvt"] $workspace2
+
+assign [class="Subl3"] $workspace3
+assign [class="libreoffice"] $workspace3
+
+assign [class="Unity"] $workspace4
+
+
+assign [class="csgo_linux64"] $workspace5
+assign [class="hl2_linux"] $workspace5
+assign [class="hl_linux"] $workspace5
+assign [class="dota2"] $workspace5
+assign [class="RocketLeague"] $workspace5
+assign [class="Tower-Linux-Shipping"] $workspace5
+assign [class="explorer.exe"] $workspace5
+
+assign [class="Deluge"] $workspace6
+
+assign [class="discord"] $workspace7
+assign [class="mumble"] $workspace7
+
+assign [class="Steam"] $workspace8
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
+# ----- Colours
+
+#						border		backgr		text		indicator	childborder
+client.focused			#190e3f		#190e3f		#fcfcfc		#fcfcfc		#fcfcfc
+client.unfocused		#4a4c8c		#4a4c8c		#fcfcfc		#fcfcfc		#fcfcfc
+client.urgent			#d65362		#d65362		#fcfcfc		#fcfcfc		#fcfcfc
+client.placeholder		#fbbea4		#fbbea4		#fcfcfc		#fcfcfc		#fcfcfc
+
+new_window none
+new_float none
+
+bar
+{
+	colors {
+		background #4a4c8c
+
+		#					border		bg 			text
+		focused_workspace	#190e3f		#190e3f		#fbbea4
+		active_workspace	#4a4c8c		#4a4c8c		#fcfcfc
+		inactive_workspace	#4a4c8c		#4a4c8c		#fcfcfc
+		urgent_workspace	#190e3f		#190e3f		#fbbea4
+	}
+	strip_workspace_numbers yes
+	position bottom
+	mode hide
+	modifier Mod5
+}
+
+
+# ---- Basic binds
+bindsym $mod+Shift+q kill
+bindsym $mod+Tab workspace back_and_forth
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+semicolon split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
 
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -81,64 +134,42 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-assign [class="chrome"] $workspace1
-
-assign [class="Firefox"] $workspace1
-
-assign [class="termite"] $workspace2
-
-assign [title="cava"] $workspace2
-for_window [title="cava"] floating enable
-for_window [class="^Steam$" title="^Friends$"] floating enable
-for_window [class="^Steam$" title="Steam - News"] floating enable
-for_window [class="^Steam$" title=".* - Chat"] floating enable
-for_window [class="^Steam$" title="^Settings$"] floating enable
-for_window [class="^Steam$" title=".* - event started"] floating enable
-for_window [class="^Steam$" title=".* CD key"] floating enable
-for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
-for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
-for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
-for_window [title="^Steam Keyboard$"] floating enable
-
-assign [class="URxvt"] $workspace2
-
-assign [class="Subl3"] $workspace3
-
-assign [class="Unity"] $workspace4
-
-assign [class="libreoffice"] $workspace3
-
-assign [class="csgo_linux64"] $workspace5
-
-assign [class="hl2_linux"] $workspace5
-
-assign [class="hl_linux"] $workspace5
-
-assign [class="dota2"] $workspace5
-
-assign [class="RocketLeague"] $workspace5
-
-assign [class="Tower-Linux-Shipping"] $workspace5
-
-assign [class="explorer.exe"] $workspace5
-
-assign [class="Deluge"] $workspace6
-
-assign [class="discord"] $workspace7
-assign [class="mumble"] $workspace7
-
-assign [class="Steam"] $workspace8
-
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# Resizing
+
+mode "resize" {
+  bindsym j resize shrink width 10 px or 10 ppt
+	bindsym k resize grow height 10 px or 10 ppt
+	bindsym l resize shrink height 10 px or 10 ppt
+	bindsym semicolon resize grow width 10 px or 10 ppt
+
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# ----- Personal Binds
+
+# Essentials
+bindsym $mod+Return exec rofi -show combi
+bindsym $mod+g exec shutdown-menu
+bindsym $mod+t exec termite
+
+# Terminal apps
 bindsym $mod+m exec --no-startup-id termite -e "bash -c 'ncmpcpp'"
 bindsym $mod+e exec --no-startup-id termite -e "bash -c 'mutt'"
 #bindsym $mod+i exec --no-startup-id termite -e "bash -c 'weechat'"
 
-bindsym Mod1+a exec --no-startup-id /home/oscar/.bin/togglebar
-
+# Music
 bindsym Mod1+p exec --no-startup-id mpc toggle
 bindsym Mod1+Right exec --no-startup-id mpc next
 bindsym Mod1+Left exec --no-startup-id mpc prev
@@ -146,65 +177,11 @@ bindsym Mod1+Left exec --no-startup-id mpc prev
 bindsym Mod1+plus exec --no-startup-id "mpc volume +10; playerctl volume 10 +"
 bindsym Mod1+minus exec --no-startup-id "mpc volume -10; playerctl volume 10 -"
 
-bindsym Mod1+o exec --no-startup-id playerctl play-pause
-bindsym Mod1+l exec --no-startup-id playerctl next
-bindsym Mod1+j exec --no-startup-id playerctl previous
-bindsym Mod1+e exec --no-startup-id termite -c ~/.config/termite/config-bg -e cava --geometry=1920x1080
+# ----- Startup apps
 
-exec --no-startup-id mpdas
-exec --no-startup-id lxsession
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/wallpaper.jpg
-
-mode "resize" {
-  bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
-
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-hide_edge_borders both
-#						             border	  backgr	 text	    indicator	 childborder
-client.focused           #190e3f	#190e3f  #fcfcfc  #fcfcfc    #fcfcfc
-client.unfocused         #4a4c8c	#4a4c8c  #fcfcfc	#fcfcfc	   #fcfcfc
-client.urgent			       #d65362	#d65362	 #fcfcfc	#fcfcfc		 #fcfcfc
-client.placeholder		   #fbbea4	#fbbea4	 #fcfcfc	#fcfcfc	   #fcfcfc
-
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id lxsession
 exec --no-startup-id redshift
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-
-new_window none
-new_float none
-
-bar
-{
-	colors {
-		background #4a4c8c
-
-		#                   border    bg        text
-		focused_workspace	  #190e3f	  #4a4c8c		#fbbea4
-    active_workspace 	  #4a4c8c		#4a4c8c		#fcfcfc
-		inactive_workspace 	  #4a4c8c		#4a4c8c		#fcfcfc
-		urgent_workspace	$fg		$fg		$bg
-	}
-    strip_workspace_numbers yes
-	position bottom
-	mode hide
-	modifier Mod5
-}
+exec --no-startup-id mpdas
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
