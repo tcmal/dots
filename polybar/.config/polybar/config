@@ -1,28 +1,30 @@
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background = #190e3f
+foreground = #fcfcfc
 
-[bar/center]
+primary = #4a4c8c
+secondary = #fbbea4
+alert = #d65362
+
+[bar/bar]
 width = 100%
 height = 27
-fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-offset-x = 40%
+fixed-center = true
+
+font-0 = Consolas:size=11;1
+font-1 = FontAwesome:size=10;1
+
+padding = 2
 
 modules-left = mpd
 modules-center = i3
 modules-right = time
+
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -30,6 +32,21 @@ wm-restack = i3
 
 [module/i3]
 type = internal/i3
+strip-wsnumbers = true
+format = %{O-5}<label-state> <label-mode>
+wrapping-scroll = false
+
+label-focused = %name%
+label-focused-padding = 1
+label-focused-background = ${colors.primary}
+
+label-unfocused = %name%
+label-unfocused-padding = 1
+label-unfocused-background = ${colors.background}
+
+label-urgent = %name%
+label-urgent-padding = 1
+label-urgent-background = ${colors.alert}
 
 [module/time]
 type = internal/date
@@ -38,4 +55,7 @@ label = %time%
 
 [module/mpd]
 type = internal/mpd
-format-online = online
+format-playing = %{A1:mpc next:} <label-song>%{A}
+format-paused =
+icon-next = >
+label-song = %title%

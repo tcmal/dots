@@ -75,8 +75,8 @@ bar
 
 		#					border		bg 			text
 		focused_workspace	#190e3f		#190e3f		#fbbea4
-		active_workspace	#4a4c8c		#4a4c8c		#fcfcfc
 		inactive_workspace	#4a4c8c		#4a4c8c		#fcfcfc
+		active_workspace	#4a4c8c		#4a4c8c		#fcfcfc
 		urgent_workspace	#190e3f		#190e3f		#fbbea4
 	}
 	strip_workspace_numbers yes
@@ -160,9 +160,12 @@ bindsym $mod+r mode "resize"
 # ----- Personal Binds
 
 # Essentials
-bindsym $mod+Return exec rofi -show combi
-bindsym $mod+g exec shutdown-menu
-bindsym $mod+t exec termite
+bindsym $mod+Return exec --no-startup-id rofi -show combi
+bindsym $mod+g exec --no-startup-id shutdown-menu
+bindsym $mod+t exec --no-startup-id termite
+
+# Toggle polybar
+bindsym Mod1+a exec --no-startup-id toggle-bar
 
 # Terminal apps
 bindsym $mod+m exec --no-startup-id termite -e "bash -c 'ncmpcpp'"

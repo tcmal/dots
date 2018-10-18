@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+pkill polybar
+LAST=$?
+
+if [ $LAST -eq 1 ]; then
+    polybar bar &
+fi
