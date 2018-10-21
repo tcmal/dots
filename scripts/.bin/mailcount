@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+COUNT=$(ls -1A ~/Mail/INBOX/new | wc -l)
+
+if [ "$COUNT" != "0" ]; then
+    echo "$COUNT";
+else
+    echo "";
+fi

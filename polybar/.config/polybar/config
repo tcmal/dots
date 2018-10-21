@@ -23,7 +23,7 @@ padding = 2
 
 modules-left = mpd
 modules-center = i3
-modules-right = time
+modules-right = mailcount time
 
 
 cursor-click = pointer
@@ -52,6 +52,7 @@ label-urgent-background = ${colors.alert}
 type = internal/date
 time = %H:%M
 label = %time%
+label-padding-left = 1
 
 [module/mpd]
 type = internal/mpd
@@ -59,3 +60,11 @@ format-playing = %{A1:mpc next:} <label-song>%{A}
 format-paused =
 icon-next = >
 label-song = %title%
+
+[module/mailcount]
+type = custom/script
+exec = ~/.bin/mailcount
+format-padding = 1
+format-background = ${colors.alert}
+
+interval = 2
