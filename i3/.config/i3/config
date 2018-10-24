@@ -46,8 +46,7 @@ assign [class="discord"] $workspace7
 assign [class="mumble"] $workspace7
 
 assign [class="Steam"] $workspace8
-assign [name="Steam"] $workspace8
-for_window [class="^Steam$" title="^Friends$"] floating enable
+FOR_WINDOw [class="^Steam$" title="^Friends$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
 for_window [class="^Steam$" title=".* - Chat"] floating enable
 for_window [class="^Steam$" title="^Settings$"] floating enable
