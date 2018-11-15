@@ -23,8 +23,7 @@ padding = 2
 
 modules-left = mpd
 modules-center = i3
-modules-right = mailcount time
-
+modules-right = mailcount battery time
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -33,7 +32,7 @@ wm-restack = i3
 [module/i3]
 type = internal/i3
 strip-wsnumbers = true
-format = %{O-5}<label-state> <label-mode>
+format = <label-state> <label-mode>
 wrapping-scroll = false
 
 label-focused = %name%
@@ -68,3 +67,21 @@ format-padding = 1
 format-background = ${colors.alert}
 
 interval = 2
+
+[module/battery]
+type = internal/battery
+
+label-charging =  %time%
+label-discharging =  %time%
+label-full = 
+
+time-format = %H:%M
+format-padding = 1
+
+format-charging-padding = 1
+
+format-discharging-background = ${colors.primary}
+format-discharging-padding = 1
+
+format-full-background = ${colors.primary}
+format-full-padding = 1
