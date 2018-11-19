@@ -9,7 +9,9 @@ alert = #d65362
 
 [bar/bar]
 width = 100%
-height = 27
+height = ${xrdb:polybar.height:27}
+
+dpi = ${xrdb:Xft.dpi:-1}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
