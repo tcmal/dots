@@ -1,3 +1,4 @@
 *.sound.cache
+**/workshop/
 vim/.vim/bundle/*
 scripts/.bin/auth
