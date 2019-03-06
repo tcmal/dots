@@ -20,17 +20,13 @@ set $workspace10 10
 assign [class="chrome"] $workspace1
 assign [class="Firefox"] $workspace1
 
-assign [class="termite"] $workspace2
-assign [title="cava"] $workspace2
-for_window [title="cava"] floating enable
-
-assign [class="URxvt"] $workspace2
+assign [class="Termite"] $workspace2
 
 assign [class="Subl3"] $workspace3
+assign [class="code-oss"] $workspace3
 assign [class="libreoffice"] $workspace3
 
 assign [class="Unity"] $workspace4
-
 
 assign [class="csgo_linux64"] $workspace5
 assign [class="hl2_linux"] $workspace5
@@ -45,8 +41,9 @@ assign [class="Deluge"] $workspace6
 assign [class="discord"] $workspace7
 assign [class="mumble"] $workspace7
 
+# fix for steam's fuckery
 assign [class="Steam"] $workspace8
-FOR_WINDOw [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="^Friends$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
 for_window [class="^Steam$" title=".* - Chat"] floating enable
 for_window [class="^Steam$" title="^Settings$"] floating enable
@@ -141,10 +138,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Resizing
 
 mode "resize" {
-  bindsym j resize shrink width 10 px or 10 ppt
-	bindsym k resize grow height 10 px or 10 ppt
-	bindsym l resize shrink height 10 px or 10 ppt
-	bindsym semicolon resize grow width 10 px or 10 ppt
+  	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym j resize grow height 10 px or 10 ppt
+	bindsym k resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
 
 	bindsym Left resize shrink width 10 px or 10 ppt
 	bindsym Down resize grow height 10 px or 10 ppt
@@ -170,7 +167,6 @@ bindsym Mod1+a exec --no-startup-id toggle-bar
 # Terminal apps
 bindsym $mod+m exec --no-startup-id termite -e "bash -c 'ncmpcpp'"
 bindsym $mod+e exec --no-startup-id termite -e "bash -c 'mutt'"
-#bindsym $mod+i exec --no-startup-id termite -e "bash -c 'weechat'"
 
 # Music
 bindsym Mod1+p exec --no-startup-id mpc toggle
@@ -187,7 +183,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 # ----- Startup apps
 
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/wallpaper.jpg
-exec --no-startup-id lxsession
 exec --no-startup-id redshift
 
 exec --no-startup-id mpdas

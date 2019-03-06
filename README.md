@@ -1,23 +1,86 @@
 # dots
-Dotfiles.
+
+Dotfiles. Packaged using stow.
+
+# Contents
+
+## Colour scheme / Font
+
+One main colour scheme is used throughout, font is Fira Mono (not code).
+
+## dunst
+
+  - Coherent colour scheme
+
+## i3
+
+  - Coherent colour scheme
+  - Usual navigation binds w/ workspace icons
+  - Windows assigned to workspaces
+  - Startup apps:
+    - Redshift
+    - Mpdas
+    - Dunst
+    - Wallpaper
+
+## ncmpcpp
+
+  - Appearance
+
+## polybar
+
+  - One bar at the top
+    - mpd
+    - i3 workspaces
+    - ~/.bin/mailcount
+    - clock
+    - battery
+
+## prezto
+
+  - Prompt
+  - Modules
+    - Node
+    - Pacman
+    - Git
+    - Ssh
+  - Sorin prompt
+  - Path
+    - ~/.bin
+    - cargo bin
+    - rvm bin
+  - Rvm
+
+## rofi
+
+  - dmenu+i3 combination
+  - Coherent colour scheme
+
+## termite
+
+  - Coherent colour scheme
+  - Hide mouse automatically
+
+## tf2
+
+  - Scroll up/down for weapons 1/2
+  - Side button for melee
+  - Null cancelling
+  - Mastercomfig
+  - Spy quick-disguise & sapper chat binds
+  - Medic binds
+  - jump.cfg
+  - talk/notalk.cfg
+
+## vim
+
+  - NERDTree, CtrlP
+  - Monokai theme
+
+# Installation
 
 ```
-git clone git@github.com:OscarOrSomething/dots.git --recursive
-pac -S i3 i3bar dmenu lemonbar termite steam steam-native zsh
-chsh -s /bin/zsh
+stow -t ~ .
+ln -s ~/.config/tf2 [steamapps]/Team Fortress 2/tf/custom
+echo "*/10 * * * * /home/oscar/.bin/mailrun"
 ```
-
-## TF2
-
-Launch options:
-
-```
--novid -nojoy -nosteamcontroller -noff -softparticlesdefaultoff -reuse -limitvsconst
-  9 -NoQueuedPacketThread -gl_enablesampleobjects
-
-NVIDIA: -gl_nv_bindless_texturing
-```
-
-Symlink tf-custom/configs/cfg/mouse.cfg to ""/mouse-desktop.cfg or ""/mouse-laptop.cfg.
-
-Symlink tf-custom/configs/cfg/addons.cfg to ""/addons-desktop.cfg or ""/addons-laptop.cfg

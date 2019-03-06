@@ -2,23 +2,12 @@ titles_visibility = "no"
 header_visibility = "no"
 statusbar_visibility = "no"
 
-song_columns_list_format = "(90)[blue]{t} (10)[black]{lr}"
+song_columns_list_format = "(45)[blue]{t} (45)[black]{a} (10)[black]{lr}"
 
-progressbar_look = "─╼ "
+progressbar_look = "-> "
 
 message_delay_time = "1"
 
-visualizer_fifo_path = "/tmp/mpd.fifo"
-visualizer_output_name = "my_fifo"
-visualizer_sync_interval = "10" 
-visualizer_in_stereo = "no"
-visualizer_type = "spectrum"
-visualizer_look = "●▋"
-visualizer_color = "blue"
-
-startup_screen = "playlist"
-startup_slave_screen = "visualizer"
 display_volume_level = "yes"
 
-media_library_primary_tag = "album_artist" # Order by Album Artist
-#execute_on_song_change = "/home/oscar/.bin/ncmc_coverart"
+media_library_primary_tag = "album_artist"

@@ -54,12 +54,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'w0rp/ale'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'crusoexia/vim-monokai'
 
 call vundle#end()

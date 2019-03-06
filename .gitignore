@@ -1,3 +1,5 @@
+tf2/.config/tf2/workshop
+tf2/.config/tf2/readme.txt
 *.sound.cache
 vim/.vim/bundle/*
 scripts/.bin/auth
