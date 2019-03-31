@@ -23,7 +23,7 @@ cursor_blink = on
 # "block", "underline" or "ibeam"
 cursor_shape = block
 
-font = Fira Code,14
+font = Fira Mono,14
 [colors]
 
 # special
