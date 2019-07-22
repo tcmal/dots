@@ -1,11 +1,11 @@
 
 [colors]
-background = #190e3f
+background = #080423
 foreground = #fcfcfc
 
-primary = #4a4c8c
-secondary = #fbbea4
-alert = #d65362
+primary = #608EE9
+secondary = #7ABCE8
+alert = #C4A8D2
 
 [bar/bar]
 width = 100%

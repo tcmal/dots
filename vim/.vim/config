@@ -60,10 +60,6 @@ Plugin 'crusoexia/vim-monokai'
 
 call vundle#end()
 
-" Get colour scheme from wal
-syntax on
-colorscheme monokai 
-
 " Ctrl+P
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/.git/*     " MacOSX/Linux

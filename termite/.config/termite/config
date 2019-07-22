@@ -27,10 +27,10 @@ font = Fira Mono,14
 [colors]
 
 # special
-foreground      = #f1ebeb
+foreground      = #fcfcfc
 foreground_bold = #f1ebeb
 cursor          = #f1ebeb
-background      = #221945
+background      = #0e0a23
 
 # black
 color0  = #48483e

@@ -10,8 +10,8 @@ configuration {
 
 /* global settings and color variables */
 * {
-   maincolor:        #d65362;
-   highlight:        bold #fbbea4;
+   maincolor:        #608EE9;
+   highlight:        bold #7ABCE8;
    urgentcolor:      #7c4269;
 
 

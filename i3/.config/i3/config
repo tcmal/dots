@@ -57,10 +57,10 @@ for_window [title="^Steam Keyboard$"] floating enable
 # ----- Colours
 
 #						border		backgr		text		indicator	childborder
-client.focused			#190e3f		#190e3f		#fcfcfc		#fcfcfc		#fcfcfc
-client.unfocused		#4a4c8c		#4a4c8c		#fcfcfc		#fcfcfc		#fcfcfc
-client.urgent			#d65362		#d65362		#fcfcfc		#fcfcfc		#fcfcfc
-client.placeholder		#fbbea4		#fbbea4		#fcfcfc		#fcfcfc		#fcfcfc
+client.focused			#0D0932		#0D0932		#fcfcfc		#fcfcfc		#fcfcfc
+client.unfocused		#4D57A0		#4D57A0		#fcfcfc		#fcfcfc		#fcfcfc
+client.urgent			#0D0932		#0D0932		#fcfcfc		#fcfcfc		#fcfcfc
+client.placeholder		#C4A8D2		#C4A8D2		#fcfcfc		#fcfcfc		#fcfcfc
 
 new_window none
 new_float none
@@ -68,13 +68,13 @@ new_float none
 bar
 {
 	colors {
-		background #4a4c8c
+		background #608EE9
 
 		#					border		bg 			text
-		focused_workspace	#190e3f		#190e3f		#fbbea4
-		inactive_workspace	#4a4c8c		#4a4c8c		#fcfcfc
-		active_workspace	#4a4c8c		#4a4c8c		#fcfcfc
-		urgent_workspace	#190e3f		#190e3f		#fbbea4
+		focused_workspace	#080423		#080423		#fcfcfc
+		inactive_workspace	#608EE9		#608EE9		#fcfcfc
+		active_workspace	#080423		#080423		#fcfcfc
+		urgent_workspace	#C4A8D2		#C4A8D2		#fcfcfc
 	}
 	strip_workspace_numbers yes
 	position bottom
@@ -182,7 +182,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 
 # ----- Startup apps
 
-exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/wallpaper.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wallpaper.jpg
 exec --no-startup-id redshift
 
 exec --no-startup-id mpdas
