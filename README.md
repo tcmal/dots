@@ -32,7 +32,6 @@ One main colour scheme is used throughout, font is Fira Mono (not code).
   - One bar at the top
     - mpd
     - i3 workspaces
-    - ~/.bin/mailcount
     - clock
     - battery
 
@@ -80,7 +79,6 @@ One main colour scheme is used throughout, font is Fira Mono (not code).
 # Installation
 
 ```
-stow -t ~ .
+stow -t ~ dunst i3 ncmpcpp polybar prezto rofi scripts termite tf2 vim
 ln -s ~/.config/tf2 [steamapps]/Team Fortress 2/tf/custom
-echo "*/10 * * * * /home/oscar/.bin/mailrun"
 ```
