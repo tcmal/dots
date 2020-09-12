@@ -3,7 +3,6 @@
 set $mod Mod4
 floating_modifier Mod1
 font pango:Roboto 10
-
 # ----- Workspaces
 set $workspace1  1:
 set $workspace2  2:
@@ -65,22 +64,23 @@ client.placeholder		#C4A8D2		#C4A8D2		#fcfcfc		#fcfcfc		#fcfcfc
 new_window none
 new_float none
 
-bar
-{
-	colors {
-		background #608EE9
-
-		#					border		bg 			text
-		focused_workspace	#080423		#080423		#fcfcfc
-		inactive_workspace	#608EE9		#608EE9		#fcfcfc
-		active_workspace	#080423		#080423		#fcfcfc
-		urgent_workspace	#C4A8D2		#C4A8D2		#fcfcfc
-	}
-	strip_workspace_numbers yes
-	position bottom
-	mode hide
-	modifier Mod5
-}
+#bar
+#{
+#	colors {
+#		background #608EE9
+#
+#		#					border		bg 			text
+#		focused_workspace	#080423		#080423		#fcfcfc
+#		inactive_workspace	#608EE9		#608EE9		#fcfcfc
+#		active_workspace	#080423		#080423		#fcfcfc
+#		urgent_workspace	#C4A8D2		#C4A8D2		#fcfcfc
+#	}
+#	strip_workspace_numbers yes
+#	position bottom
+#	mode hide
+#	modifier Mod5
+#	tray_output primary
+#}
 
 
 # ---- Basic binds
@@ -162,28 +162,20 @@ bindsym $mod+g exec --no-startup-id shutdown-menu
 bindsym $mod+t exec --no-startup-id termite
 
 # Toggle polybar
-bindsym Mod1+a exec --no-startup-id toggle-bar
-
-# Terminal apps
-bindsym $mod+m exec --no-startup-id termite -e "bash -c 'ncmpcpp'"
-bindsym $mod+e exec --no-startup-id termite -e "bash -c 'mutt'"
-
-# Music
-bindsym Mod1+p exec --no-startup-id mpc toggle
-bindsym Mod1+Right exec --no-startup-id mpc next
-bindsym Mod1+Left exec --no-startup-id mpc prev
+bindcode 108 exec polybar-msg cmd show
+bindcode 108 --release exec polybar-msg cmd hide
 
 bindsym Mod1+plus exec --no-startup-id "mpc volume +10; playerctl volume 10 +"
-bindsym Mod1+minus exec --no-startup-id "mpc volume -10; playerctl volume 10 -"
+bindsym Mod1+p exec --no-startup-id "spotifyctl playpause"
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% 
 
 # ----- Startup apps
-
+exec --no-startup-id polybar bar
 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wallpaper.jpg
 exec --no-startup-id redshift
 
-exec --no-startup-id mpdas
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id ~/.custom_startup
