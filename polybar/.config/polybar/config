@@ -3,8 +3,8 @@
 background = #17194a
 foreground = #ffffff
 
-primary = #C17C83
-secondary = #70B0CA
+primary = #70B0CA
+secondary = #C17C83
 alert = #C4A8D2
 
 [bar/bar]
@@ -25,21 +25,24 @@ fixed-center = true
 font-1 = Fira Mono:size=11;1
 font-0 = FontAwesome:size=11;1
 
-padding = 5
+padding = 2
 
 modules-left = i3
-modules-center = spotify
-modules-right = battery time
+modules-center = spotify nextevent
+modules-right = time battery
 tray-position = right
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[module/nextevent]
+type = custom/script
+exec = ~/.bin/next-event
 
 [module/spotify]
 type = custom/ipc
 hook-0 = echo ""
-hook-1 = spotifyctl -q status --format '   %artist% - %title%'
+hook-1 = spotifyctl -q status --format '   %artist% - %title%,  '
 
 click-left = "spotifyctl -q playpause"
 click-right = "spotifyctl -q next"
@@ -66,13 +69,7 @@ label-urgent-background = ${colors.alert}
 type = internal/date
 time = %H:%M
 label = %time%
-label-padding-left = 1
-
-[module/mpd]
-type = internal/mpd
-format-playing = %{A1:mpc next:}  <label-song>%{A}
-format-paused =
-label-song = %title%
+label-padding-right = 3
 
 [module/battery]
 type = internal/battery
@@ -86,10 +83,10 @@ label-full = 
 time-format = %H:%M
 format-padding = 1
 
-format-charging-padding = 1
+format-charging-padding = 3
 
 format-discharging-background = ${colors.primary}
-format-discharging-padding = 1
+format-discharging-padding = 3
 
 format-full-background = ${colors.primary}
-format-full-padding = 1
+format-full-padding = 3
