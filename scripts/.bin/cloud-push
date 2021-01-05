@@ -1,3 +1,0 @@
-#!/bin/bash
-source ~/.bin/auth
-rsync -rvPe ssh $CLOUD_DIR $CLOUD_TARGET --exclude 'gitea' --ignore-existing
