@@ -118,6 +118,7 @@ in {
         programs.zsh = import ../programs/zsh.nix decoratedConfig;
 
         # GUI Applications
+        home.file.".config/obsidian/themes/nord-base16.css".source = "${import ../programs/obsidian-base16.nix decoratedConfig}/nord-base16.css";
         home.file.".gtkrc-2.0".source = "${import ../programs/gtk-base16.nix decoratedConfig}/gtkrc-2.0";
         home.file.".config/gtk-3.0/gtk.css".source = "${import ../programs/gtk-base16.nix decoratedConfig}/gtk3.css";
         home.file.".vscode/extensions/base16-system".source = "${import ../programs/vscode-base16.nix decoratedConfig}/base16-system";

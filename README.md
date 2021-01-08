@@ -23,6 +23,7 @@ This can be seen in `roles/desktop.nix`
 # license
 
 Copyright belongs to me and is under the MIT License, except for:
+  - `share/obsidian.css` - ['Nord' obsidian theme. Unknown License](https://github.com/insanum/obsidian_nord)
   - `share/spotify.css` - ['Nord' spicetify theme. MIT License](https://github.com/morpheusthewhite/spicetify-themes)
   - `programs/discord-base16.nix` - ['Nox' discord theme. MIT License](https://github.com/rauenzi/Nox)
   - `share/shutdown-menu` - [Script by Benjamin Chrétien. GNU-GPLv3 License](https://github.com/vivien/i3blocks-contrib/)
