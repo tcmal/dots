@@ -30,6 +30,10 @@
         prompt = {
             theme = "sorin";
         };
+
+        editor = {
+            dotExpansion = true;
+        };
     };
 
     profileExtra = ''
