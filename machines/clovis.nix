@@ -12,29 +12,50 @@ in {
         /etc/nixos/hardware-configuration.nix
     ];
 
-    system.stateVersion = "20.09";
     nixpkgs.config = {
         allowUnfree = true;
     };
     
-    environment.systemPackages = [
-        pkgs.git
+    # Utilities
+    environment.systemPackages = with pkgs; [
+        git
+        zip
+        unzip
     ];
 
-    networking.hostName = "clovis";
-    users.mutableUsers = false;
-    
+    # Networking
+    networking.hostName = "clovis"; # "You now face godlike judgement. May it extend eternally."
+    networking.wireless.enable = true;    
 
+    # Locale
     time.timeZone = "Europe/London";
     i18n.defaultLocale = "en_GB.UTF-8";
-    services.xserver.layout = "gb";
     console = {
         font = "Lat2-Terminus16";
-        keyMap = "uk";
+        keyMap = "us";
     };
     
+    # Audio
     sound.enable = true;
-    hardware.pulseaudio.enable = true;
+    hardware.pulseaudio = {
+        enable = true;
 
+        support32Bit = true;
+    };
+
+    # OpenGL
+    hardware.opengl = {
+        enable = true;
+
+        driSupport = true;
+        driSupport32Bit = true;
+    };
+
+    # US with " and @ swapped and £ on Shift+F1
+    services.xserver.displayManager.sessionCommands = let compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
+                                                                                ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../share/mechanical.xkb} $out
+                                                                            '';
+    in "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
+    
     # Drivers, boot options, etc. are all in hardware-configuration.nix
 }

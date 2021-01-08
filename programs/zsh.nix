@@ -1,3 +1,5 @@
+# ZSH and zprezto
+
 { pkgs, ... }:
 
 {
@@ -17,7 +19,6 @@
             "completion"
             "command-not-found"
             "node"
-            "pacman"
             "prompt"
             "utility"
             "git"
@@ -30,4 +31,8 @@
             theme = "sorin";
         };
     };
+
+    profileExtra = ''
+        export PATH="$PATH:$HOME/.npm/bin/";
+    '';
 }

@@ -1,28 +1,35 @@
+# Workstation setup
+
 { config, pkgs, lib, ... }:
 
 let decoratedConfig = {
         inherit config pkgs lib;
         terminal = "${pkgs.alacritty}/bin/alacritty";
-        menu = "${pkgs.rofi}/bin/rofi -show combi";
+        menu = "${pkgs.rofi}/bin/rofi -show drun";
         colours = {
-            primary = "#4d57a0";
-            primaryText = "#fcfcfc";
-            secondary = "#0d0932";
-            secondaryText = "#fcfcfc";
-            accent = "#c4a8d2";
-            accentText = "#fcfcfc";
-            background = "#0e0a23";
-            foreground = "#fcfcfc";
+            mode = "dark";
+
+            base00 = "#1d1f21";
+            base01 = "#282a2e";
+            base02 = "#373b41";
+            base03 = "#969896";
+            base04 = "#b4b7b4";
+            base05 = "#c5c8c6";
+            base06 = "#e0e0e0";
+            base07 = "#ffffff";
+            base08 = "#CC342B";
+            base09 = "#F96A38";
+            base0A = "#FBA922";
+            base0B = "#198844";
+            base0C = "#3971ED";
+            base0D = "#3971ED";
+            base0E = "#A36AC7";
+            base0F = "#3971ED";
+
         };
     };
 in {
-
-    fonts.fonts = [
-        pkgs.roboto
-        pkgs.fira-mono
-        pkgs.font-awesome
-    ];
-
+    # User account
     nix.trustedUsers = [ "mal" ];
     users.users.mal = {
         isNormalUser = true;
@@ -31,54 +38,89 @@ in {
 
         shell = pkgs.zsh;
     };
-
-    services.xserver.enable = true;
-    services.xserver.windowManager.i3.enable = true;
     
+    # X11 setup
+    services.xserver = {
+        enable = true;
+        displayManager = {
+            defaultSession = "none+i3";
+
+            autoLogin = {
+                enable = true;
+                user = "mal";
+            };
+        };
+        windowManager.i3.enable = true;
+    };
+
+    # Allow npm to install 'globally'
+    programs.npm = {
+        enable = true;
+        npmrc = ''
+            prefix = "$HOME/.npm"
+        '';
+    };
+
+    # Fonts
+    fonts.fonts = with pkgs; [
+        roboto
+        fira-mono
+        font-awesome
+    ];
+
+    # User-specific setup
     home-manager.users.mal = {
-        home.packages = [
-            pkgs.firefox
+
+        # Programs
+        home.packages = with pkgs; [
+            # Utilities
+            firefox-devedition-bin
+            git
+            htop
+            kdeApplications.okular
+            unzip
+
+            # Languages, Runtimes, etc.
+            nodejs
+            (python3.withPackages (ppkgs: [
+                ppkgs.virtualenv
+            ]))
+            rustup
+
+            # Developer tools
+            vscode
+            vim
+            obsidian
+            jetbrains.idea-ultimate
+
+            # Fun stuff
+            steam
+            (import ../programs/discord-base16.nix decoratedConfig)
+            (import ../programs/spotify-base16.nix decoratedConfig)
         ];
 
+        # Git setup
         programs.git = {
             enable = true;
             userName = "tcmal";
             userEmail = "oscar.shrimpton.personal@gmail.com";
         };
 
-        programs.rofi = (import ../programs/rofi.nix) decoratedConfig;
-
-        programs.alacritty = (import ../programs/alacritty.nix) decoratedConfig;
-
-        programs.zsh = (import ../programs/zsh.nix) decoratedConfig;
-
-        xsession.windowManager.i3 = lib.mkMerge [
-            ((import ../programs/i3.nix) decoratedConfig)
-            {
-                config.startup = [
-                    { command = "${pkgs.xfce.xfce4-power-manager}/bin/xfce4-power-manager"; always = true; }
-                ];
-            }
-        ];
-
-        programs.i3status = lib.mkMerge [
-            ((import ../programs/i3status.nix) decoratedConfig)
-            {
-                modules."battery 0" = {
-                    position = -1;
-                    settings = {
-                        format = "%status   %remaining";
-                        format_down = "";
-                        status_chr = "";
-                        status_bat = "";
-                        status_unk = "";
-                        status_full = "";
-                        path = "/sys/class/power_supply/BAT%d/uevent";
-                        low_threshold = 10;
-                    };
-                };
-            }
-        ];
+        # WM / DE setup
+        xsession.windowManager.i3 = import ../programs/i3.nix decoratedConfig;
         home.file.".background-image".source = ../share/wallpaper.jpg;
+        programs.i3status = import ../programs/i3status.nix decoratedConfig;
+        programs.rofi = import ../programs/rofi.nix decoratedConfig;
+        services.dunst = import ../programs/dunst.nix decoratedConfig;
+
+        # Terminal stuff
+        programs.alacritty = import ../programs/alacritty.nix decoratedConfig;
+        programs.zsh = import ../programs/zsh.nix decoratedConfig;
+
+        # GUI Applications
+        home.file.".gtkrc-2.0".source = "${import ../programs/gtk-base16.nix decoratedConfig}/gtkrc-2.0";
+        home.file.".config/gtk-3.0/gtk.css".source = "${import ../programs/gtk-base16.nix decoratedConfig}/gtk3.css";
+        home.file.".vscode/extensions/base16-system".source = "${import ../programs/vscode-base16.nix decoratedConfig}/base16-system";
+        home.file.".mozilla/localExtensions/base16-system.zip".source = "${import ../programs/firefox-base16.nix decoratedConfig}/addon.zip";
     };
 }

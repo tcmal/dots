@@ -1,3 +1,5 @@
+# Status bar, displayed in lower right
+
 { ... }:
 
 {

@@ -1,3 +1,5 @@
+# Rofi menu for power management.
+
 { pkgs, ... }:
 
 derivation {

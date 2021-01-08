@@ -1,6 +1,0 @@
-tf2/.config/tf2/workshop
-tf2/.config/tf2/readme.txt
-*.sound.cache
-**/workshop/
-vim/.vim/bundle/*
-scripts/.bin/auth
