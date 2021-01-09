@@ -26,6 +26,7 @@ Copyright belongs to me and is under the MIT License, except for:
   - `share/obsidian.css` - ['Nord' obsidian theme. Unknown License](https://github.com/insanum/obsidian_nord)
   - `share/spotify.css` - ['Nord' spicetify theme. MIT License](https://github.com/morpheusthewhite/spicetify-themes)
   - `programs/discord-base16.nix` - ['Nox' discord theme. MIT License](https://github.com/rauenzi/Nox)
+  - `programs/gtk-base16.nix` - [Materia customising package. MIT License](https://gitlab.com/rycee/nur-expressions)
   - `share/shutdown-menu` - [Script by Benjamin Chrétien. GNU-GPLv3 License](https://github.com/vivien/i3blocks-contrib/)
   - `share/wallpaper.jpg` - [Nessus, Destiny 2. Photographed by kseeker5](https://kseeker5.github.io/wallpapers/index.html)
   - `share/userstyles/google.ejs` - [Google Dark Rainbow. MIT License](https://github.com/exmert/Google-Dark---Rainbow)

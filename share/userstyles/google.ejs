@@ -18,6 +18,27 @@
 ==/UserStyle== */
 
 @-moz-document regexp("^https\:\/\/((www|accounts|books|calendar|contacts|drive|images|myaccount|myactivity|ogs|photos|play|scholar|translate)\.)?google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+
+
+    /* Additional Modifications */
+    #logo {
+        display: none;
+    }
+    
+    
+    .hdtb-mitem svg * {
+        fill: /*[[ct_hyperlink]]*/;
+    }
+    
+    .SJajHc {
+        background: none !important;
+    }
+    
+    #hdtb {
+        border-bottom: 1px solid /*[[c_border]]*/;
+    }
+    
+    /* </ */
     html, body, header, footer {
 		background-color: /*[[c_background]]*/ !important;
 		border-color: /*[[c_border]]*/ !important;
