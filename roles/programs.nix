@@ -4,7 +4,6 @@
 
 let decoratedConfig = {
         inherit config pkgs lib colours;
-        
     };
 in {
     # Use ZSH
@@ -27,10 +26,12 @@ in {
         home.packages = with pkgs; [
             # Utilities
             firefox-devedition-bin
+            thunderbird
             git
             htop
             kdeApplications.okular
             unzip
+            gnome3.dconf
 
             # Languages, Runtimes, etc.
             nodejs
@@ -63,9 +64,15 @@ in {
         programs.zsh = import ../programs/zsh.nix decoratedConfig;
 
         # GUI Applications
+        gtk = {
+            enable = true;
+            theme = {
+                name = "Materia-Base16";
+                package = (import ../programs/gtk-base16.nix decoratedConfig);
+            };
+        };
+
         home.file.".config/obsidian/themes/nord-base16.css".source = "${import ../programs/obsidian-base16.nix decoratedConfig}/nord-base16.css";
-        home.file.".gtkrc-2.0".source = "${import ../programs/gtk-base16.nix decoratedConfig}/gtkrc-2.0";
-        home.file.".config/gtk-3.0/gtk.css".source = "${import ../programs/gtk-base16.nix decoratedConfig}/gtk3.css";
         home.file.".vscode/extensions/base16-system".source = "${import ../programs/vscode-base16.nix decoratedConfig}/base16-system";
         home.file.".mozilla/localExtensions/base16-system.zip".source = "${import ../programs/firefox-base16.nix decoratedConfig}/addon.zip";
         home.file.".config/userstyles".source = "${import ../programs/userstyles.nix decoratedConfig}";
