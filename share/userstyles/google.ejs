@@ -1,0 +1,567 @@
+/* ==UserStyle==
+@name           Google Dark - Rainbow
+@namespace      github.com/exmert
+@version        1.1.2
+@description    Customizable theme for most Google sites, dark by default.
+@author         exmert
+@homepageURL    https://github.com/exmert/Google-Dark---Rainbow
+@updateURL      https://raw.githubusercontent.com/exmert/Google-Dark---Rainbow/main/GoogleDark-Rainbow.user.css
+@license        MIT
+@advanced color c_background "Background" #<%- base["00"]["hex"] %>
+@advanced color c_overlay "Overlay" #<%- base["01"]["hex"] %>
+@advanced color c_border "Border" #<%- base["02"]["hex"] %>
+@advanced color ct_dark "Dark text" #<%- base["04"]["hex"] %>
+@advanced color ct_light "Light text" #<%- base["07"]["hex"] %>
+@advanced color ct_clickable "Buttons/Links" #<%- base["0D"]["hex"] %>
+@advanced color ct_hyperlink "Hyperlink" #<%- base["0D"]["hex"] %>
+@advanced color ct_website "Website name" #<%- base["0E"]["hex"] %>
+==/UserStyle== */
+
+@-moz-document regexp("^https\:\/\/((www|accounts|books|calendar|contacts|drive|images|myaccount|myactivity|ogs|photos|play|scholar|translate)\.)?google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    html, body, header, footer {
+		background-color: /*[[c_background]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+		color: /*[[ct_dark]]*/ !important;
+    }
+    a {
+		color: /*[[ct_hyperlink]]*/ !important;
+    }
+    cite {
+		color: /*[[ct_website]]*/ !important;
+    }
+    svg {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+    .gb_he {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .EHzcec {
+		background-color: /*[[c_overlay]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+    }
+    .Rq5Gcb {
+		color: /*[[ct_light]]*/ !important;
+    }
+    span.Rq5Gcb:hover {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .gb_Ib {
+		background-color: /*[[c_background]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+    }
+    .gb_F, .gb_Ab {
+		background-color: /*[[c_overlay]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+    }
+    a.gb_Ab:hover, a.gb_Ib:hover, a.gb_Qb:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    a.gb_yb:hover {
+		background-color: /*[[c_overlay]]*/ !important;
+    }
+    .gb_qb, .gb_sb, .gb_9b {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .gb_5b, .gb_Fb, .gb_Ib {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+    .RNNXgb, .aajZCb, .zthhpf, .lV0vqc, #QDMvGf, #Ycyxxc, .sbibod, .sbib_a, .jBmls, #oc-search-input, .ac-renderer, .ac-renderer .ac-row, .a-jn-yd, .Aul2T, .KC1dQ, .gb_zb {
+		background-color: /*[[c_overlay]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+    }
+    .iOGqzf.mJEC7c, .thCpXb, .gb_5e, .gb_6e, .gb_vb, .gb_Hb {
+		background-color: /*[[c_background]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+    }
+    div.RNNXgb:hover, li.sbct:hover, div.zthhpf:hover, li.E2oEG:hover, input#Ycyxxc:hover, form.gb_5e:hover, form.gb_6e:hover, div.sbib_a:hover, div.oKubKe:hover, div.Aul2T:hover, li.FnhVzb:hover, input#oc-search-input:hover, div.ac-renderer .ac-row:hover, .gb_vb:hover, .gb_Hb:hover, .gb_zb:hover, .gb_xb:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .gLFyf, .sbl1, .JSAgYe, .o44hBf, #Ycyxxc, .Ax4B8, #lst-ib, .oKubKe, .gb_qf, .gb_rb, .a-jn-yd, .yNVtPc, .RwVyJb, #oc-search-input, .ac-renderer .ac-row {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .H4qWMc.aXIg1b, .thCpXb, .bmkrS, .jNjBJf, .znDVdd {
+		color: /*[[ct_dark]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/((www|images)\.)?google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    g-inner-card, .sbdd_b, .dw-sbi, .dw-sb-btn, .sbsb_a, .I6TXqe, .rl_item_base, .rqTuzc.mnr-c, .qmv19b, .XRsWPe.MEdqYd, .XRsWPe.knVDYb, .dkw61e, .sh-dr__prs, .kLhEKe, a.mlo-c, .VqFMTc, .dJcyOc, .h04bR, .yscHWb, .L43GYb, .jtEFhd.u8H8Fd, .imso-fpm, .qJnhT, .nGHNmf, .Z8r5Gb, .tsp-g, .I6a0ee, .mQo3nc, .cO53qb, .U0faLd, .CNf3nf, .jfk-radiobutton-radio, .jfk-radiobutton-radio::after, .WCKaKb, #fbar, #hdtbSum, #hdtbMenus, #appbar, .GHDvEf, .sfbg, .s8GCU, .jZWadf, .qcTKEe, .gacct-hero-video-clip, .zQTmif, .footerInner, .widget-pane-content, .yg51vc, .Xeztj, .Nxb87, .dr1yeb, .HskPDe {
+		background-color: /*[[c_background]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .YbqTTb, .BwMo1, .F9PbJd, .kp-blk, .lgJJud, .WGYX8, .vk_c, .zRQJhd, .EASEnb, .rl_feature, .rlc__slider, .rlc__slider-page, div.mlo-c, .G9CET, .iDGvh, .sh-dlr__list-result, .cbjjnc, .VvrH3b, .kappbar, .EsIlz, .gEYEQc, .MXl0lf, .gNO89b, .RNmpXc, .yOo6xe, .WaWKOe, .mfkH6e, .qdnLaf, .QnfS4e, .jTw2d, .QB7Vee, .tb_c, .imso-hov, .ey2qkf, .v3Iwj88yxmA__leaderboard, .hMYuh, .LyicNe, .dbHxM, .AvEv1e, .H73aad, .jq2rAe, .cF4V5c, .Ix6LGe, .tFPnEd, .hdtbItm, .h-c-header__bar, .gacct-hero-feature, .glue-c-tabset__panel-container, .action-menu-panel, .KZmu8e, .searchbox, .suggestions, .rLwmCGCu6mP__card, .MGqjK, .FAl3Ic {
+		background-color: /*[[c_overlay]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+		color: /*[[ct_light]]*/ !important;
+    }
+    input.YbqTTb:hover, g-flat-button.BwMo1:hover, input.dw-sbi:hover, div.dw-sb-btn:hover, li.dw-sbs:hover, a.F9PbJd:hover, div.y8Jpof:hover, div.rqTuzc.mnr-c:hover, div.WGYX8:hover, div.XRsWPe.MEdqYd:hover, div.XRsWPe.knVDYb:hover, a.EASEnb:hover, g-raised-button.cbjjnc:hover, div.VvrH3b:hover, div.klitem:hover, div.EsIlz:hover, div.MXl0lf:hover, input.gNO89b:hover, input.RNmpXc:hover, li.PfSDnb:hover, div.Hm7Qac:hover, a.f9UGee:hover, li.hdtbItm a.qs:hover, span.q:hover, a.rl_item.rl_item_base:hover, div.dJcyOc:hover, a.h04bR:hover, span.h04bR:hover, div.yscHWb:hover, a.OFxjge:hover, g-fab.U0faLd:hover, td.imspo_mt__sc-spc, div.tsp-cd:hover, g-fab.CNf3nf:hover, div.imso-hov:hover, hr.pb5vrc, div.I6a0ee:hover, g-inline-expansion-bar.AvEv1e:hover, a.H73aad:hover, g-menu-item.hide-focus-ring:hover, div.suggest:hover, div.rLwmCGCu6mP__card:hover, .WpKAof:hover, .FAl3Ic:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .gNO89b, .RNmpXc {
+        background-image: none !important;
+    }
+    .imso-hov, .KYeOtb.hide-focus-ring.rWAMad, .tsp-vc {
+		border-color: /*[[c_border]]*/ !important;
+    }
+    .cbphWd, .tsp-tb, .gDwA5, .tsp-tz, .y8Jpof, .zmYuj, .VibNM {
+        border-top: /*[[c_border]]*/ 1px solid !important;
+    }
+    .jA1nid, .b2hzT {
+        border-bottom: /*[[c_border]]*/ 1px solid !important;
+    }
+    .hdtb-msel {
+        border-bottom: /*[[ct_dark]]*/ 3px solid !important;
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .FqnKTc {
+        border-left: /*[[c_border]]*/ 1px solid !important;
+    }
+    .sdXoBf {
+        border-right: /*[[c_border]]*/ 1px solid !important;
+    }
+    .tsp-wi {
+        border-right: /*[[ct_light]]*/ 6px solid !important;
+    }
+    .nChh6e, .gm2-hairline-border {
+        border: /*[[c_border]]*/ 1px solid !important;
+    }
+    .dw-sbs, .mfMhoc, .med, .YyVfkd, .IsZvec, .s, .eJ7tvc, .Ss2Faf, .hb8SAc, .wwUB2c, .zECGdd, .RnpQO, .ZIF80, .TZZypb, .LHJvCe, .IThcWe, .gyWzne, .Tqvz7b, .uiBRm, .OZ8wsd, .BP43u, .H1ccWd, .xt8Uw, .ELcVZ, .pYBuhc.IVdU7b .NYCmxf, .sh-sr__shop-result-header, .CV7Lzb, .hBUZL, .Y3v8qd, .VNSPub, .cmlJmd, .f, .rsir2d, .HNdZMe, .yxsAke, .klmeta, .tr9W5c, .yDYNvb.lyLwlc, .imspo_mt__lt-t, .imspo_mt__match-sc, .imspo_mt__cmd, .jyC4xe, .WTHmze, .Od5Jsd, .iv236, .r3IKmc, .smiUbb, #Wprf1b, .FGlSad, .uDMnUc, .LmREXd, .xlBGCb, .OFxjge, .P1usbc, .vk_gy, .sbl2, .KYeOtb.hide-focus-ring, .kPLAje, .kX21rb, .mus_tt20, .GVj7ae, .BslMec, .ey2qkf, .tuzU3e, .sQjzEd, .HA4Wwf, .AqEFvb, .S23sjd, .cp7THd, .webanswers-webanswers_table__webanswers-table th, .goog-slider li, .sllabel, .ooYbic, .ZgdoBb, .Izi7Rd, .c07z9, .PoKnCd, .yzLxTc, .E2WDKf, .xzrguc, .N6Sb2c, .UVgjof, .b0KoTc, .rQEFy.NZmxZe, .S1FAPd, .VEbNnc, .U6puSd, .EQ4p8c, .sh-dtt__top-tools, .TXwUJf, .section-facts, .suggest-query, .GLOBAL__gm2-caption, .rLwmCGCu6mP__info, .section-weather-text, .PyJv1b, .ayRjaf, .GlPvmc, .lQ6Auc {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .JolIg, .qrShPb, .aCOpRe em, .SwDSDf, .O8U6h, .imspo_mt__dt-t, .xjRZNc, .gadasb, .uo4vr, .d87Otf, .YRasv, .HboBSb, .vk_bk, .XH1CIc, .uUoqX, .A941ff, .YIikAd, .tsp-tz, .lA0GG, .imspo_mt__lg-st-c, .imspo_mt__pm-infc, .g6Emdf, .fwXO9b, .e9fBA, .mbWiBb, .Oo683d, .nGqo8b, .R1ZKVe, .UKbGGd, .reYxHb, .gDr70c, .rDMtnd, .x0PfEb, span.kKVYgd, .xVXTVe, .wNs7se, .Z0LcW, .YXQ1jd, .cwUqwd, .h-c-header__cta-li-link, .h-c-button--primary, .T14wmb, .kHxwFf, a.gb_4, .suggest, .suggest-query .suggest-bold, .rLwmCGCu6mP__title, .zCubwf, .rjmdhd {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .k4DMHe .xXEKkb, .w8qArf .fl, .mDj5wd, .x9emld, .rl_item_base .title, .XRsWPe.MEdqYd, .esuhec, .VJwspe, .PVsnzc, .IZACzd, .fUflyc, .pYBuhc .NYCmxf, .VQN8fd h4, .VZTCjd h3, .isfR2, .RawNCe, .pM4Snf, .RCBpod, .wUrVib, .UiOOze, .imspo_mt__lg-st-c-np, .hide-focus-ring, .tsp-vct, .imso-regular-font, .JjtOHd, .cfBJGe, .I6a0ee, .aKcFGd, div.kKVYgd, .kltat, .jleFbf, .q, .qs, .NZmxZe, .PNyWAd, .jklcHd, .w6PoOe, .SPmIAf, .r9PaP, .igM9Le, .hdtb-mn-hd, .hdtbItm, .GshZze, #cdrlnk, .f9UGee, .Cq34nf, .gJBeNe, .cF4V5c-ibnC6b, .wBIdUd, .svpdod, .hdtb-mitem .hdtb-dd-b, .bVj5Zb, .WGwSK, .yF4Rkc, .dZH8qf {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+    .f3LoEf, .aVSTQd, .JheGif, .Eegi6c, .EZRelc, .xjT6He, .iGBaJe, .SW5pqf, .kno-f.rpBMYb, .vNptk, .XTgbhc, .di8g3 a, .pTi5ve, a .zTpPx, .W8wzH {
+		color: /*[[ct_hyperlink]]*/ !important;
+    }
+    .dyjrff, .wqg8ad, .cJzOGc, .WF4CUc, .Ywxp6b, .VqFMTc, .qzEoUe, .fxgdke, .pdpvld, .tsp-lv, .tsp-g, .hVpeib, .jUVTC, .dUsgLe, .CEMjEf {
+		color: /*[[ct_website]]*/ !important;
+    }
+    .imspo_mt__triangle > polygon {
+        fill: /*[[ct_light]]*/ !important;
+    }
+    .z1asCe, .XeEBj, .IA8gLe, .swtDye, .CIF8af, .H1KrKd, .KA8Jyb {
+        fill: /*[[ct_clickable]]*/ !important;
+    }
+    .BfIAp {
+        fill: /*[[ct_website]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/accounts\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .VmOpGe {
+		background-color: /*[[c_background]]*/ !important;
+    }
+    .RAYh1e {
+		background-color: /*[[c_overlay]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+    }
+    .B9IrJb.KKjvXb {
+        color: /*[[ct_dark]]*/ !important;
+    }
+    .zHQkBf, .w1I7fb, .wLBAL, .jXeDnc h1 {
+        color: /*[[ct_light]]*/ !important;
+    }
+    .ksBjEc, .BHzsHc {
+        color: /*[[ct_clickable]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/books\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .gb_3f, .kd-appbar, .footerInner, .header_bar {
+		background-color: /*[[c_background]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+        color: /*[[ct_dark]]*/ !important;
+    }
+    #gbqfqw, #viewport, .slider-empty-shelf-content {
+		background-color: /*[[c_overlay]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+        color: /*[[ct_light]]*/ !important;
+    }
+    .slider-button, #gbqfqw:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .slider-button, .slider-drawables {
+        border-color: /*[[c_border]]*/ !important;
+    }
+    .footerInner {
+        border-top: /*[[c_border]]*/ 1px solid !important;
+    }
+    #oc-search-logo, .ebook-promo .ebook-promo-description, .ebook-promo .section, .gb-left-nav-link, .slider_access {
+        color: /*[[ct_dark]]*/ !important;
+    }
+    #gbqfq, .goog-flat-menu-button {
+        color: /*[[ct_light]]*/ !important;
+    }
+    .sidebar-collection-title {
+        color: /*[[ct_clickable]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/calendar\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .ef2wWc, .I7OXgf, .JtukPc, .wmCMbe, .p9lUpf, .J09ahd, .MDfQ7, .JPdR6b, .Gk2izd, .GENA3c, .KKjvXb, .Kk7lMc-DWWcKd-OomVLb-haAclf {
+		background-color: /*[[c_background]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .tNDBE, .W0m3G::before, .r4nke, .EfSkZd, .jZ0DTb, .IIB0tc .ULpymb, .VOEIyf .jBmls, .Kb2sf, .xWId8e, .SaBhMc, .FpmPAb.FpmPAb, .HLI7qf, .ncFHed, .OCQPo, .v83gc, .KKjvXb.LdTVNd {
+		background-color: /*[[c_overlay]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+		color: /*[[ct_light]]*/ !important;
+    }
+    div.IIRRR:hover, div.qRI4pc:hover, div.Cd9hpd:hover, button.SaBhMc:hover, div.HLI7qf:hover, span.z80M1:hover, div.MocG8c:hover, div.kMp0We.d6wfac:hover, div.qg9gDf:hover, div.KKjvXb.LdTVNd:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .KSxb4d.F262Ye, .yzYBvd.F262Ye, .OmwDud.F262Ye .SOVd1b, div.KSxb4d:hover, h2.yzYBvd:hover, div.SOVd1b:hover {
+        background-color: /*[[ct_website]]*/ !important;
+    }
+    .qRI4pc, .Cd9hpd {
+		border-color: /*[[c_border]]*/ !important;
+    }
+    .tNDBE {
+        border-left: /*[[c_border]]*/ 1px solid !important;
+    }
+    .PhLhOd, .t8qpF {
+        border-right: /*[[c_border]]*/ 1px solid !important;
+    }
+    .QIadxc {
+        border-bottom: /*[[c_border]]*/ 1px solid !important;
+    }
+    .z80M1.N2RpBe::before {
+        border-right: /*[[ct_clickable]]*/ 2px solid !important;
+        border-bottom: /*[[ct_clickable]]*/ 2px solid !important;
+    }
+    .wy3aMe, .W0m3G, .QJLQUd, .ebs3Ne, .g3dbUc, .s6I1Kd, .NAgJzc, .EfSkZd, .bnPQpd, .NI2kfb, .rSoRzd, .gb_4c, .nxPHec, .z80M1, .r4nke, .SoBqBf, .hGcgEd, .O1gyfd, .OOp5xb, .LGMdbc, .oj6B2e, .NI2kfb > a, .MANBAf, .pCoqfc, .DN1TJ, .N4XV7d, .OmwDud, .SOVd1b, .KSxb4d.F262Ye, .yzYBvd.F262Ye, .j3nyw {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .yzYBvd, .iMprOe, .c1wk3e, .TgcD5e, .jT5e9, .MocG8c, .zHQkBf, .Jmftzc.EiZ8Dd.UflSff, .JAPzS, .pCcXPe {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .u5sQsb, .VZhFab, .dtaVuc, .KKjvXb, .uyYuVb {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+    .snByac, .DPvwYc, .DPvwYc > svg {
+		color: /*[[ct_dark]]*/ !important;
+		fill: /*[[ct_dark]]*/ !important;
+    }
+    .rF3YF span, .uSx8Od {
+		color: /*[[ct_clickable]]*/ !important;
+		fill: /*[[ct_clickable]]*/ !important;
+    }
+    .NMm5M {
+        fill: /*[[ct_clickable]]*/ !important;
+    }
+    .z80M1.N2RpBe::before {
+        opacity: 1 !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/contacts\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .dFPtBe, .k831u, .tuQOVc, .g3VIld, .eQMted {
+		background-color: /*[[c_background]]*/ !important;
+    }
+    .zYQnTe, .ONOzI, .fbkutb, .PWsB5e, .bgpk6e, .JPdR6b, .ncJ6qe, .ncFHed, .jrhe5d {
+		background-color: /*[[c_overlay]]*/ !important;
+    }
+    div.jqJLq:hover, button.bgpk6e:hover, span.z80M1:hover, div.MocG8c:hover, div.eQMted:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .YfmZeb, .fbkutb, .t5nRo {
+		border-color: /*[[c_border]]*/ !important;
+    }
+    .z80M1.N2RpBe::before {
+        border-color: /*[[ct_clickable]]*/ !important;
+    }
+    .ONOzI, .OdyOpe {
+        border-bottom: 1px solid /*[[c_border]]*/ !important;
+    }
+    .CAX6Sd, .AxOyFc, .ndJi5d, .fqp6hd, .SiTyAd, .ca2xib, .FX4Q3d, .jlpDMe, .jMJfHd, .H0zpEd {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .y4sJgd, .z80M1, .E6Tb7b, .MocG8c {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .jqJLq.jqJLq a, .zgXFde, .mf6tRb, .bgpk6e, .KshDhe, .ksBjEc {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+    .YfmZeb:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .RTiFqe {
+        fill: /*[[ct_clickable]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/drive\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .a-qc-La, .a-D-B, .N7iPof, .a-ub-D, .a-ub-oa, .a-ub-Gd, .Kk7lMc-Yb-Il-j, .h-R-w-d.g-Qb, .a-gd-j, .a-t-D, .l-u-xb, .l-u-Ab-zb, .lb-k-Gb > button:not(.h-De-Y) {
+		background-color: /*[[c_background]]*/ !important;
+    }
+    .lb-k-x, .a-U-ye-ha > .a-U-J, .x6jRSb, .h-uj, .a-S-dc, .jGNTYb, .lb-k, .lb-k-V, .wMElNe, .y-C, .y-C-Ed-V, .a-q-zb-j, .Fq82mf {
+		background-color: /*[[c_overlay]]*/ !important;
+    }
+    .a-t-J-ha, .l-u-ha, .aabwZd:not(.KBj6Qd) .GZwC2b, .GZwC2b > div .jGNTYb, div.a-U-J:hover, button.x6jRSb:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .a-S-dc, .jGNTYb, .l-u-xb, .wMElNe {
+		border-color: /*[[c_border]]*/ !important;
+    }
+    .H-qa-Ma-d-Jb {
+		border-color: /*[[ct_clickable]]*/ !important;
+    }
+    .a-d-vc {
+        border-right: /*[[c_border]]*/ 1px solid !important;
+    }
+    .a-D-B-WErN3d-j, .a-s-Ba-Ak, .a-t-D, .a-t-cb, .N7iPof, .WYuW0e, .y-C, .y-C-Ed-V, .a-q-zb-j {
+        border-bottom: /*[[c_border]]*/ 1px solid !important;
+    }
+    .a-t-J-ha > .a-t-cb, .aabwZd:not(.KBj6Qd) .GZwC2b {
+        border-bottom: /*[[c_background]]*/ 1px solid !important;
+    }
+    .a-q-Jc-bj, .a-q-Lb-go, .YUNZ4c, .o-Yc-o-T, .lb-k-V-r, .ca-k-wb-bd-r, .a-fd-ba-lp, .a-fd-ba-Q-ij, .a-t-D-cb, .a-t-J, .a-nb-D, .a-q-Xc-Ab, .a-hd-Il-w-d, .lb-k-Gb > button:not(.h-De-Y), .ab-S-Wg, .y-C-Ya, .y-C-q-j, .y-E-Xc-Ma-hi-r, .Tguc8d, .guXkdd, .zl82Bc, .SCe7Ib {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .M3pype, .lb-k, .h-R-w-d.g-Qb, .a-fd-ba-Q-Qa-ga, .a-Va-Zb-ga, .a-Va-Zb-qf-vb::placeholder, .a-t, .l-Ab-T-r, .WYuW0e, .l-u-xb, .l-u-V, .ab-S-Wg b, .wMElNe, .y-C-Ed-V, .y-C-q-D, .y-C-H-Sb, .jGNTYb {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .h-R-w-d.a-l-S-Pc-w-d, .a-Mg-V-T, .h-ra, .a-s-T, .x6jRSb, .g-d-wd, .a-Ws-nb-Oh-Ma-A, .a-S-dc-Q-r, .kc-A, .cr-hTVF2c-r, .ml-Pr-A, .qoCZef, .y-C-rh-d, .ZqJeHd {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+    .l-o-c-qd > svg, .a-s-fa-Ha-pa, .a-q-me-Z-c > svg, .a-t-J, path.a-s-fa-Ha-pa {
+        fill: /*[[ct_dark]]*/ !important;
+    }
+    .a-s-fa-Ha-pa, .l-o-c-qd > svg {
+        fill: /*[[ct_light]]*/ !important;
+    }
+    .a-d-c > svg, .Yb-Il-d-c, .a-qd-va, rect.B {
+        fill: /*[[ct_clickable]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/myaccount\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .V7Ncoe, .ikIPKb {
+		background-color: /*[[c_background]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+    }
+    .XLK0Od, .mSUZQd, .KKjvXb, .hyMrOd, .zP3YCe, .g81fxb.ROuVee, .JaX6Fb {
+		background-color: /*[[c_overlay]]*/ !important;
+		border-color: /*[[c_border]]*/ !important;
+    }
+    a.EhlvJf:hover, div.V7Ncoe:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .TCnBcf {
+		background-color: /*[[ct_hyperlink]]*/ !important;
+		color: /*[[ct_light]]*/ !important;
+    }
+    .VfPpkd-XPtOyb:hover, .IExo3d.X9yxo:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .VfPpkd-XPtOyb {
+        border-color: /*[[c_border]]*/ !important;
+    }
+    .Q5jTGb, .IExo3d.X9yxo {
+        border-top: /*[[c_border]]*/ 1px solid !important;
+    }
+    .HLEawd {
+        border-bottom: /*[[c_border]]*/ 1px solid !important;
+    }
+    .IQgWAe, .mPKYhd, .LBT0qd, .cmSWBc, .gTRuod, .ZZ9xL, .XVLgLb, .ccr4rb, .AiUdgd, .BpSZ9c, .hEleC, .mu6pme, .mOBqoe, .tHVeec, .yrQA5d, .xoz9O, .ei7k9d, .bKQbh, .RAjCxe, .eqiJQ, .cg7XG, .KedAEe, .Lgy14b, .aheSKb {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .fnfC4c, .ISnqu, .uCK4Db, .x7WrMb, .Dn5CSc, .bJCr1d, .kFNik, .I7nwS, .no6oJe, .hyMrOd, .T4sa0d, .s70KU, .FvMf2c, .k44DMb, .meUf6b, .ow0aJf, .odCtjb, .Vkstzc, .BkKHtf, .ggnaZd.lpnIAc, .W545bd, .ld7Xje {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .VDnn1c {
+		color: /*[[ct_website]]*/ !important;
+    }
+    .bJCr1d, .GiKO7c, .WzaSad, .nF0lvf, .b5edlf, .KshDhe, .ew338c, .VfPpkd-Bz112c-LgbsSe, .HQ8yf, .VFiILb, .DPvwYc, .ksBjEc {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+    .mtfBU {
+		color: /*[[ct_hyperlink]]*/ !important;
+    }
+    .BtcWl, .mMF6qc {
+        fill: /*[[ct_clickable]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/myactivity\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .gb_Fc {
+		background-color: /*[[c_background]]*/ !important;
+        border-color: /*[[c_border]]*/ !important;
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .ITB23e, .zQTmif, .HbiE4d, .vVmo9e, .TABmec {
+		background-color: /*[[c_overlay]]*/ !important;
+        border-color: /*[[c_border]]*/ !important;
+		color: /*[[ct_light]]*/ !important;
+    }
+    .vVmo9e {
+        background-image: none !important;
+    }
+    .IlZEuc[aria-selected="true"] {
+        background-color: /*[[c_overlay]]*/ !important;
+    }
+    .IlZEuc:hover {
+        background-color: /*[[c_border]]*/ !important;
+    }
+    .gb_0c, .fDHQJc, .GbWKrb, .Ja128d, .zVr1x, .np6YT, .wJCOBf, .ZRSaj {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .I5Z8Ld, .sRi2ab, .xePSib, .Ck94i, .JyqSDc, .x8cu2d, .QfBvBc, .OThY8c {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .kiFq8c, .LjDxcd {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/photos\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .wDSX5e, .QtDoYb, .PpML1d, .Cv8Rjc, .ajQY2, .qRUolc {
+		background-color: /*[[c_background]]*/ !important;
+        border-color: /*[[c_border]]*/ !important;
+        color: /*[[ct_dark]]*/ !important;
+    }
+    .ixImeb, .JPdR6b, .HrGXnb, .eReC4e, .YisXab, .KWdEHf.QtDoYb, .rtIMgb.WjVZdb, .g3VIld, .ZD6bvb, .y8WKYe, .XQOlvd, .eqdhYc, .MFpXre, .Q77Pt {
+		background-color: /*[[c_overlay]]*/ !important;
+        border-color: /*[[c_border]]*/ !important;
+        color: /*[[ct_light]]*/ !important;
+    }
+    a.DOAbib:hover, span.z80M1:hover, div.X7j0Rc:hover, div.ffq9nc.Kd04rd:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .VfPpkd-Jh9lGc, .t5nRo {
+        border-color: /*[[c_border]]*/ !important;
+    }
+    .eReC4e {
+        border-bottom: /*[[c_border]]*/ 1px solid !important;
+    }
+    .EIug8e, .wesoxe, .fl9QFd, .CZ5Sfb, .xA0gfb, .P0eWkf, .rWd3Kd, .rN6Qmb, .eT2rxc, .rWyLGb, .HiceN, .ZEmz6b, .aDUoef, .ccHtXe, .I7yCae, .ycKFmf, .FtiXNe, .hcARpc, .gjOeCd, .oBMhZb, .wiOkb, .mplJGb, .pRVpNc, .lj17Ob, .SxIwif, .zKT0yd {
+        color: /*[[ct_dark]]*/ !important;
+    }
+    .OgirMe, .IGdgBf, .ARSUIf, .Ecvatc, .C96I0d, .rtExYb, .QJqKFe, .iYQdEd, .R9U8ab, .WUbige, .BnQsec, .pPZ24, .Y596od {
+        color: /*[[ct_light]]*/ !important;
+    }
+    .G7ubtf, .oJeWuf, .WNmljc, .ksBjEc, .LjDxcd, .snByac, .FkWMmd, .mSbCD, .qJ3sed {
+        color: /*[[ct_clickable]]*/ !important;
+    }
+    .JUQOtc, .fKz7Od {
+        fill: /*[[ct_clickable]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/play\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .gb_3f, .sIIDsc, .h-c-footer, .LVQB0b {
+		background-color: /*[[c_background]]*/ !important;
+        border-color: /*[[c_border]]*/ !important;
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .t5eBue, .gbqfqw, .qZxJ9, .uMConb, .buPxGf, .W4P4ne, .LXrl4c, .h-c-header__bar, .h-c-footer__lang-dropdown, .CoKTif, .LNKfBf {
+		background-color: /*[[c_overlay]]*/ !important;
+        border-color: /*[[c_border]]*/ !important;
+		color: /*[[ct_light]]*/ !important;
+    }
+    div.gbqfqw:hover, div.hNW13c:hover, li.fle8Af:hover, li.GL7Kod:hover, li.KZnDLd:hover {
+        background-color: /*[[c_border]]*/ !important;
+    }
+    .uMConb {
+        border-radius: 0 !important;
+    }
+    .cqtbn {
+        background: none !important;
+    }
+    .AHFaub, .xjAeve, .V2Vq5e, .EymY4b {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .DWPxHb, .BHMmbe, .UD7Dzf, .gbqfif, .hNW13c, .QVznTd, .f5NCO {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .uJjCzb, .sv0AUd, .K2pK9c, .WtH9qd, .WhMnYc, .gm1qLe, .Rm6Gwb, .BgcNfc, .h-c-headline, .JRhuKe {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/scholar\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    #gs_ab, #gs_ftr, #gs_hdr, #gs_hdr_drs {
+		background-color: /*[[c_background]]*/ !important;
+    }
+    #gs_hdr_act_aab, #gs_hdr_act_ab, #gs_hdr_act_aso, #gs_hdr_drw, .gs_eml_sd, .gs_in_txt, .gs_md_ac_li, .gs_md_d, .gs_md_ulr {
+		background-color: /*[[c_overlay]]*/ !important;
+    }
+    button#gs_hdr_act_aab:hover, button#gs_hdr_act_aso:hover, input.gs_in_txt:hover, li.gs_md_ac_li:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .gs_cbx {
+		background-color: /*[[ct_light]]*/ !important;
+    }
+    #gs_ftr, #gs_hdr_act_aab, #gs_hdr_act_aso, .gs_eml_sd, .gs_in_txt, .gs_md_ac ul {
+        border-color: /*[[c_border]]*/ !important;
+    }
+    #gs_hp_cv19 h2, .gs_lbl, .gs_md_ac_li {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .gs_in_txt, .gs_gray {
+		color: /*[[ct_light]]*/ !important;
+    }
+    #gs_ab_ttl, .gs_rs b, .gs_lbl {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+    a:link b, .gs_ctc {
+		color: /*[[ct_hyperlink]]*/ !important;
+    }
+    .gs_or_svg {
+        stroke: /*[[ct_hyperlink]]*/ !important;
+    }
+    #gs_eml_ra, .gs_a {
+		color: /*[[ct_website]]*/ !important;
+    }
+    .gs_grn {
+		color: /*[[ct_website]]*/ !important;
+    }
+}
+
+@-moz-document regexp("^https\:\/\/translate\.google\.(com|([a-z]{2}))(\.[a-z]{2})?\/.*") {
+    .ordo2.KKjvXb, .RvYhPd::before, .RvYhPd, .a2Icud, .PsfnLc, .ita-kd-dropdown-menu {
+		background-color: /*[[c_background]]*/ !important;
+    }
+    .ccvoYb, .P6w8m, .bvzp8c, .RstnCb, .KskmCc, .k5v5Nb, .KjuTac, .I87fLc.XzOhkf, .ySES5 {
+		background-color: /*[[c_overlay]]*/ !important;
+    }
+    .RstnCb, .I87fLc.XzOhkf, .PsfnLc {
+        border-color: /*[[c_border]]*/ !important;
+    }
+    .RSggmb {
+        border-color: /*[[ct_light]]*/ !important;
+    }
+    .jodjCb {
+        border-color: /*[[ct_hyperlink]]*/ !important;
+    }
+    .Bcbxbe {
+        border-bottom: /*[[c_border]]*/ 1px solid !important;
+    }
+    div.ordo2:hover, span.PsfnLc:hover, li.ita-kd-menuitem:hover, li.Bcbxbe:hover, a.yJWPX:hover {
+		background-color: /*[[c_border]]*/ !important;
+    }
+    .ordo2.KKjvXb, .ZTPlmc, .tm8pq, .V5PAJd, .TEGJAb, .xUPQqb, .nYkDR, .UdTY9, .eIKIse, .MZgjEb {
+		color: /*[[ct_dark]]*/ !important;
+    }
+    .ordo2, .er8xn, .J0lOec, .AarNVd, .uNr6ee, .gHl6Mc, .S6GkK, .RSggmb, .KskmCc, .VhOj3e, .KmsAmb .tL9Q4c, .fw3eif {
+		color: /*[[ct_light]]*/ !important;
+    }
+    .VfPpkd-jY41G-V67aGc, .TcXXXb, .Pfag, .SSgGrd, .VfPpkd-kBDsod, .PsfnLc, .MtFg0, .ita-kd-menuitem, .mvqA2c {
+		color: /*[[ct_clickable]]*/ !important;
+    }
+    .a88hkc, .jodjCb {
+		color: /*[[ct_hyperlink]]*/ !important;
+    }
+    .gb_Fc, .frame::before, .gt-lc.gt-lc-mobile .gt-cc-r-i, .language_list_item_wrapper.item-selected, .gt-cd-cl {
+		background-color: /*[[c_background]]*/ !important;
+    }
+    .NMm5M {
+        fill: /*[[ct_clickable]]*/ !important;
+    }
+}

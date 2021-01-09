@@ -28,3 +28,4 @@ Copyright belongs to me and is under the MIT License, except for:
   - `programs/discord-base16.nix` - ['Nox' discord theme. MIT License](https://github.com/rauenzi/Nox)
   - `share/shutdown-menu` - [Script by Benjamin Chrétien. GNU-GPLv3 License](https://github.com/vivien/i3blocks-contrib/)
   - `share/wallpaper.jpg` - [Nessus, Destiny 2. Photographed by kseeker5](https://kseeker5.github.io/wallpapers/index.html)
+  - `share/userstyles/google.ejs` - [Google Dark Rainbow. MIT License](https://github.com/exmert/Google-Dark---Rainbow)
