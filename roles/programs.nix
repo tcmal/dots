@@ -32,6 +32,8 @@ in {
             kdeApplications.okular
             unzip
             gnome3.dconf
+            zoom-us
+            teams
 
             # Languages, Runtimes, etc.
             nodejs
