@@ -37,6 +37,17 @@ in recursiveMerge [
                 i3status.modules = {
                     "battery 1" = {
                         position = 0;
+
+                        settings = {
+                            format = "%status  %remaining";
+
+                            status_chr = "";
+                            status_bat = "";
+                            status_full = "";
+                            low_threshold = 30;
+                            threshold_type = "time";
+                        };
+
                     };
                 };
 
