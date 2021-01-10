@@ -63,8 +63,8 @@ in recursiveMerge [
                 ];
 
                 keybindings = lib.mkOptionDefault {
-                    "XF786MonBrightnessUp" = lib.mkForce "exec --no-startup-id light -A 5";
-                    "XF786MonBrightnessDown" = lib.mkForce "exec --no-startup-id light -U 5";
+                    "XF86MonBrightnessUp" = lib.mkForce "exec --no-startup-id light -A 5";
+                    "XF86MonBrightnessDown" = lib.mkForce "exec --no-startup-id light -U 5";
                 };
             };
         };
