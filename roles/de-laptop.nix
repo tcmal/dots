@@ -5,30 +5,57 @@
 let decoratedConfig = {
         inherit colours terminal menu config pkgs lib;
     };
-in lib.recursiveUpdate (import ./de-desktop.nix decoratedConfig decoratedConfig) {
-    # Power management
-    powerManagement = {
-        enable = true;
-        cpuFreqGovernor = "ondemand";
-    };
-
-    # Touchpad setup
-    services.xserver = {
-        libinput = {
+    recursiveMerge = (import ../share/recursiveMerge.nix lib);
+in recursiveMerge [
+    (import ./de-desktop.nix decoratedConfig decoratedConfig)
+        {
+        # Power management
+        powerManagement = {
             enable = true;
+            cpuFreqGovernor = "ondemand";
+        };
+        programs.light.enable = true;
 
-            naturalScrolling = true;
+        # Touchpad setup
+        services.xserver = {
+            libinput = {
+                enable = true;
+
+                naturalScrolling = true;
+            };
+
+            displayManager.autoLogin.enable = false;
         };
 
-        displayManager.autoLogin.enable = false;
-    };
+        home-manager.users.mal = {
+            home.packages = with pkgs; [
+                xfce.xfce4-power-manager
+            ];
 
-    home-manager.users.mal = {
-        # Add battery to status bar
-        programs.i3status.modules = {
-            "battery 1" = {
-                position = 0;
+            programs = {
+                # Add battery to status bar
+                i3status.modules = {
+                    "battery 1" = {
+                        position = 0;
+                    };
+                };
+
+                # Smaller terminal font
+                alacritty.settings.font.size = 8;
+            };
+
+            
+            # Brightness controls and xfce4-power-manager for low battery notifications
+            xsession.windowManager.i3.config = {
+                startup = [
+                    { command = "${pkgs.xfce.xfce4-power-manager}/bin/xfce4-power-manager"; always = true; }
+                ];
+
+                keybindings = lib.mkOptionDefault {
+                    "XF786MonBrightnessUp" = lib.mkForce "exec --no-startup-id light -A 5";
+                    "XF786MonBrightnessDown" = lib.mkForce "exec --no-startup-id light -U 5";
+                };
             };
         };
-    };
-}
+    }
+]
