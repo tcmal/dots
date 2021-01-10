@@ -7,7 +7,7 @@
     
     settings = {
         global = {
-            font = "Roboto, 18";
+            font = "Roboto, 12";
             alignment = "center";
             
             geometry = "450x10-30+60";

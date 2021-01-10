@@ -9,8 +9,9 @@
             normal = {
                 family = "Fira Mono";
             };
+            
+            size = 8;
         };
-        size = "16.0";
 
         draw_bold_text_with_bright_colors = true;
         colors = {
@@ -39,6 +40,12 @@
                     cyan = colours.base0C;
                     white = colours.base07;
                 };
+            };
+        };
+        window = {
+            padding = {
+                x = 5;
+                y = 5;
             };
         };
     };
