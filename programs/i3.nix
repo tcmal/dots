@@ -113,7 +113,7 @@
             "${modifier}+j" = "focus down";
             "${modifier}+k" = "focus up";
             "${modifier}+l" = "focus right";
-
+ 
             "${modifier}+Shift+h" = "move left";
             "${modifier}+Shift+j" = "move down";
             "${modifier}+Shift+k" = "move up";
@@ -148,6 +148,10 @@
             "${modifier}+Shift+8" = "move container to workspace ${workspaces.steam}";
             "${modifier}+Shift+9" = "move container to workspace ${workspaces.misc}";
             "${modifier}+Shift+0" = "move container to workspace ${workspaces.misc2}";
+
+            "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume 0 +5%";
+            "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume 0 -5%";
+            "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute 0 toggle";
         };
 
         window = {
