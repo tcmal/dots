@@ -27,11 +27,7 @@ in {
             # Utilities
             firefox-devedition-bin
             thunderbird
-            git
-            htop
             kdeApplications.okular
-            unzip
-            gnome3.dconf
             zoom-us
             teams
 
@@ -41,6 +37,7 @@ in {
                 ppkgs.virtualenv
             ]))
             rustup
+            gcc
 
             # Developer tools
             vscode

@@ -38,6 +38,15 @@ in {
 
     # User-specific setup
     home-manager.users.mal = {
+        home.packages = with pkgs; [
+            git
+            htop
+            unzip
+            gnome3.dconf
+
+            xfce.thunar
+        ];
+
         # WM / DE setup
         xsession.windowManager.i3 = recursiveMerge [
             (import ../programs/i3.nix decoratedConfig)
