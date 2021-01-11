@@ -34,9 +34,10 @@
         editor = {
             dotExpansion = true;
         };
-    };
 
-    profileExtra = ''
-        export PATH="$PATH:$HOME/.npm/bin/";
-    '';
+        extraConfig = ''
+            export PATH="$PATH:$HOME/.npm/bin/";
+            eval "$(${pkgs.direnv}/bin/direnv hook zsh)";
+        '';
+    };
 }

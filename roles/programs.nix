@@ -44,6 +44,8 @@ in {
             vim
             obsidian
             jetbrains.idea-ultimate
+            direnv
+            binutils
 
             # Fun stuff
             steam
@@ -57,6 +59,9 @@ in {
             userName = "tcmal";
             userEmail = "oscar.shrimpton.personal@gmail.com";
         };
+
+        # Lorri + Direnv
+        services.lorri.enable = true;
 
         # Terminal stuff
         programs.alacritty = import ../programs/alacritty.nix decoratedConfig;
