@@ -27,6 +27,12 @@ in recursiveMerge [
             displayManager.autoLogin.enable = false;
         };
 
+        # Bluetooth and pulseaudio w/ bluetooth enabled
+        hardware.bluetooth.enable = true;
+        services.blueman.enable = true;
+
+        hardware.pulseaudio.package = pkgs.pulseaudioFull;
+
         home-manager.users.mal = {
             home.packages = with pkgs; [
                 xfce.xfce4-power-manager

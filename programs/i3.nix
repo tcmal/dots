@@ -149,8 +149,8 @@
             "${modifier}+Shift+9" = "move container to workspace ${workspaces.misc}";
             "${modifier}+Shift+0" = "move container to workspace ${workspaces.misc2}";
 
-            "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume 0 +5%";
-            "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume 0 -5%";
+            "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
+            "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
             "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute 0 toggle";
         };
 
