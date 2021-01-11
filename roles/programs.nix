@@ -19,6 +19,10 @@ in {
         '';
     };
 
+    fonts.fonts = with pkgs; [
+        lmodern
+    ];
+
     # User-specific setup
     home-manager.users.mal = {
 
@@ -30,6 +34,10 @@ in {
             kdeApplications.okular
             zoom-us
             teams
+            lyx
+            texlive.combined.scheme-medium
+            pgfplots
+            librsvg
 
             # Languages, Runtimes, etc.
             nodejs
@@ -76,6 +84,7 @@ in {
             };
         };
 
+        home.file.".lyx/colours".source = "${import ../programs/lyx-base16.nix decoratedConfig}/colours";
         home.file.".config/obsidian/themes/nord-base16.css".source = "${import ../programs/obsidian-base16.nix decoratedConfig}/nord-base16.css";
         home.file.".vscode/extensions/base16-system".source = "${import ../programs/vscode-base16.nix decoratedConfig}/base16-system";
         home.file.".mozilla/localExtensions/base16-system.zip".source = "${import ../programs/firefox-base16.nix decoratedConfig}/addon.zip";
