@@ -3,7 +3,7 @@
 { pkgs, colours, ... }:
 
 derivation {
-    name = "gtk-base16";
+    name = "obsidian-base16";
 
     builder = "${pkgs.bash}/bin/bash";
     args = with pkgs; [ "-c" ''
