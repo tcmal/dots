@@ -1,0 +1,209 @@
+@-moz-document domain("www.learn.ed.ac.uk") {
+    /* ==UserStyle==
+    @name           UoE Learn - Base16 Dark
+    @author         tcmal
+    @description    Base16 dark theme
+    @license        MIT
+    ==/UserStyle== */
+    
+    :root {
+        --base00: #1d1f21;
+        --base01: #282a2e;
+        --base02: #373b41;
+        --base03: #969896;
+        --base04: #b4b7b4;
+        --base05: #c5c8c6;
+        --base06: #e0e0e0;
+        --base07: #ffffff;
+        --base08: #CC342B;
+        --base09: #F96A38;
+        --base0A: #FBA922;
+        --base0B: #198844;
+        --base0C: #3971ED;
+        --base0D: #3971ED;
+        --base0E: #A36AC7;
+        --base0F: #3971ED;
+    }
+    
+    /* Homepage */
+    .contentPaneWide {
+        background: var(--base02);
+    }
+    .container, .portlet {
+        background: var(--base00);
+        border: none;
+    }
+    
+    .portlet > h2 {
+        background: none;
+        color: var(--base07);
+        border-bottom: 2px solid var(--base06);
+    }
+    
+    .portlet h3 {
+        color: var(--base05);   
+    }
+    
+    .dataBlockLabel {
+        color: var(--base05) !important;
+    }
+    
+    a {
+        color: var(--base0D);
+    }
+    
+    .paneTabs {
+        background: var(--base01);
+        border: none;
+        color: var(--base07);
+    }
+    .paneTabs #paneTabs .active a {
+        color: var(--base07);
+    }
+    .paneTabs #paneTabs a {
+        color: var(--base0C);
+        border: none;
+    }
+    
+    #topTabs {
+        background: var(--base01) !important;
+    }
+    #globalNavPageNavArea .bouncer {
+        border-bottom: 1px solid var(--base06);
+    }
+    
+    .appTabs td.active {
+        border-bottom: 5px solid var(--base0C);
+    }
+    
+    #badgeTotalCount {
+        background-color: var(--base0C);
+        color: var(--base00);
+    }
+    
+    .courseListing > li {
+        border-top: 1px solid var(--base02) !important;
+    }
+    .courseListing > li:first-child {
+        border-top: none !important;
+    }
+    
+    /* Content Pages */
+    .contentPane, .locationPane {
+        background: var(--base02) !important;
+    }
+    .contentPane .shadow {
+        border-top-color: var(--base02);
+    }
+    
+    #menuWrap, #courseMenuPalette, #courseMenuPalette *,
+    #courseMenuPalette div.navPaletteContent {
+        background: var(--base01) !important;
+    }
+    #pageTitleText span {   
+        color: var(--base07) !important;
+    }
+    
+    #breadcrumbs {
+        background: var(--base01);
+    }
+    .breadcrumbs li *, .contentList .details .contextItemDetailsHeaders,
+    ul#content_listContainer {
+        color: var(--base07) !important;
+    }
+    
+    ul#content_listContainer h3 * {
+        color: var(--base0E) !important;   
+    }
+    
+    
+    .flyout-menu, .flyout-menu .mybb-tools,
+    .bottom-buttons {
+        background: var(--base00);
+    }
+    .bottom-buttons li {
+        border: none;
+        color: var(--base07);
+    }
+    
+    .bottom-buttons li a {
+            filter: invert(100%);
+        
+    }
+    .flyout-menu .accordion-wrapper,
+    .flyout-menu .accordion_content,
+    .flyout-menu .accordion_toggle * {
+        background: var(--base01) !important;
+        border-bottom: none !important;
+        color: var(--base07) !important;
+    }
+    
+    .flyout-menu .labelMenuItem {
+        color: var(--base0E);
+    }
+    
+    .accordion_content li a {
+        color: var(--base0C);
+    }
+    
+    #global-nav .more-tools {
+        background: var(--base00);
+    }
+    .liItem {
+        border: none !important;
+    }
+    .liItem:hover {
+        background: initial;
+        border: none !important;
+    }
+    
+    /* Notifications */
+    #side_nav {
+        background: var(--base02);   
+    }
+    #streamHeader_alerts,
+    #dynamic_filters_alerts.stream_dynamic_filters {
+        background: var(--base01) !important;
+    }
+    .filter-content-wrapper h5 {
+        color: var(--base07) !important;
+        text-shadow: none !important;
+    }
+    #streamHeader_alerts .title-text {
+        text-shadow: none;
+        color: var(--base0E);
+    }
+    .vertical_filter .stream_dynamic_filters li a {
+        color: var(--base0E);
+        text-decoration: none;
+    }
+    
+    .vertical_filter .stream_full,
+    .left_stream_wrapper, #stream_currentFilterText_alerts {
+        background: var(--base00) !important;
+        color: var(--base07);
+    }
+    
+    /* If something's hidden you want back, it's probably here */
+    
+    /* Hide Homepage right column */
+    .containerPortal > #column1 {
+        display: none;
+    }
+    
+    .containerPortal > #column0 {
+        width: 100%;
+    }
+    
+    
+    #module\:_4_1 #anonymous_element_5, /* Student caption from course list */
+    #eesy-tab-inner, /* 'Learn Help' button */
+    #quick_links_wrap, /* 'quick links' button */
+    #filter_by_alerts, /* Filter buttons on notifications page */
+    #contentPanel #copyright, /* Copyright notice */
+    #courseMenuPalette .actionBarMicro, /* Left navigation bar special buttons */
+    #navigationPane #puller /* Hide/Show left bar button */
+    {
+        display: none !important;
+    }
+    }
