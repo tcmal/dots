@@ -15,6 +15,9 @@ in {
         extraGroups = ["wheel" "networkmanager" "video"];
     };
     
+    # Custom DNS
+    networking.nameservers = [ "1.1.1.1" ];
+
     # X11 setup
     services.xserver = {
         enable = true;
