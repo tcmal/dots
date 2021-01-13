@@ -38,6 +38,7 @@ in {
             texlive.combined.scheme-medium
             pgfplots
             librsvg
+            shutter
 
             # Languages, Runtimes, etc.
             nodejs
