@@ -80,5 +80,10 @@ in {
         driSupport32Bit = true;
     };
 
+    # Bootloader options
+    boot.loader.systemd-boot.configurationLimit = 2;
+    boot.loader.systemd-boot.editor = false;
+    boot.loader.timeout = 0;
+
     # Drivers, boot options, etc. are all in hardware-configuration.nix
 }
