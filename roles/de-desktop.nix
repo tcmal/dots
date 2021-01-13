@@ -60,7 +60,7 @@ in {
             }
         ];
 
-        home.file.".background-image".source = ../share/wallpaper.jpg;
+        home.file.".background-image".source = ../share/wallpaper.png;
         programs.i3status = import ../programs/i3status.nix decoratedConfig;
         programs.rofi = import ../programs/rofi.nix decoratedConfig;
         services.dunst = import ../programs/dunst.nix decoratedConfig;

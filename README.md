@@ -28,5 +28,5 @@ Copyright belongs to me and is under the MIT License, except for:
   - `programs/discord-base16.nix` - ['Nox' discord theme. MIT License](https://github.com/rauenzi/Nox)
   - `programs/gtk-base16.nix` - [Materia customising package. MIT License](https://gitlab.com/rycee/nur-expressions)
   - `share/shutdown-menu` - [Script by Benjamin Chrétien. GNU-GPLv3 License](https://github.com/vivien/i3blocks-contrib/)
-  - `share/wallpaper.jpg` - [Nessus, Destiny 2. Photographed by kseeker5](https://kseeker5.github.io/wallpapers/index.html)
+  - `share/wallpaper.png` - [Celeste, Chapter 7. Developed by Matt Makes Games](https://store.steampowered.com/app/504230/Celeste/)
   - `share/userstyles/google.ejs` - [Google Dark Rainbow. MIT License](https://github.com/exmert/Google-Dark---Rainbow)
