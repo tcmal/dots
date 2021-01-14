@@ -39,6 +39,7 @@ in {
             pgfplots
             librsvg
             shutter
+            libreoffice
 
             # Languages, Runtimes, etc.
             nodejs
