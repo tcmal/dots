@@ -47,6 +47,7 @@ in {
         git
         zip
         unzip
+        ntfs3g
     ];
 
     # Networking
