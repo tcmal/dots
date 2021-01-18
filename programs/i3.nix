@@ -24,7 +24,7 @@
         fonts = [ "Roboto" "Font Awesome 5 Free" ];
 
         startup = [
-            { command = "${pkgs.pasystray}/bin/pasystray"; always = true; }
+            { command = "${pkgs.pasystray}/bin/pasystray"; always = false; }
         ];
 
         assigns = {

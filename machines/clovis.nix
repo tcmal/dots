@@ -5,10 +5,36 @@ let home-manager = builtins.fetchGit {
         rev = "22f6736e628958f05222ddaadd7df7818fe8f59d";
         ref = "release-20.09";
     };
+    customConfig = {
+        terminal = "${pkgs.alacritty}/bin/alacritty";
+        menu = "${pkgs.rofi}/bin/rofi -show drun";
+        colours = {
+            mode = "dark";
+
+            base00 = "#1d1f21";
+            base01 = "#282a2e";
+            base02 = "#373b41";
+            base03 = "#969896";
+            base04 = "#b4b7b4";
+            base05 = "#c5c8c6";
+            base06 = "#e0e0e0";
+            base07 = "#ffffff";
+            base08 = "#CC342B";
+            base09 = "#F96A38";
+            base0A = "#FBA922";
+            base0B = "#198844";
+            base0C = "#3971ED";
+            base0D = "#3971ED";
+            base0E = "#A36AC7";
+            base0F = "#3971ED";
+
+        };
+    };
 in {
     imports = [
-      (import "${home-manager}/nixos")
-        ../roles/desktop.nix
+        (import "${home-manager}/nixos")
+        (import ../roles/de-desktop.nix customConfig)
+        (import ../roles/programs.nix customConfig)
         /etc/nixos/hardware-configuration.nix
     ];
 

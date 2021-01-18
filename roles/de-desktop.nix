@@ -55,7 +55,7 @@ in {
             (import ../programs/i3.nix decoratedConfig)
             {
                 config.startup = [
-                    { command = "${pkgs.thunderbird}/bin/thunderbird"; always = true; }
+                    { command = "${pkgs.thunderbird}/bin/thunderbird"; always = false; }
                 ];
             }
         ];
