@@ -30,3 +30,4 @@ Copyright belongs to me and is under the MIT License, except for:
   - `share/shutdown-menu` - [Script by Benjamin Chrétien. GNU-GPLv3 License](https://github.com/vivien/i3blocks-contrib/)
   - `share/wallpaper.png` - [Celeste, Chapter 7. Developed by Matt Makes Games](https://store.steampowered.com/app/504230/Celeste/)
   - `share/userstyles/google.ejs` - [Google Dark Rainbow. MIT License](https://github.com/exmert/Google-Dark---Rainbow)
+  - `share/idea/base16-system.icls` - [Base16 Builder, MIT License](https://github.com/base16-builder/base16-builder)

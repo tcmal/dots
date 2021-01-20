@@ -8,7 +8,7 @@ derivation {
     builder = "${pkgs.bash}/bin/bash";
     args = with pkgs; [ "-c" ''
         ${coreutils}/bin/mkdir -p $out;
-        HOME=$TMP ${base16-builder}/bin/base16-builder -t idea -s $customScheme -b ${colours.mode} > $out/base16-system.icls;
+        HOME=$TMP ${base16-builder}/bin/base16-builder -t $customTemplates/base16-system.icls -s $customScheme -b ${colours.mode} > $out/base16-system.icls;
 
         ${coreutils}/bin/mkdir -p $TMP/options;
         cd $TMP;
