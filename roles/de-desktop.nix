@@ -46,6 +46,7 @@ in {
             htop
             unzip
             gnome3.dconf
+            pavucontrol
 
             xfce.thunar
         ];
