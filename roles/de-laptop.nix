@@ -20,8 +20,10 @@ in recursiveMerge [
         services.xserver = {
             libinput = {
                 enable = true;
-                naturalScrolling = true; 
-                additionalOptions = ''MatchIsTouchpad "on"'';
+                
+                touchpad = {
+                    naturalScrolling = true; 
+                };
             };
 
             displayManager.autoLogin.enable = false;

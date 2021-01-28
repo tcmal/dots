@@ -31,7 +31,7 @@ in {
             # Utilities
             firefox-devedition-bin
             thunderbird
-            kdeApplications.okular
+            okular
             zoom-us
             teams
             lyx
