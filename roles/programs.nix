@@ -22,6 +22,10 @@ in {
     fonts.fonts = with pkgs; [
         lmodern
     ];
+    
+    # Virtualbox
+    virtualisation.virtualbox.host.enable = true;
+    users.extraGroups.vboxusers.members = [ "mal" ];
 
     # User-specific setup
     home-manager.users.mal = {
@@ -68,6 +72,10 @@ in {
             enable = true;
             userName = "tcmal";
             userEmail = "oscar.shrimpton.personal@gmail.com";
+
+            extraConfig = {
+                init.defaultBranch = "main";
+            };
         };
 
         # Lorri + Direnv
