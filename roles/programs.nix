@@ -39,7 +39,9 @@ in {
             zoom-us
             teams
             lyx
-            texlive.combined.scheme-medium
+            (texlive.combine {
+                inherit (texlive) scheme-medium pgfplots;
+            })
             pgfplots
             librsvg
             shutter
