@@ -25,7 +25,7 @@ This can be seen in `roles/desktop.nix`
 Copyright belongs to me and is under the MIT License, except for:
   - `share/obsidian.css` - ['Nord' obsidian theme. Unknown License](https://github.com/insanum/obsidian_nord)
   - `share/spotify.css` - ['Nord' spicetify theme. MIT License](https://github.com/morpheusthewhite/spicetify-themes)
-  - `programs/discord-base16.nix` - ['Nox' discord theme. MIT License](https://github.com/rauenzi/Nox)
+  - `programs/discord-base16.nix` - ['Comfy' discord theme. GNU-GPLv3](https://github.com/NYRI4/Comfy)
   - `programs/gtk-base16.nix` - [Materia customising package. MIT License](https://gitlab.com/rycee/nur-expressions)
   - `share/shutdown-menu` - [Script by Benjamin Chrétien. GNU-GPLv3 License](https://github.com/vivien/i3blocks-contrib/)
   - `share/wallpaper.png` - [Celeste, Chapter 7. Developed by Matt Makes Games](https://store.steampowered.com/app/504230/Celeste/)

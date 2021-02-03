@@ -21,57 +21,96 @@ derivation rec {
         name = "discord_base16.css";
         text = ''
 /**
- * @name Nox
- * @author Lilian Tedone & Zerebos
- * @description A theme for Discord *loosely* based on Google's Material Design Guidelines.
- * @version 1.0.0
- * @authorLink https://twitter.com/IAmZerebos
- * @donate https://paypal.me/ZackRauen
- * @patreon https://patreon.com/Zerebos
- * @website https://github.com/rauenzi/Nox
- * @source https://raw.githubusercontent.com/rauenzi/Nox/master/release/Nox.theme.css
+ * @name Comfy
+ * @author Nyria#0001
+ * @description A simple customisable Discord theme
+ * @version 2.0
  */
 
-/*
- *  Copyright (c) 2016-2017 Lilian Tedone, 2017-2020 Zack Rauen
- *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy
- *  of this software and associated documentation files (the "Software"), to deal
- *  in the Software without restriction, including without limitation the rights
- *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- *  copies of the Software, and to permit persons to whom the Software is
- *  furnished to do so, subject to the following conditions:
- *
- *  The above copyright notice and this permission notice shall be included in all
- *  copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- *  SOFTWARE.
- */
+ @import "https://nyri4.github.io/Comfy/BetterDiscord/main.css";
 
- @import url(https://rauenzi.github.io/Nox/release/import.css);
-
- /* Colours */
- :root {
-     --nox-accent: ${colours.base00};
-     --nox-level1: ${colours.base02};
-     
-     --nox-level2: ${colours.base01};
-     
-     --nox-level3: ${colours.base00};
-}
-
-/* Don't show message backgrounds / weird triangle */
-.message-2qnXI6 {
-    background: none !important;
-}
-.message-2qnXI6::before {
-    display: none !important;
+ /* No scrollbars --> Delete all until "Mention color" if u don't want it */
+ /* ::-webkit-scrollbar { display: none !important;}
+ .note-3HfJZ5 { margin-right: 0; }
+ .content-1x5b-n { margin: 0 !important; border-radius: 0; }
+ .mainContent-u_9PKf { padding-left: 8px;}
+ .member-3-YXUe, [id*="private-channels-"] { margin: 0; max-width: unset; }
+ .layout-2DM8Md { border-radius: 0; padding: 0 16px;}
+ .unread-2lAfLh { z-index: 1;}
+ .content-1LAB8Z, .item-1tOPte { margin-right: 8px;}
+ .scroller-2hZ97C { padding-left: 0;}
+ .scroller-2hZ97C > .content-3YMskv, .buttons-3JBrkn, .messagesPopout-24nkyi { padding-right: 10px !important; }
+ .inviteRow-2L02ae {border-radius: 0; padding-left: 15px;}
+ .sidebar-CFHs9e { padding-right : 0; margin: 0 40px 0 20px;}
+ .sidebarRegion-VFTUkN { flex: unset;}
+ .contentColumn-2hrIYH, .sidebarScrollable-1qPI87+.content-1rPSz4, .customScroller-26gWhv>div, .customColumn-Rb6toI, .hero-EvfTTA { max-width: none;}
+ .featuresHeader-4YwLcc { margin-left: 95px;}
+ .userSettingsVoice-iwdUCU, .container-3PXSwK { width: auto !important;}
+ .menu-3sdvDG .layer-v9HyYc { margin-left: -8px;}
+  */
+ :root { 
+     /* BetterAvatar Popout */
+     --popout-status-icon: none; /* Set it to "block" if u want to have the status icon in big popouts */
+     --popout-status-mask: none; /* Set it to "url(#svg-mask-avatar-status-round-80)" if u want to enable the avatar mask in big popouts */
+     --avatar-radius: 10%; /* Change the roundness of avatar in big popouts, u need to disable the mask to use this */
+  
+     /* Colored emoji picker */
+     --colored-emoji: grayscale(0%); /* Change the value to "100%" if u want the basic one */
+ 
+     /* -- Others settings -- */
+ 
+     /* Mention color */
+     --mention-color-bar: ${colours.base08};
+     --mention-color-background: ${colours.base08}1f;
+     --mention-color-hover: ${colours.base08}1f;
+ 
+     /* Spotify seek bar color */
+     --spotify-color: ${colours.base08} !important;
+ 
+     /* User settings color (Mute, Deafen and settings) */
+     --user-buttons-color: ${colours.base0F};
+ 
+     /* Chat buttons color */
+     --chat-buttons: ${colours.base04};
+  
+     /* Circles next to role names */
+     --role-circle: 0px; /* Set it to "0px" if u don't want circles */
+  
+     /* Tooltips */
+     --tooltips: block; /* Set it to "none" if u don't want it */
+ 
+     /* Discord logo */
+     --discord-logo: none; /* Set it to "block" if u want it */
+ }
+  
+ .theme-dark {
+     --background-tertiary: ${colours.base02};
+     --background-secondary: ${colours.base01};
+     --background-secondary-alt: ${colours.base01};
+     --background-primary: ${colours.base00};
+     --channeltextarea-background: ${colours.base00};
+     --background-accent: ${colours.base08};
+     --background-modifier-hover: ${colours.base01};
+     --background-modifier-active: ${colours.base03};
+     --background-modifier-selected: ${colours.base03};
+     --deprecated-card-bg: #12141f63;
+     --background-floating: ${colours.base03};
+     --deprecated-quickswitcher-input-background:#101320;
+     --spotify-color: ${colours.base08};
+     --elevation-low: none;
+     --scrollbar-auto-thumb: ${colours.base01};
+     --scrollbar-auto-track: ${colours.base00};
+     --scrollbar-thin-thumb: ${colours.base00};
+ }
+  
+ .theme-light { /* I don't support light theme it's just for the "Create a server" popup */
+     --background-tertiary: #101320;
+     --background-secondary: #1e2233;
+     --background-secondary-alt: #191f2e;
+     --background-primary: #23283d;
+     --header-primary: #fff;
+     --header-secondary: #b1b5b9;
+     --text-normal: #8e9297;
  }
  '';
     };
