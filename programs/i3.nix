@@ -47,21 +47,21 @@
             unfocused = {
                 border = colours.base01;
                 background = colours.base01;
-                text = colours.base03;
+                text = colours.base06;
                 indicator = colours.base01;
                 childBorder = colours.base01;
             };
             urgent = {
-                border = colours.base02;
+                border = colours.base08;
                 background = colours.base08;
-                text = colours.base07;
+                text = colours.base00;
                 indicator = colours.base08;
                 childBorder = colours.base08;
             };
             placeholder = {
-                border = colours.base02;
+                border = colours.base08;
                 background = colours.base08;
-                text = colours.base07;
+                text = colours.base00;
                 indicator = colours.base08;
                 childBorder = colours.base08;
             };
@@ -85,17 +85,17 @@
                     inactiveWorkspace = {
                         background = colours.base01;
                         border = colours.base01;
-                        text = colours.base03;
+                        text = colours.base06;
                     };
                     focusedWorkspace = {
                         background = colours.base0C;
-                        border = colours.base0D;
+                        border = colours.base0C;
                         text = colours.base00;
                     };
                     urgentWorkspace = {
                         background = colours.base08;
                         border = colours.base08;
-                        text = colours.base07;
+                        text = colours.base00;
                     };
                     bindingMode = {
                         background = colours.base08;
