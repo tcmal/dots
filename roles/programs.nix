@@ -46,6 +46,8 @@ in {
             librsvg
             shutter
             libreoffice
+            arandr
+            openssl
 
             # Languages, Runtimes, etc.
             nodejs

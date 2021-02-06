@@ -68,6 +68,7 @@ in recursiveMerge [
             xsession.windowManager.i3.config = {
                 startup = [
                     { command = "${pkgs.xfce.xfce4-power-manager}/bin/xfce4-power-manager"; always = true; }
+                    { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; always = true; }
                 ];
 
                 keybindings = lib.mkOptionDefault {
