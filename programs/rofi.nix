@@ -11,9 +11,9 @@
     yoffset = 200;
     padding = 10;
     scrollbar = false;
-    extraConfig = ''
-        rofi.line-padding = 5;
-    '';
+    extraConfig = {
+        line-padding = 5;
+    };
 
     colors = {
         window = {
