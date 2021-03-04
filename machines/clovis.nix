@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
-let home-manager = builtins.fetchGit {
-        url = "https://github.com/rycee/home-manager.git";
-        rev = "22f6736e628958f05222ddaadd7df7818fe8f59d";
-        ref = "release-20.09";
-    };
+let 
     customConfig = {
         terminal = "${pkgs.alacritty}/bin/alacritty";
         menu = "${pkgs.rofi}/bin/rofi -show drun";
@@ -12,7 +8,7 @@ let home-manager = builtins.fetchGit {
     };
 in {
     imports = [
-        (import "${home-manager}/nixos")
+        <home-manager/nixos>
         (import ../roles/de-desktop.nix customConfig)
         (import ../roles/programs.nix customConfig)
         /etc/nixos/hardware-configuration.nix

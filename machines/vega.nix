@@ -1,24 +1,17 @@
 { config, pkgs, ... }:
 
-let home-manager = builtins.fetchGit {
-        url = "https://github.com/rycee/home-manager.git";
-        rev = "22f6736e628958f05222ddaadd7df7818fe8f59d";
-        ref = "release-20.09";
-    };
-    customConfig = {
+let customConfig = {
         terminal = "${pkgs.alacritty}/bin/alacritty";
         menu = "${pkgs.rofi}/bin/rofi -show drun";
         colours = (import ../schemes/blueish.nix);
     };
 in {
     imports = [
-        (import "${home-manager}/nixos")
+        <home-manager/nixos>
         (import ../roles/de-laptop.nix customConfig)
         (import ../roles/programs.nix customConfig)
         /etc/nixos/hardware-configuration.nix
     ];
-    
-    system.stateVersion = "20.09";
 
     nixpkgs.config = {
         allowUnfree = true;
@@ -72,5 +65,14 @@ in {
                                                                             '';
     in "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
 
+	environment.etc.hosts.mode = "0644";
+
     # Drivers, boot options, etc. are all in hardware-configuration.nix
+
+    boot.supportedFilesystems = [ "ntfs" ];
+    #fileSystems."/mnt" = {
+    #    device = "/dev/sda2";
+    #    fsType = "ntfs";
+    #    options = ["rw"];
+    #};
 }
