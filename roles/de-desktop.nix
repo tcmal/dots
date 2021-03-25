@@ -32,6 +32,18 @@ in {
         windowManager.i3.enable = true;
     };
 
+    # Reduce eye strain
+    services.redshift = {
+        enable = true;
+    };
+    
+    location = {
+        provider = "manual";
+        # Edinburgh, Scotland
+        latitude = 55.9533;
+        longitude = 3.1883;
+    };
+
     # Fonts
     fonts.fonts = with pkgs; [
         roboto
@@ -42,9 +54,6 @@ in {
     # User-specific setup
     home-manager.users.mal = {
         home.packages = with pkgs; [
-            git
-            htop
-            unzip
             gnome3.dconf
             pavucontrol
 

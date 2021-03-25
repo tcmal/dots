@@ -21,9 +21,7 @@ in recursiveMerge [
             libinput = {
                 enable = true;
                 
-                touchpad = {
-                    naturalScrolling = true; 
-                };
+                touchpad.naturalScrolling = true; 
             };
 
             displayManager.autoLogin.enable = false;

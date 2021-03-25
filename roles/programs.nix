@@ -33,11 +33,28 @@ in {
         # Programs
         home.packages = with pkgs; [
             # Utilities
+            git
+            htop
+            unzip
+            okular
+            file
+            ldns
+            vim
+            binutils
+            openvpn
+            vlc
+            gimp
+
+            # Web
             firefox-devedition-bin
             thunderbird
-            okular
+
+            # Collaboration
             zoom-us
             teams
+            (import ../programs/discord-base16.nix decoratedConfig)
+
+            # LaTeX stuff
             lyx
             (texlive.combine {
                 inherit (texlive) scheme-medium pgfplots;
@@ -48,6 +65,7 @@ in {
             libreoffice
             arandr
             openssl
+            jabref
 
             # Languages, Runtimes, etc.
             nodejs
@@ -59,15 +77,12 @@ in {
 
             # Developer tools
             vscode
-            vim
             obsidian
             jetbrains.idea-ultimate
             direnv
-            binutils
 
-            # Fun stuff
+            # Games, etc
             steam
-            (import ../programs/discord-base16.nix decoratedConfig)
             (import ../programs/spotify-base16.nix decoratedConfig)
         ];
 
