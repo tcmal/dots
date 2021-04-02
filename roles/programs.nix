@@ -22,6 +22,9 @@ in {
     fonts.fonts = with pkgs; [
         lmodern
     ];
+
+    # Generate icon cache
+    gtk.iconCache.enable = true;
     
     # Virtualbox
     virtualisation.virtualbox.host.enable = true;
@@ -111,6 +114,16 @@ in {
                 name = "Materia-Base16";
                 package = (import ../programs/gtk-base16.nix decoratedConfig);
             };
+
+            iconTheme = {
+                name = "Paper";
+                package = pkgs.paper-icon-theme;
+            };
+        };
+
+        xsession.pointerCursor ={
+            name = "Paper";
+            package = pkgs.paper-icon-theme;
         };
 
         home.file.".lyx/colours".source = "${import ../programs/lyx-base16.nix decoratedConfig}/colours";

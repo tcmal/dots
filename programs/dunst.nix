@@ -15,6 +15,7 @@
             padding = 16;
             horizontal_padding = 10;
             frame_width = 5;
+            maxIconSize = 20;
         };
         urgency_low = {
             background = colours.base00;
