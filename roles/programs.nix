@@ -79,7 +79,7 @@ in {
             gcc
 
             # Developer tools
-            vscode
+            (import ../programs/vscode-extensions.nix decoratedConfig)
             obsidian
             jetbrains.idea-ultimate
             direnv
