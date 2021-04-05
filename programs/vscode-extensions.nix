@@ -13,6 +13,7 @@ let
         yzhang.markdown-all-in-one
         coenraads.bracket-pair-colorizer-2
         eamodio.gitlens
+        gruntfuggly.todo-tree
 
         # Appearance
         naumovs.color-highlight
