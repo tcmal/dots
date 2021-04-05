@@ -46,6 +46,9 @@ in {
         };
     };
 
+    # udevil, for mounting stuff
+    services.devmon.enable = true;
+    programs.udevil.enable = true;
 
     # Reduce eye strain
     services.redshift = {

@@ -70,9 +70,14 @@ in {
     # Drivers, boot options, etc. are all in hardware-configuration.nix
 
     boot.supportedFilesystems = [ "ntfs" ];
-    #fileSystems."/mnt" = {
-    #    device = "/dev/sda2";
-    #    fsType = "ntfs";
-    #    options = ["rw"];
-    #};
+    fileSystems."/media/BIG_BOY" = {
+        device = "/dev/sda2";
+        fsType = "ntfs";
+        options = [
+            "rw"
+            "nofail"
+            "nobootwait"
+            "exec"
+        ];
+    };
 }
