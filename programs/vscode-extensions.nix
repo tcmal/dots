@@ -14,6 +14,7 @@ let
         coenraads.bracket-pair-colorizer-2
         eamodio.gitlens
         gruntfuggly.todo-tree
+        vadimcn.vscode-lldb
 
         # Appearance
         naumovs.color-highlight
