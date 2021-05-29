@@ -3,25 +3,38 @@
 
 { colours, pkgs, lib, ... }:
 
-pkgs.stdenv.mkDerivation {
+pkgs.stdenv.mkDerivation rec {
     pname = "materia-theme";
-    version = "2020-09-28";
+    version = "20200916";
 
     src = pkgs.fetchFromGitHub {
         owner = "nana-4";
-        repo = "materia-theme";
-        rev = "e329aaee160c82e85fe91a6467c666c7f9f2a7df";
-        sha256 = "1qmq5ycfpzv0rcp5aav4amlglkqy02477i4bdi7lgpbn0agvms6c";
+        repo = pname;
+        rev = "v${version}";
+        sha256 = "0qaxxafsn5zd2ysgr0jyv5j73360mfdmxyd55askswlsfphssn74";
     };
 
     nativeBuildInputs = with pkgs; [
-        bc
-        inkscape
-        optipng
+        meson
+        ninja
         sassc
+        bc
+        (resvg.overrideAttrs (old: {
+            postInstall = ''
+                ln -s $out/bin/resvg $out/bin/rendersvg
+            '';
+        }))
     ];
 
-    dontConfigure = true;
+    buildInputs = with pkgs; [
+        gnome3.gnome-themes-extra
+        gdk-pixbuf
+        librsvg
+        gtk-engine-murrine
+        
+    ];
+
+    dontBuild = true;
 
     # Fixes problem "Fontconfig error: Cannot load default config file"
     FONTCONFIG_FILE = pkgs.makeFontsConf { fontDirectories = [ pkgs.cantarell-fonts ]; };
@@ -57,12 +70,22 @@ pkgs.stdenv.mkDerivation {
 
     passAsFile = [ "theme" ];
 
+    mesonFlags = [
+        "-Dgnome_shell_version=${lib.versions.majorMinor pkgs.gnome.gnome-shell.version}"
+        "-Dtheme_name=Materia-Base16"
+    ];
+
     postPatch = ''
         patchShebangs .
+    '';
+    
+    postInstall = ''
+        rm $out/share/themes/*/COPYING
     '';
 
     buildPhase = ''
         export HOME="$NIX_BUILD_ROOT"
-        ./change_color.sh -t $out/share/themes -o Materia-Base16 "$themePath"
+        alias rendersvg=resvg
+        ./change_color.sh -t . -o Materia-Base16 "$themePath"
     '';
 }
