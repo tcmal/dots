@@ -86,6 +86,7 @@ in {
 
             # Games, etc
             steam
+            multimc
             (import ../programs/spotify-base16.nix decoratedConfig)
         ];
 

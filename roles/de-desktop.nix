@@ -33,7 +33,7 @@ in {
     };
 
     # Gnome keyring
-    services.gnome3.gnome-keyring.enable = true;
+    services.gnome.gnome-keyring.enable = true;
     security.pam.services = {
         gnome_keyring = {
             name = "gnome_keyring";
