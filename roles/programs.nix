@@ -112,7 +112,7 @@ in {
         gtk = {
             enable = true;
             theme = {
-                name = "Materia-Base16";
+                name = "Materia-Base16-dark";
                 package = (import ../programs/gtk-base16.nix decoratedConfig);
             };
 
