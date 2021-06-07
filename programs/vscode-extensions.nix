@@ -6,6 +6,7 @@ let
         bbenoist.Nix
         ms-python.python
         haskell.haskell
+        justusadam.language-haskell
         matklad.rust-analyzer
         tamasfe.even-better-toml
 
