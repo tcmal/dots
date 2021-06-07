@@ -30,6 +30,8 @@ in {
     virtualisation.virtualbox.host.enable = true;
     users.extraGroups.vboxusers.members = [ "mal" ];
 
+    programs.steam.enable = true;
+
     # User-specific setup
     home-manager.users.mal = {
 
@@ -85,9 +87,10 @@ in {
             direnv
 
             # Games, etc
-            steam
             multimc
             (import ../programs/spotify-base16.nix decoratedConfig)
+            vulkan-loader
+            vulkan-tools
         ];
 
         # Git setup
