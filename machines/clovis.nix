@@ -24,7 +24,9 @@ in {
         zip
         unzip
         ntfs3g
+        piper
     ];
+    services.ratbagd.enable = true;
 
     # Networking
     networking.hostName = "clovis"; # "You now face godlike judgement. May it extend eternally."
@@ -53,6 +55,14 @@ in {
         driSupport = true;
         driSupport32Bit = true;
     };
+
+    # Fix broken primary monitor detection
+    services.xserver.xrandrHeads = [
+        {
+            output = "HDMI-0";
+            primary = true;
+        }
+    ];
 
     # US with " and @ swapped and £ on Shift+F1
     services.xserver.displayManager.sessionCommands = let compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
