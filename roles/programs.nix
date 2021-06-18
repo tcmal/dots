@@ -11,14 +11,6 @@ in {
         shell = pkgs.zsh;
     };
 
-    # Allow npm to install 'globally'
-    programs.npm = {
-        enable = true;
-        npmrc = ''
-            prefix = "$HOME/.npm"
-        '';
-    };
-
     fonts.fonts = with pkgs; [
         lmodern
     ];
@@ -26,6 +18,10 @@ in {
     # Generate icon cache
     gtk.iconCache.enable = true;
     
+    # Docker
+    virtualisation.docker.enable = true;
+    users.extraGroups.docker.members = [ "mal" ];
+
     # Virtualbox
     virtualisation.virtualbox.host.enable = true;
     users.extraGroups.vboxusers.members = [ "mal" ];
@@ -85,8 +81,11 @@ in {
             obsidian
             jetbrains.idea-ultimate
             direnv
+            lldb
 
             # Games, etc
+            steam
+            steam-run-native
             multimc
             steam
             steam.run
