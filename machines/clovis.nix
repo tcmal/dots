@@ -30,7 +30,7 @@ in {
 
     # Networking
     networking.hostName = "clovis"; # "You now face godlike judgement. May it extend eternally."
-    networking.wireless.enable = true;    
+    networking.networkmanager.enable = true;    
 
     # Locale
     time.timeZone = "Europe/London";
@@ -46,6 +46,12 @@ in {
         enable = true;
 
         support32Bit = true;
+
+        extraConfig = ''
+            load-module module-remap-source source_name=record_mono master=alsa_input.pci-0000_00_14.2.analog-stereo master_channel_map=front-left channel_map=mono
+            load-module module-echo-cancel source_name=record_mono aec_method=webrtc format=s16le rate=44100 channels=1
+            set-default-source record_mono
+        '';
     };
 
     # OpenGL
@@ -55,6 +61,17 @@ in {
         driSupport = true;
         driSupport32Bit = true;
     };
+    
+    nixpkgs.overlays = [
+        (self: super: {
+            steam = super.steam.override {
+                extraProfile = ''
+                    export VK_ICD_FILENAMES=${config.hardware.nvidia.package}/share/vulkan/icd.d/nvidia_icd.json:${config.hardware.nvidia.package.lib32}/share/vulkan/icd.d/nvidia_icd32.json:$VK_ICD_FILENAMES
+                '';
+                extraLibraries = pkgs: [ pkgs.pipewire ];
+            };
+        })
+    ];
 
     # Fix broken primary monitor detection
     services.xserver.xrandrHeads = [

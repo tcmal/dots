@@ -21,7 +21,10 @@
     in {
         inherit menu terminal modifier;
 
-        fonts = [ "Roboto" "Font Awesome 5 Free" ];
+        fonts = {
+            names = [ "Roboto" "Font Awesome 5 Free" ];
+            size = 12.0;
+        };
 
         startup = [
             { command = "${pkgs.pasystray}/bin/pasystray"; always = false; }
@@ -69,7 +72,10 @@
 
         bars = [
             {
-                fonts = [ "Font Awesome 5 Free Solid 12" "Roboto 12"];
+                fonts = {
+                    names = [ "Font Awesome 5 Free Solid" "Roboto"];
+                    size = 12.0;
+                };
                 mode = "hide";
                 workspaceNumbers = false;
 

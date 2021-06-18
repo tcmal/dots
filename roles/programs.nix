@@ -30,7 +30,7 @@ in {
     virtualisation.virtualbox.host.enable = true;
     users.extraGroups.vboxusers.members = [ "mal" ];
 
-    programs.steam.enable = true;
+    nixpkgs.config.allowBroken = true;
 
     # User-specific setup
     home-manager.users.mal = {
@@ -88,6 +88,8 @@ in {
 
             # Games, etc
             multimc
+            steam
+            steam.run
             (import ../programs/spotify-base16.nix decoratedConfig)
             vulkan-loader
             vulkan-tools
