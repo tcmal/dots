@@ -44,7 +44,12 @@ in {
             binutils
             openvpn
             vlc
+            
             gimp
+            blender
+            inkscape
+            imagemagick
+            
 
             # Web
             firefox-devedition-bin
@@ -76,6 +81,7 @@ in {
             rustup
             gcc
 
+
             # Developer tools
             (import ../programs/vscode-extensions.nix decoratedConfig)
             obsidian
@@ -87,8 +93,6 @@ in {
             steam
             steam-run-native
             multimc
-            steam
-            steam.run
             (import ../programs/spotify-base16.nix decoratedConfig)
             vulkan-loader
             vulkan-tools
