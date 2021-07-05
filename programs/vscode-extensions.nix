@@ -44,6 +44,12 @@ let
             version = "1.5.0";
             sha256 = "b1480742dbc8369aa10f348d7d27c589e6d9bd7d00e62e5255903fdeb67213b0";
         }
+        {
+            name = "vscode-proto3";
+            publisher = "zxh404";
+            version = "0.5.4";
+            sha256 = "4bcf6a45195f893b09f9f26ec1d364672c1eea67a2e3c2b120459b1960a1ae21";
+        }
     ];
 in pkgs.vscode-with-extensions.override {
     vscodeExtensions = extensions;
