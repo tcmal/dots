@@ -58,13 +58,6 @@ in {
     boot.loader.systemd-boot.editor = false;
     boot.loader.timeout = 0;
 
-
-    # US with " and @ swapped and £ on Shift+F1
-    services.xserver.displayManager.sessionCommands = let compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
-                                                                                ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../share/mechanical.xkb} $out
-                                                                            '';
-    in "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
-
 	environment.etc.hosts.mode = "0644";
 
     # Drivers, boot options, etc. are all in hardware-configuration.nix
