@@ -87,7 +87,7 @@ in {
             obsidian
             jetbrains.idea-ultimate
             direnv
-            lldb
+            (lowPrio lldb)
 
             # Games, etc
             steam
