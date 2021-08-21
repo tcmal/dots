@@ -8,7 +8,7 @@ let decoratedConfig = {
     recursiveMerge = (import ../share/recursiveMerge.nix lib);
 in recursiveMerge [
     (import ./de-desktop.nix decoratedConfig decoratedConfig)
-        {
+    {
         # Power management
         powerManagement = {
             enable = true;

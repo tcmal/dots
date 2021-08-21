@@ -22,6 +22,10 @@ in {
     services.xserver = {
         enable = true;
         displayManager = {
+            sddm = {
+                enable = true;
+                theme = "slice-sddm-theme";
+            };
             defaultSession = "none+i3";
 
             autoLogin = {
@@ -31,24 +35,19 @@ in {
         };
         windowManager.i3.enable = true;
     };
+    environment.systemPackages = [(import ../programs/sddm-slice.nix pkgs)];
 
     # Gnome keyring
     services.gnome.gnome-keyring.enable = true;
-    security.pam.services = {
-        gnome_keyring = {
-            name = "gnome_keyring";
-            text = ''
-                auth     optional    ${pkgs.gnome3.gnome_keyring}/lib/security/pam_gnome_keyring.so
-                session  optional    ${pkgs.gnome3.gnome_keyring}/lib/security/pam_gnome_keyring.so auto_start
-
-                password  optional    ${pkgs.gnome3.gnome_keyring}/lib/security/pam_gnome_keyring.so
-            '';
-        };
-    };
+    security.pam.services.sddm.enableGnomeKeyring = true;
+    security.pam.services.login.enableGnomeKeyring = true;
 
     # udevil, for mounting stuff
     services.devmon.enable = true;
     programs.udevil.enable = true;
+
+    # Firmware updates
+    services.fwupd.enable = true;
 
     # Reduce eye strain
     services.redshift = {
