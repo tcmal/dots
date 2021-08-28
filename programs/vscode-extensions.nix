@@ -3,7 +3,7 @@
 let
     extensions = (with pkgs.vscode-extensions; [
         # Languages
-        bbenoist.Nix
+        bbenoist.nix
         ms-python.python
         haskell.haskell
         justusadam.language-haskell
@@ -49,6 +49,18 @@ let
             publisher = "zxh404";
             version = "0.5.4";
             sha256 = "4bcf6a45195f893b09f9f26ec1d364672c1eea67a2e3c2b120459b1960a1ae21";
+        }
+        {
+            name = "svelte-vscode";
+            publisher = "svelte";
+            version = "105.3.4";
+            sha256 = "3a3a13689758f4c1173c0ebb24f9b0c5b19820cb2c84413f052bee0fe5355272";
+        }
+        {
+            name = "lex-flex-yacc-bison";
+            publisher = "faustinoaq";
+            version = "0.0.3";
+            sha256 = "6254f52157dc796eae7bf135ac88c1c9cc19d884625331a1e634f9768722cc3d";
         }
     ];
 in pkgs.vscode-with-extensions.override {

@@ -81,7 +81,6 @@ in {
             rustup
             gcc
 
-
             # Developer tools
             (import ../programs/vscode-extensions.nix decoratedConfig)
             obsidian

@@ -37,6 +37,7 @@
 
         extraConfig = ''
             export PATH="$PATH:$HOME/.npm/bin/";
+            export EDITOR=vim;
             eval "$(${pkgs.direnv}/bin/direnv hook zsh)";
         '';
     };
