@@ -4,10 +4,11 @@ let
     extensions = (with pkgs.vscode-extensions; [
         # Languages
         bbenoist.nix
-        ms-python.python
+        # ms-python.python
         haskell.haskell
         justusadam.language-haskell
         matklad.rust-analyzer
+        a5huynh.vscode-ron
         tamasfe.even-better-toml
 
         # Utils
