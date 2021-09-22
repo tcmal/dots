@@ -93,7 +93,6 @@ in {
             steam
             steam-run-native
             multimc
-            (import ../programs/spotify-base16.nix decoratedConfig)
             vulkan-loader
             vulkan-tools
         ];
