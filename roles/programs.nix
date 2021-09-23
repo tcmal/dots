@@ -49,7 +49,6 @@ in {
             blender
             inkscape
             imagemagick
-            
 
             # Web
             firefox-devedition-bin
@@ -86,6 +85,7 @@ in {
             obsidian
             jetbrains.idea-ultimate
             direnv
+            exercism
 
             # Games, etc
             steam
