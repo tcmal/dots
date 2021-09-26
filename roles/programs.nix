@@ -86,6 +86,7 @@ in {
             jetbrains.idea-ultimate
             direnv
             exercism
+            (lowPrio lldb)
 
             # Games, etc
             steam
