@@ -44,6 +44,8 @@ in {
             binutils
             openvpn
             vlc
+            zoxide
+            fzf
             
             gimp
             blender
