@@ -45,12 +45,13 @@ in {
             binutils
             openvpn
             vlc
+            zoxide
+            fzf
             
             gimp
             blender
             inkscape
             imagemagick
-            
 
             # Web
             firefox-devedition-bin
@@ -87,6 +88,7 @@ in {
             obsidian
             jetbrains.idea-ultimate
             direnv
+            exercism
             (lowPrio lldb)
 
             # Games, etc

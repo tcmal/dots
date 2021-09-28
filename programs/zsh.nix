@@ -38,7 +38,14 @@
         extraConfig = ''
             export PATH="$PATH:$HOME/.npm/bin/";
             export EDITOR=vim;
+
             eval "$(${pkgs.direnv}/bin/direnv hook zsh)";
+            eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
+
+            function __z_ls () {
+                __zoxide_z "$*" && ls --color=auto --group-directories-first;
+            }
+            alias z='nocorrect __z_ls'
         '';
     };
 }

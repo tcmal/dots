@@ -57,12 +57,6 @@ let
             version = "105.3.4";
             sha256 = "3a3a13689758f4c1173c0ebb24f9b0c5b19820cb2c84413f052bee0fe5355272";
         }
-        {
-            name = "lex-flex-yacc-bison";
-            publisher = "faustinoaq";
-            version = "0.0.3";
-            sha256 = "6254f52157dc796eae7bf135ac88c1c9cc19d884625331a1e634f9768722cc3d";
-        }
     ];
 in pkgs.vscode-with-extensions.override {
     vscodeExtensions = extensions;
