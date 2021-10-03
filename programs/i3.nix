@@ -4,6 +4,12 @@
 
 {
     enable = true;
+    package = (import ./i3-radius.nix {});
+
+    extraConfig = ''
+border_radius 10
+gaps inner 10
+    '';
     config = let modifier = "Mod4";
                  shutdownMenu = (import ./shutdown-menu.nix) { inherit pkgs; };
                  workspaces = {

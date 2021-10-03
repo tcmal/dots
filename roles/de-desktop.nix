@@ -33,7 +33,10 @@ in {
                 user = "mal";
             };
         };
-        windowManager.i3.enable = true;
+        windowManager.i3 = {
+            enable = true;
+            package = (import ../programs/i3-radius.nix {});
+        };
     };
     environment.systemPackages = [(import ../programs/sddm-slice.nix pkgs)];
 

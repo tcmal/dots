@@ -8,6 +8,7 @@ let
         haskell.haskell
         justusadam.language-haskell
         matklad.rust-analyzer
+        a5huynh.vscode-ron
         tamasfe.even-better-toml
 
         # Utils
