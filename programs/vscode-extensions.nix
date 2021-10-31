@@ -4,7 +4,8 @@ let
     extensions = (with pkgs.vscode-extensions; [
         # Languages
         bbenoist.nix
-        # ms-python.python
+        ms-python.python
+        ms-toolsai.jupyter
         haskell.haskell
         justusadam.language-haskell
         matklad.rust-analyzer
