@@ -33,12 +33,17 @@ in {
                 user = "mal";
             };
         };
-        windowManager.i3 = {
+        windowManager.i3.enable = true;
+
+        windowManager.xmonad = {
             enable = true;
-            package = (import ../programs/i3-radius.nix {});
+            enableContribAndExtras = true;
         };
     };
-    environment.systemPackages = [(import ../programs/sddm-slice.nix pkgs)];
+    environment.systemPackages = [
+        (import ../programs/sddm-slice.nix pkgs)
+        pkgs.haskellPackages.xmobar
+    ];
 
     # Gnome keyring
     services.gnome.gnome-keyring.enable = true;
