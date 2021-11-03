@@ -1,9 +1,9 @@
 # Workstation setup
 
-{ colours, terminal, menu, ... }: { config, pkgs, lib, ... }:
+{ colours, terminal, menu, iconTheme, ... }: { config, pkgs, lib, ... }:
 
 let decoratedConfig = {
-        inherit colours terminal menu config pkgs lib;
+        inherit colours terminal menu config pkgs lib iconTheme;
     };
     recursiveMerge = (import ../share/recursiveMerge.nix lib);
 in {
@@ -18,44 +18,36 @@ in {
     # Custom DNS
     networking.nameservers = [ "1.1.1.1" ];
 
+    # Audio
+    sound.enable = true;
+    hardware.pulseaudio = {
+        enable = true;
+
+        support32Bit = true;
+    };
+
+    # OpenGL
+    hardware.opengl = {
+        enable = true;
+
+        driSupport = true;
+        driSupport32Bit = true;
+    };
+
     # X11 setup
     services.xserver = {
         enable = true;
         displayManager = {
-            sddm = {
-                enable = true;
-                theme = "slice-sddm-theme";
-            };
-            defaultSession = "none+i3";
+            sddm.enable = true;
+            defaultSession = "none+xmonad";
 
             autoLogin = {
                 enable = true;
                 user = "mal";
             };
         };
-        windowManager.i3.enable = true;
-
-        windowManager.xmonad = {
-            enable = true;
-            enableContribAndExtras = true;
-        };
+	windowManager.xmonad.enable = true;
     };
-    environment.systemPackages = [
-        (import ../programs/sddm-slice.nix pkgs)
-        pkgs.haskellPackages.xmobar
-    ];
-
-    # Gnome keyring
-    services.gnome.gnome-keyring.enable = true;
-    security.pam.services.sddm.enableGnomeKeyring = true;
-    security.pam.services.login.enableGnomeKeyring = true;
-
-    # udevil, for mounting stuff
-    services.devmon.enable = true;
-    programs.udevil.enable = true;
-
-    # Firmware updates
-    services.fwupd.enable = true;
 
     # Reduce eye strain
     services.redshift = {
@@ -79,31 +71,44 @@ in {
     # User-specific setup
     home-manager.users.mal = {
         home.packages = with pkgs; [
-            gnome3.dconf
-            pavucontrol
+            # todo: fix keychain/dconf stuff
+            dconf
 
-            xfce.thunar
+            pkgs.haskellPackages.xmobar
+
+            # used in xmonad scripts/binds
+            dex
+            (import ../programs/shutdown-menu.nix { inherit pkgs; })
+            feh
+            libnotify
+
+            # useful utilities
+            pavucontrol
+            htop
+            okular
         ];
 
         # WM / DE setup
-        xsession.windowManager.i3 = recursiveMerge [
-            (import ../programs/i3.nix decoratedConfig)
-            {
-                config.startup = [
-                    { command = "${pkgs.thunderbird}/bin/thunderbird"; always = false; }
-                ];
-            }
-        ];
+        xsession.windowManager.xmonad = {
+            enable = true;
+            enableContribAndExtras = true;
+
+            config = ../share/xmonad.hs;
+        };
+
+        programs.xmobar = {
+            enable = true;
+            extraConfig = builtins.readFile ../share/xmobarrc;
+        };
 
         home.file.".background-image".source = ../share/wallpaper.png;
-        programs.i3status = import ../programs/i3status.nix decoratedConfig;
         programs.rofi = import ../programs/rofi.nix decoratedConfig;
-        services.dunst = import ../programs/dunst.nix decoratedConfig;
 
+        services.picom = import ../programs/picom.nix decoratedConfig;
+        services.dunst = import ../programs/dunst.nix decoratedConfig;
         services.redshift = {
             enable = true;
-            tray = true;
-            
+
             latitude = "55.953251";
             longitude = "-3.188267";
         };

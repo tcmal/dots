@@ -4,6 +4,10 @@ let customConfig = {
         terminal = "${pkgs.alacritty}/bin/alacritty";
         menu = "${pkgs.rofi}/bin/rofi -show drun";
         colours = (import ../schemes/blueish.nix);
+        iconTheme = {
+            name = "Paper";
+            package = pkgs.paper-icon-theme;
+        };
     };
 in {
     imports = [
@@ -24,13 +28,6 @@ in {
     nixpkgs.config = {
         allowUnfree = true;
     };
-    
-    # Utilities
-    environment.systemPackages = with pkgs; [
-        git
-        zip
-        unzip
-    ];
 
     # Networking
     networking.hostName = "vega"; # "The Ion Catapult is designed to use only approved UAC ammunition."
@@ -43,22 +40,6 @@ in {
     console = {
         font = "Lat2-Terminus16";
         keyMap = "uk";
-    };
-        
-    # Audio
-    sound.enable = true;
-    hardware.pulseaudio = {
-        enable = true;
-
-        support32Bit = true;
-    };
-
-    # OpenGL
-    hardware.opengl = {
-        enable = true;
-
-        driSupport = true;
-        driSupport32Bit = true;
     };
 
     # Bootloader options

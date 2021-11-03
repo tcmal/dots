@@ -1,9 +1,9 @@
 # Workstation setup
 
-{ colours, ... }: { config, pkgs, lib, ... }:
+{ colours, iconTheme, ... }: { config, pkgs, lib, ... }:
 
 let decoratedConfig = {
-        inherit config pkgs lib colours;
+        inherit config pkgs lib colours iconTheme;
     };
 in {
     # Use ZSH
@@ -27,8 +27,6 @@ in {
     virtualisation.virtualbox.host.enableExtensionPack = true;
     users.extraGroups.vboxusers.members = [ "mal" ];
 
-    nixpkgs.config.allowBroken = true;
-
     # User-specific setup
     home-manager.users.mal = {
 
@@ -36,9 +34,7 @@ in {
         home.packages = with pkgs; [
             # Utilities
             git
-            htop
             unzip
-            okular
             file
             ldns
             vim
@@ -67,7 +63,6 @@ in {
             (texlive.combine {
                 inherit (texlive) scheme-medium pgfplots;
             })
-            pgfplots
             librsvg
             shutter
             libreoffice
@@ -125,10 +120,7 @@ in {
                 package = (import ../programs/gtk-base16.nix decoratedConfig);
             };
 
-            iconTheme = {
-                name = "Paper";
-                package = pkgs.paper-icon-theme;
-            };
+            inherit iconTheme;
         };
 
         xsession.pointerCursor ={
