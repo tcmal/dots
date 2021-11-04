@@ -8,7 +8,7 @@ let
         ms-toolsai.jupyter
         haskell.haskell
         justusadam.language-haskell
-        matklad.rust-analyzer
+        #matklad.rust-analyzer
         a5huynh.vscode-ron
         tamasfe.even-better-toml
 
@@ -17,7 +17,7 @@ let
         coenraads.bracket-pair-colorizer-2
         eamodio.gitlens
         gruntfuggly.todo-tree
-        vadimcn.vscode-lldb
+        #vadimcn.vscode-lldb
 
         # Appearance
         naumovs.color-highlight
