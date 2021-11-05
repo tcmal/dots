@@ -1,13 +1,10 @@
 # Workstation setup
 
-{ colours, terminal, menu, iconTheme, ... }: { config, pkgs, lib, ... }:
+scheme: { config, pkgs, lib, ... }@args:
 
-let decoratedConfig = {
-        inherit colours terminal menu config pkgs lib iconTheme;
-    };
-    recursiveMerge = (import ../share/recursiveMerge.nix lib);
+let recursiveMerge = (import ../share/recursiveMerge.nix lib);
 in recursiveMerge [
-    (import ./de-desktop.nix decoratedConfig decoratedConfig)
+    (import ./de-desktop.nix scheme args)
     {
         # Power management
         powerManagement = {
@@ -33,11 +30,11 @@ in recursiveMerge [
 
         hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
-        home-manager.users.mal = {
-            programs = {
-                # Smaller terminal font
-                alacritty.settings.font.size = 8;
-            };
-        };
+        # home-manager.users.mal = (args: let decoratedConfig = { inherit scheme; inherit (args) config pkgs lib; }; in {
+        #     programs = {
+        #         # Smaller terminal font
+        #         alacritty.settings.font.size = 8;
+        #     };
+        # });
     }
 ]

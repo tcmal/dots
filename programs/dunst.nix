@@ -1,12 +1,12 @@
 # Dunst (Notification Daemon)
 
-{ colours, iconTheme, ... }:
+{ scheme, ... }:
 
 {
     enable = true;
-    inherit iconTheme;
+    iconTheme = scheme.iconTheme;
     
-    settings = {
+    settings = with scheme.colours; {
         global = {
             font = "Roboto, 12";
             alignment = "center";
@@ -19,21 +19,21 @@
             maxIconSize = 20;
         };
         urgency_low = {
-            background = colours.base00 + "80";
-            foreground = colours.base07;
-            frame_color = colours.base00 + "80";
+            background = base00 + "80";
+            foreground = base07;
+            frame_color = base00 + "80";
             timeout = 5;
         };
         urgency_normal = {
-            background = colours.base00 + "80";
-            foreground = colours.base07;
-            frame_color = colours.base00 + "80";
+            background = base00 + "80";
+            foreground = base07;
+            frame_color = base00 + "80";
             timeout = 10;
         };
         urgency_critical = {
-            background = colours.base00 + "80";
-            foreground = colours.base07;
-            frame_color = colours.base00 + "80";
+            background = base00 + "80";
+            foreground = base07;
+            frame_color = base00 + "80";
             timeout = 0;
         };
 

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let 
-    customConfig = {
+    scheme = {
         terminal = "${pkgs.alacritty}/bin/alacritty";
         menu = "${pkgs.rofi}/bin/rofi -show drun";
         colours = (import ../schemes/blueish.nix);
@@ -9,8 +9,8 @@ let
 in {
     imports = [
         <home-manager/nixos>
-        (import ../roles/de-desktop.nix customConfig)
-        (import ../roles/programs.nix customConfig)
+        (import ../roles/de-desktop.nix scheme)
+        (import ../roles/programs.nix scheme)
         /etc/nixos/hardware-configuration.nix
     ];
 

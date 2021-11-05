@@ -1,11 +1,8 @@
 # Workstation setup
 
-{ colours, terminal, menu, iconTheme, ... }: { config, pkgs, lib, ... }:
+scheme: { config, pkgs, lib, ... }:
 
-let decoratedConfig = {
-        inherit colours terminal menu config pkgs lib iconTheme;
-    };
-    recursiveMerge = (import ../share/recursiveMerge.nix lib);
+let recursiveMerge = (import ../share/recursiveMerge.nix lib);
 in {
     # User account
     nix.trustedUsers = [ "mal" ];
@@ -46,7 +43,8 @@ in {
                 user = "mal";
             };
         };
-	windowManager.xmonad.enable = true;
+	    
+        windowManager.xmonad.enable = true;
     };
 
     # Reduce eye strain
@@ -56,6 +54,7 @@ in {
     
     location = {
         provider = "manual";
+        
         # Edinburgh, Scotland
         latitude = 55.9533;
         longitude = 3.1883;
@@ -68,8 +67,10 @@ in {
         font-awesome
     ];
 
+    services.dbus.packages = [ pkgs.gnome3.dconf ];
+
     # User-specific setup
-    home-manager.users.mal = {
+    home-manager.users.mal = (args: let decoratedConfig = { inherit scheme pkgs; inherit (args) config lib; }; in {
         home.packages = with pkgs; [
             # todo: fix keychain/dconf stuff
             dconf
@@ -113,5 +114,5 @@ in {
             longitude = "-3.188267";
         };
 
-    };
+    });
 }
