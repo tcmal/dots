@@ -29,12 +29,5 @@ in recursiveMerge [
         services.blueman.enable = true;
 
         hardware.pulseaudio.package = pkgs.pulseaudioFull;
-
-        # home-manager.users.mal = (args: let decoratedConfig = { inherit scheme; inherit (args) config pkgs lib; }; in {
-        #     programs = {
-        #         # Smaller terminal font
-        #         alacritty.settings.font.size = 8;
-        #     };
-        # });
     }
 ]
