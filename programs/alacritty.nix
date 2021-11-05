@@ -10,7 +10,7 @@
                 family = "Fira Mono";
             };
             
-            size = 8;
+            size = 12;
         };
 
         draw_bold_text_with_bright_colors = true;

@@ -1,14 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }@args:
 
-let customConfig = {
-        terminal = "${pkgs.alacritty}/bin/alacritty";
-        menu = "${pkgs.rofi}/bin/rofi -show drun";
-        colours = (import ../schemes/blueish.nix);
-        iconTheme = {
-            name = "Paper";
-            package = pkgs.paper-icon-theme;
-        };
-    };
+let scheme = (import ../schemes/blueish.nix args);
 in {
     imports = [
         <home-manager/nixos>

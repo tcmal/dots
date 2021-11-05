@@ -1,11 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }@args:
 
-let 
-    scheme = {
-        terminal = "${pkgs.alacritty}/bin/alacritty";
-        menu = "${pkgs.rofi}/bin/rofi -show drun";
-        colours = (import ../schemes/blueish.nix);
-    };
+let scheme = (import ../schemes/blueish.nix args);
 in {
     imports = [
         <home-manager/nixos>
