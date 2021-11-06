@@ -21,6 +21,11 @@ toggleFull = withFocused (\windowId -> do
         then withFocused $ windows . W.sink
         else withFocused $ windows . (flip W.float $ W.RationalRect 0 0 1 1) })  
 
+
+volUp = spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+volDown = spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+volMute = spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+
 main :: IO ()
 main = xmonad $ do
     apply ewmh
@@ -50,9 +55,12 @@ main = xmonad $ do
                 ("M-S-r", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"),
 
                 -- volume management
-                ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
-                ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
-                ("<XF86AudioMute>", spawn "pactl set-sink-mute 0 toggle"),
+                ("<XF86AudioRaiseVolume>", volUp),
+                ("<XF86AudioLowerVolume>", volDown),
+                ("<XF86AudioMute>", volMute),
+                ("M-v", volUp),
+                ("M-c", volDown),
+                ("M-b", volMute),
 
                 -- brightness management
                 ("M-x", spawn "light -A 10; BRIGHTNESS=`light | cut -d '.' -f 1`; notify-send -i \"preferences-system-brightness-lock\" \"Brightness: ${BRIGHTNESS}%\""),
