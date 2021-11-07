@@ -48,6 +48,8 @@ main = xmonad $ do
     -- keybinds
     modMask =: mod4Mask
     keys =- ["M-S-q", "M-P", "M-S-P", "M-S-C", "M-S-/", "M-<Tab>", "M-S-<Tab>", "M-b"]
+    withWorkspaces $ do
+        wsKeys =+ ["0"]
 
     keys =+ [
                 ("M-<Return>", spawn "rofi -show drun"),
