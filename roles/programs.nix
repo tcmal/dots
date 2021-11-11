@@ -77,6 +77,7 @@ in {
             ]))
             rustup
             gcc
+            sage
 
             # Developer tools
             (import ../programs/vscode-extensions.nix decoratedConfig)
@@ -102,6 +103,7 @@ in {
 
             extraConfig = {
                 init.defaultBranch = "main";
+		pull.rebase = true;
             };
         };
 
