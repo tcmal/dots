@@ -4,8 +4,8 @@ let scheme = (import ../schemes/blueish.nix args);
 in {
     imports = [
         <home-manager/nixos>
-        (import ../roles/de-laptop.nix customConfig)
-        (import ../roles/programs.nix customConfig)
+        (import ../roles/de-laptop.nix scheme)
+        (import ../roles/programs.nix scheme)
         /etc/nixos/hardware-configuration.nix
     ];
     
