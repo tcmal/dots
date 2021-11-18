@@ -103,7 +103,7 @@ in {
 
             extraConfig = {
                 init.defaultBranch = "main";
-		pull.rebase = true;
+		        pull.rebase = true;
             };
         };
 
