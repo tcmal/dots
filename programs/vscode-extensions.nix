@@ -17,6 +17,7 @@ let
         coenraads.bracket-pair-colorizer-2
         eamodio.gitlens
         gruntfuggly.todo-tree
+        usernamehw.errorlens
         #vadimcn.vscode-lldb
 
         # Appearance
