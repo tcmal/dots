@@ -9,6 +9,7 @@ let
         haskell.haskell
         justusadam.language-haskell
         #matklad.rust-analyzer
+        ms-vscode.cpptools
         a5huynh.vscode-ron
         tamasfe.even-better-toml
 
