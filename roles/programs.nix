@@ -45,7 +45,6 @@ in {
             fzf
             
             gimp
-            blender
             inkscape
             imagemagick
 
@@ -68,7 +67,6 @@ in {
             libreoffice
             arandr
             openssl
-            jabref
 
             # Languages, Runtimes, etc.
             nodejs
@@ -82,9 +80,7 @@ in {
             # Developer tools
             (import ../programs/vscode-extensions.nix decoratedConfig)
             obsidian
-            jetbrains.idea-ultimate
             direnv
-            exercism
             (lowPrio lldb)
 
             # Games, etc
@@ -134,7 +130,7 @@ in {
         home.file.".config/obsidian/themes/nord-base16.css".source = "${import ../programs/obsidian-base16.nix decoratedConfig}/nord-base16.css";
         home.file.".vscode/extensions/base16-system".source = "${import ../programs/vscode-base16.nix decoratedConfig}/base16-system";
         home.file.".mozilla/localExtensions/base16-system.zip".source = "${import ../programs/firefox-base16.nix decoratedConfig}/addon.zip";
-        home.file.".config/JetBrains/theme/".source = import ../programs/idea-base16.nix decoratedConfig;
+        # home.file.".config/JetBrains/theme/".source = import ../programs/idea-base16.nix decoratedConfig;
         home.file.".config/userstyles".source = "${import ../programs/userstyles.nix decoratedConfig}";
     };
 }
