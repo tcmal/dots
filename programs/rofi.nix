@@ -8,7 +8,6 @@
     font = "Fira Mono 14";
 
     location = "top";
-    scrollbar = false;
     
     extraConfig = {
         show-icons = true;

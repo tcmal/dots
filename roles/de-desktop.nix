@@ -97,10 +97,10 @@ in {
             config = ../share/xmonad.hs;
         };
 
-        # programs.xmobar = {
-        #     enable = true;
-        #     extraConfig = builtins.readFile ../share/xmobarrc;
-        # };
+        programs.xmobar = {
+            enable = true;
+            extraConfig = builtins.readFile ../share/xmobarrc;
+        };
 
         home.file.".background-image".source = ../share/wallpaper.png;
         programs.rofi = import ../programs/rofi.nix decoratedConfig;
