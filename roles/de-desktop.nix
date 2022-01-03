@@ -87,6 +87,9 @@ in {
             pavucontrol
             htop
             okular
+
+            steam
+            steam-run-native
         ];
 
         # WM / DE setup

@@ -50,8 +50,7 @@ in {
 
             # Web
             firefox-devedition-bin
-            thunderbird
-
+            
             # Collaboration
             zoom-us
             teams
@@ -62,7 +61,6 @@ in {
             (texlive.combine {
                 inherit (texlive) scheme-medium pgfplots;
             })
-            librsvg
             shutter
             libreoffice
             arandr
@@ -75,17 +73,14 @@ in {
             ]))
             rustup
             gcc
-            sage
+            # sage
 
             # Developer tools
             (import ../programs/vscode-extensions.nix decoratedConfig)
             obsidian
             direnv
-            (lowPrio lldb)
-
+            
             # Games, etc
-            steam
-            steam-run-native
             multimc
             vulkan-loader
             vulkan-tools
