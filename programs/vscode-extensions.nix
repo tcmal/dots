@@ -8,7 +8,7 @@ let
         ms-toolsai.jupyter
         haskell.haskell
         justusadam.language-haskell
-        #matklad.rust-analyzer
+        matklad.rust-analyzer
         ms-vscode.cpptools
         a5huynh.vscode-ron
         tamasfe.even-better-toml
@@ -59,6 +59,12 @@ let
             publisher = "svelte";
             version = "105.3.4";
             sha256 = "3a3a13689758f4c1173c0ebb24f9b0c5b19820cb2c84413f052bee0fe5355272";
+        }
+        {
+            name = "minizinc";
+            publisher = "DekkerOne";
+            version = "0.1.0";
+            sha256 = "52b119528790ef891a61687594b8468034ef1317405ebd7fbb9149604ed9b3f2";
         }
     ];
 in pkgs.vscode-with-extensions.override {
