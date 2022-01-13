@@ -1,4 +1,4 @@
-# Generates a .yml scheme for base16-builder
+# Generates a .yml scheme for mustache templates
 
 { pkgs, colours, ... }:
 

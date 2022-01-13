@@ -10,12 +10,12 @@ derivation {
     args = with pkgs; [ "-c" ''
         ${coreutils}/bin/mkdir -p $out;
         cd $TMP;
-        HOME=$TMP ${base16-builder}/bin/base16-builder -t $template -s $customScheme -b ${colours.mode} > manifest.json;
+        HOME=$TMP ${mustache-go}/bin/mustache $customScheme $template > manifest.json;
         ${zip}/bin/zip $out/addon.zip manifest.json;
     ''];
 
     customScheme = (import ./base16-scheme-yml.nix) { inherit pkgs colours; };
-    template = ../share/firefox.ejs;
+    template = ../share/firefox.mustache;
 
     system = builtins.currentSystem;
 }

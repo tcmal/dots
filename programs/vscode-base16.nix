@@ -10,11 +10,11 @@ derivation {
         ${coreutils}/bin/mkdir -p $out/base16-system;
         ${coreutils}/bin/cp -r $scaffold/* $out/base16-system;
         ${coreutils}/bin/ls $out;
-        HOME=$TMP ${base16-builder}/bin/base16-builder -t $template -s $customScheme -b ${colours.mode} > $out/base16-system/scheme.tmTheme
+        HOME=$TMP ${mustache-go}/bin/mustache $customScheme $template > $out/base16-system/scheme.tmTheme
     ''];
 
     customScheme = (import ./base16-scheme-yml.nix) { inherit pkgs colours; };
-    template = ../share/vscode.ejs;
+    template = ../share/vscode.mustache;
     scaffold = ../share/base16-system;
 
     system = builtins.currentSystem;
