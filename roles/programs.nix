@@ -80,6 +80,7 @@ in {
             # Developer tools
             (import ../programs/vscode-extensions.nix decoratedConfig)
             emacs
+            emacs-all-the-icons-fonts
             obsidian
             direnv
             
@@ -97,7 +98,7 @@ in {
 
             extraConfig = {
                 init.defaultBranch = "main";
-		        pull.rebase = true;
+                pull.rebase = true;
             };
         };
 
