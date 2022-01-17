@@ -43,6 +43,8 @@ in {
             vlc
             zoxide
             fzf
+            ripgrep
+            xclip
             
             gimp
             inkscape
@@ -77,6 +79,7 @@ in {
 
             # Developer tools
             (import ../programs/vscode-extensions.nix decoratedConfig)
+            emacs
             obsidian
             direnv
             
