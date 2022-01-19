@@ -34,6 +34,7 @@ in {
         home.packages = with pkgs; [
             # Utilities
             git
+            git-sync
             unzip
             file
             ldns

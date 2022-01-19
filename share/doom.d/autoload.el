@@ -11,3 +11,8 @@
   (shell-command (concat "xclip -selection clipboard -t image/png -o > \"" filename "\""))
   (insert (concat "[[./" filename "]]"))
   (org-display-inline-images))
+
+;;;###autoload
+(defun git-sync ()
+  (interactive)
+  (projectile-run-shell-command-in-root "git-sync"))
