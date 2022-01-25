@@ -107,3 +107,8 @@
 
 (map! :leader :n "g p" #'git-sync)
 (map! "C-s" #'save-buffer)
+
+(setq indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq c-basic-offset 4)
+(setq lsp-lens-enable nil)
