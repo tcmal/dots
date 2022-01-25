@@ -106,3 +106,4 @@
  '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
 
 (map! :leader :n "g p" #'git-sync)
+(map! "C-s" #'save-buffer)
