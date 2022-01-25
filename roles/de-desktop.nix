@@ -35,7 +35,7 @@ in {
     services.xserver = {
         enable = true;
         displayManager = {
-            sddm.enable = true;
+            lightdm.enable = true;
             defaultSession = "none+xmonad";
 
             autoLogin = {
@@ -43,8 +43,10 @@ in {
                 user = "mal";
             };
         };
-	    
         windowManager.xmonad.enable = true;
+
+        # Swap caps and ESC
+        xkbOptions = "caps:swapescape";
     };
 
     # Reduce eye strain
@@ -87,7 +89,6 @@ in {
             pavucontrol
             htop
             okular
-
             steam
             steam-run-native
         ];
