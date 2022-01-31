@@ -69,7 +69,9 @@
       org-startup-with-latex-preview t
       org-ascii-headline-spacing 1
       org-image-actual-width '(300)
-      org-directory "~/notes/")
+      org-directory "~/notes/"
+      org-goto-interface 'outline-path-completion
+      org-outline-path-complete-in-steps nil)
 
 
 
@@ -105,6 +107,7 @@
  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
 
+
 (map! :leader :n "g p" #'git-sync)
 (map! "C-s" #'save-buffer)
 
@@ -112,3 +115,6 @@
 (setq-default tab-width 4)
 (setq c-basic-offset 4)
 (setq lsp-lens-enable nil)
+
+(after! projectile
+  (setq projectile-project-search-path '("~/code/")))
