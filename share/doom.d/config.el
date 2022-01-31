@@ -117,4 +117,10 @@
 (setq lsp-lens-enable nil)
 
 (after! projectile
-  (setq projectile-project-search-path '("~/code/")))
+  (setq projectile-project-search-path '("~/code/"))
+  (global-set-key [remap evil-jump-to-tag] #'dumb-jump-go)
+  (map! :leader "]" #'dumb-jump-go-prompt))
+
+;; Preserve jump list in evil
+(defun evil-set-jump-args (&rest _ns) (evil-set-jump))
+(advice-add 'dumb-jump-goto-file-line :before #'evil-set-jump-args)
