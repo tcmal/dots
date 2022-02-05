@@ -46,7 +46,7 @@ in {
         windowManager.xmonad.enable = true;
 
         # Swap caps and ESC
-        xkbOptions = "caps:swapescape";
+        xkbOptions = "ctrl:swapcaps";
     };
 
     # Reduce eye strain

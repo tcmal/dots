@@ -100,6 +100,8 @@ in {
             extraConfig = {
                 init.defaultBranch = "main";
                 pull.rebase = true;
+		github.user = "tcmal";
+		gitlab.user = "tcmal";
             };
         };
 
@@ -127,6 +129,7 @@ in {
         };
 
         home.file.".lyx/colours".source = "${import ../programs/lyx-base16.nix decoratedConfig}/colours";
+        home.file.".emacs.d/themes/base16-custom-theme.el".source = "${import ../programs/emacs-base16.nix decoratedConfig}/base16-custom-theme.el";
         home.file.".config/obsidian/themes/nord-base16.css".source = "${import ../programs/obsidian-base16.nix decoratedConfig}/nord-base16.css";
         home.file.".vscode/extensions/base16-system".source = "${import ../programs/vscode-base16.nix decoratedConfig}/base16-system";
         home.file.".mozilla/localExtensions/base16-system.zip".source = "${import ../programs/firefox-base16.nix decoratedConfig}/addon.zip";
