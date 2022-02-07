@@ -27,6 +27,13 @@ in {
     virtualisation.virtualbox.host.enableExtensionPack = true;
     users.extraGroups.vboxusers.members = [ "mal" ];
 
+    # Emacs overlay
+    nixpkgs.overlays = [
+        (import (builtins.fetchTarball {
+            url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+        }))
+    ];
+
     # User-specific setup
     home-manager.users.mal = {
 
@@ -80,7 +87,7 @@ in {
 
             # Developer tools
             (import ../programs/vscode-extensions.nix decoratedConfig)
-            emacs
+            emacsGcc
             emacs-all-the-icons-fonts
             obsidian
             direnv
