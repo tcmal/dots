@@ -860,7 +860,7 @@ Pretty much necessary for Nix - use lorri.
 ** Indentation / Whitespace
 
 #+begin_src emacs-lisp
-(setq-default tab-width 2)
+(setq-default tab-width 4)
 (setq-default evil-shift-width tab-width)
 (setq-default indent-tabs-mode nil)
 (setup (:pkg ws-butler)
@@ -908,4 +908,17 @@ Pretty much necessary for Nix - use lorri.
   (:hook lsp))
 
 (setup (:pkg lsp-haskell))
+#+end_src
+
+** Nix
+
+#+begin_src emacs-lisp
+(setup (:pkg nix-mode)
+  (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode)))
+#+end_src
+
+** Terminal
+
+#+begin_src emacs-lisp
+(setq term-prompt-regexp "^.*❯❯❯ ")
 #+end_src
