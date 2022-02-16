@@ -772,7 +772,7 @@ If on a:
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
-     (ledger . t))))
+     (python . t))))
 #+end_src
 
 ** Auto-Tangle configuration file
