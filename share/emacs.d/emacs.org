@@ -877,16 +877,13 @@ Pretty much necessary for Nix - use lorri.
   (:global "C-/" evilnc-comment-or-uncomment-lines))
 #+end_src
 
-** Folding
+** Brackets
 
 #+begin_src emacs-lisp
-;; (setup (:pkg origami)
-;;   (:hook-into prog-mode)
-;;   (general-define-key :keymaps 'origami-mode-map
-;;                       :states '(normal visual insert)
-;;                       "C-f" 'origami-recursively-toggle-node
-;;                       "C-j" 'origami-forward-fold-same-level
-;;                       "C-k" 'origami-backward-fold-same-level))
+(setup (:pkg smartparens)
+  (require 'smartparens-config)
+  (:with-mode smartparens-mode
+    (:hook-into prog-mode)))
 #+end_src
 
 ** Magit
@@ -918,6 +915,18 @@ Pretty much necessary for Nix - use lorri.
 #+begin_src emacs-lisp
 (setup (:pkg nix-mode)
   (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode)))
+#+end_src
+
+** Typescript
+
+#+begin_src emacs-lisp
+(setup (:pkg typescript-mode))
+#+end_src
+
+** Svelte
+
+#+begin_src emacs-lisp
+(setup (:pkg svelte-mode))
 #+end_src
 
 ** Terminal
