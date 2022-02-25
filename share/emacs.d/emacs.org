@@ -717,7 +717,7 @@ If on a:
 
 #+begin_src emacs-lisp
 (setup (:pkg visual-fill-column)
-  (:hook-into org-mode)
+  (:hook-into org-mode org-agenda-mode)
   (:option visual-fill-column-width 110
            visual-fill-column-center-text t))
 #+end_src
@@ -734,6 +734,64 @@ If on a:
   (text-scale-set 1)
   (setq line-spacing 3))
 #+end_src
+
+** Task States
+
+#+begin_src emacs-lisp
+(setq org-todo-keywords
+  '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+    (sequence "|" "WAIT(w)" "BACK(b)")))
+
+(setq org-todo-keyword-faces
+  '(("NEXT" . (:foreground "orange red" :weight bold))
+    ("WAIT" . (:foreground "HotPink2" :weight bold))
+    ("BACK" . (:foreground "MediumPurple3" :weight bold))))
+
+(setq org-tag-alist
+  '((:startgroup)
+     (:endgroup)
+     ("@home" . ?H)
+     ("@school" . ?W)
+     ("@societies" . ?W)
+     ("@career" . ?W)))
+
+#+end_src
+
+** Agenda
+
+#+begin_src emacs-lisp
+(setup (:pkg org-super-agenda)
+  (:load-after org)
+  (:option org-super-agenda-groups '((:auto-category t))
+           org-agenda-window-setup 'current-window
+           org-agenda-span 'day
+           org-agenda-start-with-log-mode t
+           org-agenda-prefix-format '((agenda . " %i %-12s")
+                                      (todo . " %i %-12:s")
+                                      (tags . " %i %-12:c")
+                                      (search . " %i %-12:c"))
+           org-agenda-custom-commands `(("d" "Dashboard"
+                                         ((agenda "" ((org-deadline-warning-days 3)))
+                                          (tags-todo "+PRIORITY=\"A\""
+                                                     ((org-agenda-overriding-header "High Priority")))
+                                          (todo "NEXT"
+                                                ((org-agenda-overriding-header "Next Actions")
+                                                 (org-agenda-max-todos nil)))
+                                          (todo "TODO"
+                                                ((org-agenda-overriding-header "Unprocessed Inbox Tasks")
+                                                 (org-agenda-text-search-extra-files nil)))
+                                          ))
+
+                                        ("n" "Next Tasks"
+                                         ((todo "NEXT"
+                                                ((org-agenda-overriding-header "Next Tasks")))
+                                          (agenda "" ((org-deadline-warning-days 0)
+                                                      (org-agenda-use-time-grid 1))))))
+           org-columns-default-format "%TODO %25ITEM %DEADLINE %SCHEDULED")
+  (org-super-agenda-mode 1)
+  (:with-mode org-agenda-mode
+    (:hook (lambda () (display-line-numbers-mode 0)))))
+                                                #+end_src
 
 ** Snippets
 
@@ -815,6 +873,8 @@ Pretty much necessary for Nix - use lorri.
            lsp-signature-render-documentation nil
            lsp-idle-delay 0.5
            lsp-enable-which-key-integration t)
+  (:with-hook prog-mode-hook
+    (:hook 'lsp))
   (mal/leader-keys
     "l a" 'lsp-execute-code-action
     "l r" 'lsp-rename
