@@ -69,7 +69,7 @@ in {
             # LaTeX stuff
             lyx
             (texlive.combine {
-                inherit (texlive) scheme-medium pgfplots;
+                inherit (texlive) scheme-tetex pgfplots;
             })
             shutter
             libreoffice
