@@ -762,12 +762,18 @@ If on a:
 #+begin_src emacs-lisp
 (setup (:pkg org-super-agenda)
   (:load-after org)
-  (:option org-super-agenda-groups '((:auto-category t))
+  (:option org-super-agenda-groups '((:name "School"
+                                           :tag "@school")
+                                     (:name "Societies"
+                                            :tag "@societies")
+                                     (:name "Home"
+                                            :tag "@home"))
            org-agenda-window-setup 'current-window
            org-agenda-span 'day
            org-agenda-start-with-log-mode t
-           org-agenda-prefix-format '((agenda . " %i %-12s")
-                                      (todo . " %i %-12:s")
+           org-agenda-remove-tags t
+           org-agenda-prefix-format '((agenda . " %i %-12:c%?-12t% s")
+                                      (todo . " %i %-12:c%?-12t% s")
                                       (tags . " %i %-12:c")
                                       (search . " %i %-12:c"))
            org-agenda-custom-commands `(("d" "Dashboard"
@@ -873,7 +879,7 @@ Pretty much necessary for Nix - use lorri.
            lsp-signature-render-documentation nil
            lsp-idle-delay 0.5
            lsp-enable-which-key-integration t)
-  (:with-hook prog-mode-hook
+  (:with-hook (js-mode-hook)
     (:hook 'lsp))
   (mal/leader-keys
     "l a" 'lsp-execute-code-action
