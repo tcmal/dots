@@ -34,12 +34,19 @@ in {
         }))
     ];
 
+    # GNUPG
+    programs.gnupg.agent = {
+      enable = true;
+      pinentryFlavor = "curses";
+    };
+
     # User-specific setup
     home-manager.users.mal = {
 
         # Programs
         home.packages = with pkgs; [
-            # Utilities
+          # Utilities
+          gnupg
             git
             git-sync
             unzip
@@ -107,8 +114,8 @@ in {
             extraConfig = {
                 init.defaultBranch = "main";
                 pull.rebase = true;
-		github.user = "tcmal";
-		gitlab.user = "tcmal";
+                github.user = "tcmal";
+                gitlab.user = "tcmal";
             };
         };
 

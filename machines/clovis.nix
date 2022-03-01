@@ -68,5 +68,10 @@ in {
         symbolsFile = ../share/symbols/us-mech;
     };
 
+    home-manager.users.mal.programs.git.extraConfig = {
+      user.signingkey = "CF32FEF6BD22D30C5A4C77B5EA97081FFD78EF04";
+      commit.gpgsign = true;
+    };
+
     # Drivers, boot options, etc. are all in hardware-configuration.nix
 }
