@@ -762,8 +762,8 @@ If on a:
 #+begin_src emacs-lisp
 (defun mal/task-scheduling-info ()
   (let* ((deadline (org-get-deadline-time (point)))
-        (scheduled (org-get-scheduled-time (point)))
-        (time (or deadline scheduled)))
+         (scheduled (org-get-scheduled-time (point)))
+         (time (or scheduled deadline)))
     (cond (time (format-time-string "%a %d %b" time))
           (t ""))))
 
@@ -776,6 +776,10 @@ If on a:
                                             :tag "@societies")
                                      (:name "Home"
                                             :tag "@home"))
+           org-agenda-sorting-strategy '((agenda priority-down timestamp-up category-keep)
+                                        (todo priority-down timestamp-up category-keep)
+                                        (tags priority-down time-up timestamp-up category-keep)
+                                        (search priority-down timestamp-up category-keep))
            org-agenda-window-setup 'current-window
            org-agenda-span 'day
            org-agenda-start-with-log-mode t
