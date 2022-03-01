@@ -739,8 +739,8 @@ If on a:
 
 #+begin_src emacs-lisp
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-        (sequence "|" "WAIT(w)" "BACK(b)")))
+      '((sequence "TODO(t)" "NEXT(n)" "WAIT(w)" "|" "DONE(d!)")
+        (sequence "|" "BACK(b)")))
 
 (setq org-todo-keyword-faces
       '(("NEXT" . (:foreground "orange red" :weight bold))
