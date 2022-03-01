@@ -760,6 +760,13 @@ If on a:
 ** Agenda
 
 #+begin_src emacs-lisp
+(defun mal/task-scheduling-info ()
+  (let* ((deadline (org-get-deadline-time (point)))
+        (scheduled (org-get-scheduled-time (point)))
+        (time (or deadline scheduled)))
+    (cond (time (format-time-string "%a %d %b" time))
+          (t ""))))
+
 (setup (:pkg org-super-agenda)
   (:load-after org)
   (:option org-super-agenda-header-map (make-sparse-keymap)
@@ -774,9 +781,10 @@ If on a:
            org-agenda-start-with-log-mode t
            org-agenda-remove-tags t
            org-agenda-prefix-format '((agenda . " %i %-12:c%?-12t% s")
-                                      (todo . " %i %-12:c%?-12t% s")
-                                      (tags . " %i %-12:c")
-                                      (search . " %i %-12:c"))
+                                      (timeline . "%i %c %s")
+                                      (todo . " %i %-12:c %-12:(mal/task-scheduling-info)")
+                                      (tags . " %i %-12:c%?-12t% s")
+                                      (search . " %i %-12:c?-12t% s"))
            org-agenda-custom-commands `(("d" "Dashboard"
                                          ((agenda "" ((org-deadline-warning-days 3)
                                                       (org-super-agenda-groups (cons '(:name "Today"
