@@ -69,7 +69,7 @@ in {
     };
 
     home-manager.users.mal.programs.git.extraConfig = {
-      user.signingkey = "CF32FEF6BD22D30C5A4C77B5EA97081FFD78EF04";
+      user.signingkey = "60E6BADCBCAC8B946EC4B6F437E04F92584DA765";
       commit.gpgsign = true;
     };
 
