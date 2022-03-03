@@ -1048,3 +1048,12 @@ I don't use this for code, just for org tasks. Code from [[https://old.reddit.co
 #+begin_src emacs-lisp
 (setq term-prompt-regexp "^.*❯❯❯ ")
 #+end_src
+
+*  Other
+
+** EasyPG
+
+#+begin_src emacs-lisp
+(setq epa-pinentry-mode 'loopback)
+(setenv "GPG_AGENT_INFO" (concat "/run/user/" (number-to-string (user-uid)) "/gnupg/S.gpg-agent"))
+#+end_src

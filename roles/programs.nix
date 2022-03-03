@@ -37,7 +37,7 @@ in {
     # GNUPG
     programs.gnupg.agent = {
       enable = true;
-      pinentryFlavor = "curses";
+      pinentryFlavor = "gtk2";
     };
 
     # User-specific setup
