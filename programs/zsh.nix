@@ -46,6 +46,10 @@
                 __zoxide_z "$*" && ls --color=auto --group-directories-first;
             }
             alias z='nocorrect __z_ls'
+            function __hl () {
+                gpg --decrypt $HOME/notes/Tasks/Ledger.ledger.gpg 2>/dev/null | hledger -f- "$@"
+            }
+            alias hl='nocorrect __hl'
         '';
     };
 }

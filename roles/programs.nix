@@ -59,7 +59,8 @@ in {
             zoxide
             fzf
             ripgrep
-            xclip
+          xclip
+          hledger
             
             gimp
             inkscape

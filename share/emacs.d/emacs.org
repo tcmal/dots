@@ -96,7 +96,8 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 
 #+begin_src emacs-lisp
 (setq user-emacs-directory (expand-file-name "~/.cache/emacs/")
-      url-history-file (expand-file-name "url/history" user-emacs-directory))
+      url-history-file (expand-file-name "url/history" user-emacs-directory)
+      create-lockfiles nil)
 
 (setup (:pkg no-littering))
 #+end_src
@@ -1047,6 +1048,30 @@ I don't use this for code, just for org tasks. Code from [[https://old.reddit.co
 (setq term-prompt-regexp "^.*❯❯❯ ")
 #+end_src
 
+** HTML
+
+#+begin_src emacs-lisp
+(setup (:pkg web-mode)
+  (:option web-mode-markup-indent-offset 2
+           web-mode-enable-auto-pairing t
+web-mode-engines-alist
+      '(("django"    . "\\.njk\\'"))
+           )
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.njk\\'" . web-mode)))
+
+(setup (:pkg emmet-mode)
+  (:hook-into sgml-mode-hook))
+(setq sgml-quick-keys 'close)
+#+end_src
+
+** YAML
+
+#+begin_src emacs-lisp
+(setup (:pkg yaml-mode)
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+#+end_src
+
 *  Other
 
 ** EasyPG
@@ -1054,4 +1079,11 @@ I don't use this for code, just for org tasks. Code from [[https://old.reddit.co
 #+begin_src emacs-lisp
 (setq epa-pinentry-mode 'loopback)
 (setenv "GPG_AGENT_INFO" (concat "/run/user/" (number-to-string (user-uid)) "/gnupg/S.gpg-agent"))
+#+end_src
+
+** Ledger
+
+#+begin_src emacs-lisp
+(setup (:pkg hledger-mode)
+  (:option hledger-jfile (expand-file-name "~/notes/Tasks/Ledger.ledger.gpg")))
 #+end_src
