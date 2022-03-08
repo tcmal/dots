@@ -34,6 +34,10 @@ in {
 	environment.etc.hosts.mode = "0644";
 
     # Drivers, boot options, etc. are all in hardware-configuration.nix
+    home-manager.users.mal.programs.git.extraConfig = {
+      user.signingkey = "60E6BADCBCAC8B946EC4B6F437E04F92584DA765";
+      commit.gpgsign = true;
+    };
 
     boot.supportedFilesystems = [ "ntfs" ];
 }
