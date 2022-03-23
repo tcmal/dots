@@ -18,7 +18,7 @@
         "_GTK_FRAME_EXTENTS@:c"
     ];
 
-    inactiveOpacity = "0.7";
+    inactiveOpacity = "0.9";
 
     fade = true;
     fadeDelta = 20;

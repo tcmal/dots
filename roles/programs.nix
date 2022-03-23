@@ -72,7 +72,8 @@ in {
             # Collaboration
             zoom-us
             teams
-            (import ../programs/discord-base16.nix decoratedConfig)
+          (import ../programs/discord-base16.nix decoratedConfig)
+          thunderbird
 
             # LaTeX stuff
             lyx

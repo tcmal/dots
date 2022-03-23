@@ -35,7 +35,7 @@ main = xmonad $ do
     startupHook =+ spawn "feh --bg-scale ~/.background-image"
 
     -- looks
-    logHook =+ fadeInactiveLogHook 0.6
+    logHook =+ fadeInactiveLogHook 0.9
     borderWidth =: 0
     handleEventHook =+ F.fullscreenEventHook
     manageHook =+ F.fullscreenManageHook
