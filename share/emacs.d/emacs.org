@@ -97,6 +97,7 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 #+begin_src emacs-lisp
 (setq user-emacs-directory (expand-file-name "~/.cache/emacs/")
       url-history-file (expand-file-name "url/history" user-emacs-directory)
+      backup-directory-alist `(("." . "~/.cache/emacs/saves"))
       create-lockfiles nil)
 
 (setup (:pkg no-littering))
@@ -912,7 +913,7 @@ Pretty much necessary for Nix - use lorri.
            lsp-signature-render-documentation nil
            lsp-idle-delay 0.5
            lsp-enable-which-key-integration t)
-  (:with-hook (js-mode-hook)
+  (:with-hook (js-mode-hook python-mode-hook)
     (:hook 'lsp))
   (mal/leader-keys
     "l a" 'lsp-execute-code-action
@@ -1082,6 +1083,12 @@ web-mode-engines-alist
 #+begin_src emacs-lisp
 (setup (:pkg yaml-mode)
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+#+end_src
+
+** Go
+
+#+begin_src emacs-lisp
+(setup (:pkg go-mode))
 #+end_src
 
 *  Other
