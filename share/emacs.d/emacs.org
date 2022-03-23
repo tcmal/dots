@@ -882,6 +882,12 @@ If on a:
   (:hook (lambda () (add-hook 'after-save-hook #'mal/org-babel-tangle-config))))
 #+end_src
 
+** Presentations
+
+#+begin_src emacs-lisp
+(setup (:pkg org-present))
+#+end_src
+
 * Development
 
 ** Direnv

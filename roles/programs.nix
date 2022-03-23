@@ -98,7 +98,8 @@ in {
             emacsGcc
             emacs-all-the-icons-fonts
             obsidian
-            direnv
+          direnv
+          jetbrains.idea-community
             
             # Games, etc
             multimc
