@@ -67,7 +67,8 @@ in {
             imagemagick
 
             # Web
-            firefox-devedition-bin
+          firefox-devedition-bin
+          transmission-gtk
             
             # Collaboration
             zoom-us
