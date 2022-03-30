@@ -1,0 +1,7 @@
+
+xmonad.hs:30:20: warning: [-Wdeprecations]
+    In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
+    Deprecated: "Use spacingRaw instead."
+   |
+30 |     modifyLayout $ spacing 10
+   |                    ^^^^^^^
