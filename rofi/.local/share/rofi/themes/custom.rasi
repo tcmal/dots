@@ -1,0 +1,105 @@
+* {
+ac: #89DDFF;
+al: #00000000;
+bg: #21212188;
+fg: #FFFFFF;
+se: #303030;
+}
+
+element {
+background-color: @al;
+border-radius: 0%;
+orientation: horizontal;
+padding: 1% 0.5% 1% 0.5%;
+text-color: @fg;
+}
+
+element selected {
+background-color: @se;
+border: 0% 0% 0% 0%;
+border-color: @bg;
+border-radius: 0px;
+text-color: @fg;
+}
+
+element-icon {
+background-color: inherit;
+border: 0px;
+horizontal-align: 0.5;
+size: 32px;
+text-color: inherit;
+vertical-align: 0.5;
+}
+
+element-text {
+background-color: @al;
+expand: true;
+horizontal-align: 0;
+margin: 0% 0.25% 0% 0.25%;
+text-color: inherit;
+vertical-align: 0.5;
+}
+
+entry {
+background-color: @al;
+blink: true;
+expand: true;
+horizontal-align: 0;
+padding: 0.10% 0% 0% 0%;
+placeholder: "Search";
+placeholder-color: @bg;
+text-color: @bg;
+}
+
+inputbar {
+background-color: @ac;
+border: 0% 0% 0% 0%;
+border-color: @ac;
+border-radius: 0px;
+children: [ prompt, entry ];
+expand: false;
+margin: 0% 0% 0% 0%;
+padding: 1.5%;
+text-color: @bg;
+}
+
+listview {
+background-color: @al;
+columns: 1;
+cycle: false;
+dynamic: true;
+layout: vertical;
+lines: 5;
+padding: 0px;
+spacing: 0%;
+}
+
+mainbox {
+background-color: @al;
+border: 0% 0% 0% 0%;
+border-color: @ac;
+border-radius: 0% 0% 0% 0%;
+children: [ inputbar, listview ];
+padding: 0%;
+spacing: 0%;
+}
+
+prompt {
+background-color: @al;
+enabled: true;
+padding: 0.30% 1% 0% -0.5%;
+text-color: @bg;
+}
+
+window {
+background-color: @bg;
+border: 0px;
+border-color: @ac;
+border-radius: 12px;
+location: center;
+text-color: @fg;
+transparency: "real";
+width: 18%;
+x-offset: 0;
+y-offset: 0;
+}

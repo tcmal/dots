@@ -45,7 +45,7 @@ main = xmonad $ do
         wsKeys =+ ["0"])
 
     keys =+ [
-                ("M-<Return>", spawn "xfce4-appfinder"),
+                ("M-<Return>", spawn "rofi -show combi"),
                 ("M-t", spawn "xfce4-terminal"),
                 ("M-S-r", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"),
 
