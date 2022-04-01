@@ -9,7 +9,6 @@ import qualified XMonad.Layout.Fullscreen as F
 
 import XMonad.Actions.CycleWS (toggleWS)
 
-import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.EwmhDesktops as E
 import XMonad.Config.Xfce
 
@@ -25,7 +24,6 @@ main = xmonad $ do
     startWith xfceConfig
 
     -- looks
-    logHook =+ fadeInactiveLogHook 0.9
     borderWidth =: 0
     modifyLayout $ spacing 10
 
