@@ -212,16 +212,16 @@ Inspired by https://github.com/rougier/emacs-splash
       (if (one-window-p)
           (setq mode-line-format nil))
       (setq cursor-type nil)
+      (blink-cursor-mode 0)
+      (setq visible-cursor nil)
       (setq vertical-scroll-bar nil)
       (setq horizontal-scroll-bar nil)
       (setq fill-column width)
 
-      ;; Vertical padding to center
       (insert-char ?\n padding-top)
 
-      ;; Copyright text
-    (dolist (line (s-split "\n"(shell-command-to-string "fortune")))
-                        (insert line)
+    (dolist (line (s-split "\n"(shell-command-to-string "fortune hitchhiker humorists ascii-art")))
+                        (insert (propertize line 'face 'doom-modeline-panel))
                         (center-line)
                         (insert "\n"))
 
@@ -229,8 +229,7 @@ Inspired by https://github.com/rougier/emacs-splash
       (read-only-mode t)
 
       (display-buffer-same-window splash-buffer nil)
-      (keymap-local-set "q" 'kill-this-buffer)
-      )))
+      (keymap-local-set "q" 'kill-this-buffer))))
 
 (add-to-list 'after-init-hook 'splash-screen)
     #+end_src
@@ -378,7 +377,8 @@ Inspired by https://github.com/rougier/emacs-splash
 #+begin_src emacs-lisp
 (setup (:pkg consult)
   (mal/leader-keys
-    "e" '(lsp-ui-flycheck-list :which-key "errors")
+    "e" '(flycheck-list-errors :which-key "errors")
+    "h" '(flycheck-next-error :which-key "next error")
     "f" '(find-file :which-key "find file")
     "s" '(consult-line :which-key "line search")
     "d" '(consult-imenu :which-key "imenu")
@@ -1109,6 +1109,27 @@ I don't use this for code, just for org tasks. Code from [[https://old.reddit.co
 
 #+begin_src emacs-lisp
 (setup (:pkg go-mode))
+#+end_src
+
+** Latex
+
+#+begin_src emacs-lisp
+(setup tex-mode
+  :hook 'mal/tex-mode-setup
+  (set-face-attribute 'font-lock-keyword-face nil :inherit 'fixed-pitch)
+  (set-face-attribute 'font-lock-function-name-face nil :inherit 'fixed-pitch))
+
+(defun mal/tex-mode-setup ()
+  (interactive)
+  (flyspell-mode 1)
+  (variable-pitch-mode)
+  (visual-fill-column-mode 1)
+  (setq word-wrap t)
+  (visual-line-mode 1)
+  (auto-fill-mode 0)
+  (display-line-numbers-mode 0)
+  (text-scale-set 1)
+  (setq line-spacing 3))
 #+end_src
 
 *  Other
