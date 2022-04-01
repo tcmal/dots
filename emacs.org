@@ -103,7 +103,7 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 ** Disable ugly stuff
 
 #+begin_src emacs-lisp
-(setq inhibit-startup-message nil)
+(setq inhibit-startup-message t)
 (scroll-bar-mode -1)        ; Disable visible scrollbar
 (tool-bar-mode -1)          ; Disable the toolbar
 (tooltip-mode -1)           ; Disable tooltips
@@ -201,10 +201,11 @@ Inspired by https://github.com/rougier/emacs-splash
 #+begin_src emacs-lisp
 (defun splash-screen ()
   (interactive)
+  (if (get-buffer "*splash*") (kill-buffer "*splash*") nil)
   (let* ((splash-buffer (get-buffer-create "*splash*"))
-         (height (- (window-body-height nil) 1))
-         (width (window-body-width nil))
-         (padding-top 3))
+         (height (window-total-height))
+         (width (window-total-width nil))
+         (padding-top (/ height 4)))
     (with-current-buffer splash-buffer
       (erase-buffer)
 
@@ -218,33 +219,20 @@ Inspired by https://github.com/rougier/emacs-splash
       ;; Vertical padding to center
       (insert-char ?\n padding-top)
 
-
-      ;; Vertical padding to bottom
-      (insert-char ?\n padding-bottom)
-
       ;; Copyright text
-      (insert (propertize
-               "GNU Emacs comes with ABSOLUTELY NO WARRANTY" 'face 'shadow))
-      (center-line) (insert "\n")
-      (insert (propertize
-               "Copyright (C) 2020 Free Software Foundation, Inc." 'face 'shadow))
-      (center-line) (insert "\n")
+    (dolist (line (s-split "\n"(shell-command-to-string "fortune")))
+                        (insert line)
+                        (center-line)
+                        (insert "\n"))
 
       (goto-char 0)
       (read-only-mode t)
 
-      (local-set-key [t]               'splash-screen-fade-to-about)
-      (local-set-key (kbd "C-[")       'splash-screen-fade-to-default)
-      (local-set-key (kbd "<escape>")  'splash-screen-fade-to-default)
-      (local-set-key (kbd "q")         'splash-screen-fade-to-default)
-      (local-set-key (kbd "<mouse-1>") 'mouse-set-point)
-      (local-set-key (kbd "<mouse-2>") 'operate-this-button)
-      ;; (local-set-key " "               'splash-screen-fade-to-default)
-      ;; (local-set-key "x"               'splash-screen-fade-to-default)
-      ;; (local-set-key (kbd "<RET>")     'splash-screen-fade-to-default)
-      ;; (local-set-key (kbd "<return>")  'splash-screen-fade-to-default)
       (display-buffer-same-window splash-buffer nil)
+      (keymap-local-set "q" 'kill-this-buffer)
       )))
+
+(add-to-list 'after-init-hook 'splash-screen)
     #+end_src
 
 * Help
