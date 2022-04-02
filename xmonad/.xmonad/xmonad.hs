@@ -33,6 +33,9 @@ customKeys = [
                 , ("M-t", spawn "xfce4-terminal")
                 , ("M-S-r", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
 
+                , ("M-0", (windows $ W.greedyView "0"))
+                , ("M-S-0", (windows $ W.shift "0"))
+
                 -- -- shutdown menu
                 , ("M-g", spawn "xfce4-session-logout")
 
@@ -43,11 +46,10 @@ customKeys = [
                 ,  ("M-,", sendMessage (IncMasterN (-1))), ("M-.", sendMessage (IncMasterN 1))
                 , ("M-S-f", toggleFull)
             ]
-
 main :: IO ()
 main = do
   spawn "picom"
-  xmonad $ F.fullscreenSupport $ xfceConfig
+  xmonad $ F.fullscreenSupport $ (xfceConfig
               { modMask = mod4Mask
                 , borderWidth = 0
                 , terminal = "xfce4-terminal"
@@ -57,5 +59,6 @@ main = do
                                tall ||| Mirror tall ||| Full
                 , manageHook = composeAll [manageHook xfceConfig
                                           , isFullscreen --> doFullFloat]
+                , workspaces = map show ([1..9] ++ [0])
               }
-        `additionalKeysP` customKeys
+        `additionalKeysP` customKeys)
