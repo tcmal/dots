@@ -1,5 +1,5 @@
 #+TITLE: Emacs Configuration
-#+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :results none
+#+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :results silent
 #+STARTUP: content
 
 * Preliminary
@@ -426,14 +426,6 @@ Inspired by https://github.com/rougier/emacs-splash
 
 #+end_src
 
-** Evil Collection
-
-#+begin_src emacs-lisp
-(setup (:pkg evil-collection)
-  (:load-after evil)
-  (evil-collection-init))
-#+end_src
-
 ** Undo Functionality
 
 #+begin_src emacs-lisp
@@ -752,12 +744,16 @@ If on a:
 (defun mal/org-mode-setup ()
   (interactive)
   (org-indent-mode)
-  (variable-pitch-mode)
-  (visual-line-mode 1)
-  (auto-fill-mode 0)
-  (display-line-numbers-mode 0)
-  (text-scale-set 1)
-  (setq line-spacing 3))
+  (if (s-contains? "dashboard" (buffer-file-name))
+      (progn (org-superstar-mode 0)
+             (mu4e-dashboard-mode)
+             (evil-emacs-state))
+    (variable-pitch-mode)
+    (visual-line-mode 1)
+    (auto-fill-mode 0)
+    (display-line-numbers-mode 0)
+    (text-scale-set 1)
+    (setq line-spacing 3)))
 #+end_src
 
 ** Task States
@@ -1037,7 +1033,12 @@ I don't use this for code, just for org tasks. Code from [[https://old.reddit.co
   (interactive)
   (git-sync (expand-file-name "~/notes")))
 
+(defun sync-mail ()
+  (interactive)
+  (call-process (expand-file-name "~/.bin/sync-mail")))
+
 (add-hook 'kill-emacs-hook 'git-sync-notes)
+(add-hook 'kill-emacs-hook 'sync-mail)
 #+end_src
 
 ** Rust
@@ -1146,4 +1147,91 @@ I don't use this for code, just for org tasks. Code from [[https://old.reddit.co
 #+begin_src emacs-lisp
 (setup (:pkg hledger-mode)
   (:option hledger-jfile (expand-file-name "~/notes/Tasks/Ledger.ledger.gpg")))
+#+end_src
+
+** Email
+
+#+begin_src emacs-lisp
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
+(require 'mu4e)
+(setq mu4e-contexts
+      `(,(make-mu4e-context
+          :name "personal"
+          :match-func (lambda (msg) (when msg
+                                      (string-prefix-p "/personal" (mu4e-message-field msg :maildir))))
+          :vars '(
+                  (user-mail-address . "oscar.shrimpton.personal@gmail.com")
+                  (user-full-name . "Aria Shrimpton")
+                  (mu4e-get-mail-command "mbsync personal")
+                  (mu4e-sent-folder . "/personal/[Gmail]/Sent Mail")
+                  (mu4e-drafts-folder . "/personal/[Gmail]/Drafts")
+                  (mu4e-trash-folder . "/personal/[Gmail]/Trash")
+                  (mu4e-refile-folder . "/personal/[Gmail]/Archive")))
+        ,(make-mu4e-context
+          :name "compsoc"
+          :match-func (lambda (msg) (when msg
+                                      (string-prefix-p "/compsoc" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address . "vicepresident@comp-soc.com")
+                  (user-full-name . "Oscar Shrimpton")
+                  (mu4e-get-mail-command "mbsync compsoc")
+                  (mu4e-sent-folder . "/compsoc/[Gmail]/Sent Mail")
+                  (mu4e-drafts-folder . "/compsoc/[Gmail]/Drafts")
+                  (mu4e-trash-folder . "/compsoc/[Gmail]/Trash")
+                  (mu4e-refile-folder . "/compsoc/[Gmail]/Archive")))
+        ,(make-mu4e-context
+          :name "student"
+          :match-func (lambda (msg) (when msg
+                                      (string-prefix-p "/student" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address . "s2080441@ed.ac.uk")
+                  (user-full-name . "Aria Shrimpton")
+                  (mu4e-get-mail-command "mbsync student")
+                  (mu4e-sent-folder . "/student/Sent")
+                  (mu4e-drafts-folder . "/student/Drafts")
+                  (mu4e-trash-folder . "/student/Trash")
+                  (mu4e-refile-folder . "/student/Archive")))
+        ,(make-mu4e-context
+          :name "staff"
+          :match-func (lambda (msg) (when msg
+                                      (string-prefix-p "/staff" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address . "oshrimpt@ed.ac.uk")
+                  (mu4e-get-mail-command "mbsync staff")
+                  (user-full-name . "Oscar Shrimpton")
+                  (mu4e-sent-folder . "/staff/Sent")
+                  (mu4e-drafts-folder . "/staff/Drafts")
+                  (mu4e-trash-folder . "/staff/Trash")
+                  (mu4e-refile-folder . "/staff/Archive")))))
+
+(general-define-key
+ :keymaps 'mu4e-main-mode-map
+ :states 'normal
+ "f" 'mu4e~headers-jump-to-maildir)
+
+(setq mu4e-headers-leave-behavior 'apply
+      mu4e-sent-folder "/personal/[Gmail]/Sent Mail"
+      mu4e-drafts-folder "/personal/[Gmail]/Drafts"
+      sendmail-program "/usr/bin/msmtp"
+      send-mail-function 'smtpmail-send-it
+      message-sendmail-f-is-evil t
+      message-sendmail-extra-arguments '("--read-envelope-from")
+      message-send-mail-function 'message-send-mail-with-sendmail
+      mu4e-maildir-shortcuts '(("/personal/Inbox" . ?a)
+                               ("/compsoc/Inbox" . ?s)
+                               ("/student/Inbox" . ?d)
+                               ("/staff/Inbox" . ?f))
+      mu4e-bookmarks '((:name "All Inboxes" :query "maildir:/personal/Inbox or maildir:/compsoc/Inbox or maildir:/student/Inbox or maildir:/staff/Inbox" :key 112))
+      mu4e-confirm-quit nil)
+
+(straight-use-package
+ '(mu4e-dashboard :type git :host github :repo "rougier/mu4e-dashboard"))
+
+(evil-set-initial-state 'mu4e-main-mode 'emacs)
+                            #+end_src
+
+
+** Evil Collection
+
+#+begin_src emacs-lisp
+(setup (:pkg evil-collection)
+  (:load-after evil)
+  (evil-collection-init))
 #+end_src

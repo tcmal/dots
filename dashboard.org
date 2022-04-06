@@ -1,0 +1,82 @@
+
+
+* Tasks
+
+School ....... [a]
+Home ......... [s]
+Societies .... [d]
+Career ....... [f]
+
+* Email
+
+Personal ..... [h] ([[mu:flag:unread and m:/personal/Inbox|%3d][---]])			*Compose* ...... [C]
+CompSoc ...... [j] ([[mu:flag:unread and m:/compsoc/Inbox|%3d][---]])  		*Update* ....... [U]
+Student ...... [k] ([[mu:flag:unread and m:/student/Inbox|%3d][---]])   		*Switch context* [;]
+Staff ........ [l] ([[mu:flag:unread and m:/staff/Inbox|%3d][---]])     		*Quit* ......... [q]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* Configuration
+:PROPERTIES:
+:VISIBILITY: hideall
+:END:
+
+#+STARTUP: showall hidestars indent
+
+#+KEYMAP: a | find-file (expand-file-name "~/notes/Tasks/School.org")
+#+KEYMAP: s | find-file (expand-file-name "~/notes/Tasks/Home.org")
+#+KEYMAP: d | find-file (expand-file-name "~/notes/Tasks/Societies.org")
+#+KEYMAP: f | find-file (expand-file-name "~/notes/Tasks/Career.org")
+
+#+KEYMAP: h | mu4e-headers-search "m:/personal/Inbox"
+#+KEYMAP: j | mu4e-headers-search "m:/compsoc/Inbox"
+#+KEYMAP: k | mu4e-headers-search "m:/student/Inbox"
+#+KEYMAP: l | mu4e-headers-search "m:/staff/Inbox"
+
+#+KEYMAP: C | mu4e-compose-new
+#+KEYMAP: U | mu4e-dashboard-update
+#+KEYMAP: ; | mu4e-context-switch
+#+KEYMAP: q | kill-current-buffer
