@@ -2,10 +2,11 @@
 
 * Tasks
 
-School ....... [a]
-Home ......... [s]
+School ....... [a]                *Dashboard* .. [T]
+Home ......... [s]                *Next Tasks* . [N]
 Societies .... [d]
 Career ....... [f]
+
 
 * Email
 
@@ -75,6 +76,9 @@ Staff ........ [l] ([[mu:flag:unread and m:/staff/Inbox|%3d][---]])     		*Quit*
 #+KEYMAP: j | mu4e-headers-search "m:/compsoc/Inbox"
 #+KEYMAP: k | mu4e-headers-search "m:/student/Inbox"
 #+KEYMAP: l | mu4e-headers-search "m:/staff/Inbox"
+
+#+KEYMAP: T | org-agenda nil "d"
+#+KEYMAP: N | org-agenda nil "n"
 
 #+KEYMAP: C | mu4e-compose-new
 #+KEYMAP: U | mu4e-dashboard-update

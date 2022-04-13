@@ -115,7 +115,7 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil :font "Fira Mono" :height 128)
-(set-face-attribute 'variable-pitch nil :font "Roboto" :height 128)
+(set-face-attribute 'variable-pitch nil :font "Noto Sans CJK HK" :height 128)
 #+end_src
 
 ** Line numbers
@@ -202,12 +202,12 @@ Inspired by https://github.com/rougier/emacs-splash
 (defun splash-screen ()
   (interactive)
   (if (get-buffer "*splash*") (kill-buffer "*splash*") nil)
-  (let* ((splash-buffer (get-buffer-create "*splash*"))
-         (height (window-total-height))
-         (width (window-total-width nil))
-         (padding-top (/ height 4)))
+  (let* ((splash-buffer (find-file-literally (expand-file-name "~/code/dots/dashboard.org")))
+         (width visual-fill-column-width)
+         (padding-top 4))
     (with-current-buffer splash-buffer
-      (erase-buffer)
+      (read-only-mode 0)
+      (goto-char 0)
 
       (if (one-window-p)
           (setq mode-line-format nil))
@@ -224,11 +224,15 @@ Inspired by https://github.com/rougier/emacs-splash
                         (insert (propertize line 'face 'doom-modeline-panel))
                         (center-line)
                         (insert "\n"))
-
-      (goto-char 0)
       (read-only-mode t)
 
       (display-buffer-same-window splash-buffer nil)
+      (org-mode)
+      (run-hooks 'org-mode-hook)
+
+      (rename-buffer "*splash*")
+      (setq buffer-file-name nil)
+
       (local-set-key "q" 'kill-this-buffer))))
 
 (add-to-list 'after-init-hook 'splash-screen)
@@ -1194,7 +1198,6 @@ If on a:
 
 (evil-set-initial-state 'mu4e-main-mode 'emacs)
                             #+end_src
-
 
 ** Evil Collection
 
