@@ -1009,39 +1009,6 @@ If on a:
     "g g" '(magit-status :which-key "git status")))
 #+end_src
 
-*** Easy Syncing
-
-I don't use this for code, just for org tasks. Code from [[https://old.reddit.com/r/emacs/comments/rw0ijd/magit_how_to_check_for_changes_in_git_repo/hr9cqgs/][here]].
-
-#+begin_src emacs-lisp
-(defun git-status (repo-path)
-  (let ((default-directory (locate-dominating-file
-                            repo-path ".git")))
-    (with-output-to-string
-      (with-current-buffer standard-output
-        (call-process "git" nil t nil "status" "--porcelain")))))
-(defun git-is-dirty (repo-path)
-  (not (string-blank-p (git-status repo-path))))
-
-(defun git-sync (repo-path)
-  (when (git-is-dirty repo-path)
-    (let ((default-directory repo-path))
-      (message (with-output-to-string
-                 (with-current-buffer standard-output
-                   (call-process "git-sync" nil t nil)))))))
-
-(defun git-sync-notes ()
-  (interactive)
-  (git-sync (expand-file-name "~/notes")))
-
-(defun sync-mail ()
-  (interactive)
-  (call-process (expand-file-name "~/.bin/sync-mail")))
-
-(add-hook 'kill-emacs-hook 'git-sync-notes)
-(add-hook 'kill-emacs-hook 'sync-mail)
-#+end_src
-
 ** Rust
 
 #+begin_src emacs-lisp
