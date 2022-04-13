@@ -325,6 +325,7 @@ Inspired by https://github.com/rougier/emacs-splash
            projectile-project-search-path '("~/code")
            projectile-switch-project-action #'projectile-find-file
            projectile-use-git-grep t)
+  (add-to-list 'projectile-project-root-files ".stfolder")
   (mal/leader-keys
     "SPC" 'projectile-find-file
     "p" '(projectile-command-map :which-key "projectile")))
@@ -1116,9 +1117,7 @@ I don't use this for code, just for org tasks. Code from [[https://old.reddit.co
 
 #+begin_src emacs-lisp
 (setup tex-mode
-  :hook 'mal/tex-mode-setup
-  (set-face-attribute 'font-lock-keyword-face nil :inherit 'fixed-pitch)
-  (set-face-attribute 'font-lock-function-name-face nil :inherit 'fixed-pitch))
+  :hook 'mal/tex-mode-setup)
 
 (defun mal/tex-mode-setup ()
   (interactive)
@@ -1130,6 +1129,8 @@ I don't use this for code, just for org tasks. Code from [[https://old.reddit.co
   (auto-fill-mode 0)
   (display-line-numbers-mode 0)
   (text-scale-set 1)
+  (set-face-attribute 'font-lock-keyword-face nil :inherit 'fixed-pitch)
+  (set-face-attribute 'font-lock-function-name-face nil :inherit 'fixed-pitch)
   (setq line-spacing 3))
 #+end_src
 
