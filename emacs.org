@@ -114,8 +114,22 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 ** Font Configuration
 
 #+begin_src emacs-lisp
-(set-face-attribute 'default nil :font "Fira Mono" :height 128)
+(set-face-attribute 'default nil :font "Fira Code" :height 128)
 (set-face-attribute 'variable-pitch nil :font "Noto Sans CJK HK" :height 128)
+
+(setup (:pkg (ligature :type git :host github :repo "mickeynp/ligature.el"))
+    (ligature-set-ligatures 't '("www"))
+    (ligature-set-ligatures 'prog-mode '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
+                                        ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
+                                        "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
+                                        "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
+                                        "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
+                                        "++" "+++" "+>" "=:=" "==" "===" "==>" "=>" "=>>" "<="
+                                        "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
+                                        "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
+                                        "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
+                                        "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
+    (global-ligature-mode 't))
 #+end_src
 
 ** Line numbers
