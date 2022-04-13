@@ -30,7 +30,7 @@ tall = Tall 1 (3/100) (5/8)
 customKeys :: [(String, X ())]
 customKeys = [
                 ("M-<Return>", spawn "rofi -show combi")
-                , ("M-t", spawn "xfce4-terminal")
+                , ("M-t", spawn "kitty")
                 , ("M-S-r", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
 
                 , ("M-0", (windows $ W.greedyView "0"))

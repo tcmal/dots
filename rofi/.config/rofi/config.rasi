@@ -1,14 +1,14 @@
 configuration {
               display-drun: "";
               drun-display-format: "{name}";
-              font: "Fira Mono 14";
+              font: "Fira Code 14";
               location: 2;
               show-icons: true;
               xoffset: 0;
               yoffset: 0;
               modi: "window,drun,ssh,combi";
               combi-modi: "window,drun,ssh";
-              terminal: "xfce4-terminal";
-              ssh-command: "xfce4-terminal -e 'ssh {host}'";
+              terminal: "kitty";
+              ssh-command: "kitty -e 'ssh {host}'";
 }
 @theme "custom"
