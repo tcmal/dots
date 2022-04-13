@@ -48,8 +48,9 @@ customKeys = [
             ]
 main :: IO ()
 main = do
-  spawn "picom"
-  xmonad $ F.fullscreenSupport $ (xfceConfig
+  spawn "picom & "
+  spawn "xfce4-panel -d & "
+  xmonad $ F.fullscreenSupport $ xfceConfig
               { modMask = mod4Mask
                 , borderWidth = 0
                 , terminal = "xfce4-terminal"
@@ -61,4 +62,4 @@ main = do
                                           , isFullscreen --> doFullFloat]
                 , workspaces = map show ([1..9] ++ [0])
               }
-        `additionalKeysP` customKeys)
+        `additionalKeysP` customKeys
