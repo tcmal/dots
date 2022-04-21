@@ -118,8 +118,7 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 (set-face-attribute 'variable-pitch nil :font "Noto Sans CJK HK" :height 128)
 
 (setup (:pkg (ligature :type git :host github :repo "mickeynp/ligature.el"))
-    (ligature-set-ligatures 't '("www"))
-    (ligature-set-ligatures 'prog-mode '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
+    (ligature-set-ligatures 't '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
                                         ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
                                         "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
                                         "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
@@ -472,7 +471,7 @@ Inspired by https://github.com/rougier/emacs-splash
    org-cycle-separator-lines -1
    org-M-RET-may-split-line nil
    org-preview-latex-image-directory (expand-file-name "~/.cache/emacs/ltximg/")
-   org-format-latex-options '(:foreground default :background default :scale 1.5 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+   org-format-latex-options '(:foreground default :background default :scale 4 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                                           ("begin" "$1" "$" "$$" "\\(" "\\["))
    org-log-into-drawer t)
   (:hook mal/org-mode-setup)
@@ -810,6 +809,7 @@ If on a:
 (setup (:pkg org-super-agenda)
   (:load-after org)
   (:option org-super-agenda-header-map (make-sparse-keymap)
+           org-agenda-block-separator "----"
            org-super-agenda-groups '((:name "School"
                                             :tag "@school")
                                      (:name "Societies"
@@ -1176,7 +1176,7 @@ If on a:
                   (mu4e-trash-folder . "/student/Trash")
                   (mu4e-refile-folder . "/student/Archive")))
         ,(make-mu4e-context
-          :name "staff"
+          :name "library"
           :match-func (lambda (msg) (when msg
                                       (string-prefix-p "/staff" (mu4e-message-field msg :maildir))))
           :vars '((user-mail-address . "oshrimpt@ed.ac.uk")
