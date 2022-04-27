@@ -869,7 +869,7 @@ If on a:
            org-columns-default-format "%TODO %25ITEM %DEADLINE %SCHEDULED")
   (org-super-agenda-mode 1)
   (:with-mode org-agenda-mode
-    (:hook (lambda () (display-line-numbers-mode 0)))))
+    (:hook (lambda () (display-line-numbers-mode 0) (mal/move-to-persp "tasks")))))
 #+end_src
 
 ** Habits
