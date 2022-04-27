@@ -852,7 +852,17 @@ If on a:
                                                                                              :scheduled "today")
                                                                                      org-super-agenda-groups))
                                                       (org-scheduled-past-days 1)
-                                                      (org-deadline-past-days 1))))))
+                                                      (org-deadline-past-days 1)))))
+                                        ("r" "Revision"
+                                         ((todo "WHAT"
+                                                ((org-agenda-overriding-header "What?")))
+                                          (todo "HARD"
+                                                ((org-agenda-overriding-header "Hard")))
+                                          (todo "FINE"
+                                                ((org-agenda-overriding-header "Fine")))
+                                          (todo "EASY"
+                                                ((org-agenda-overriding-header "Easy"))))
+                                         ((org-agenda-files '("~/tasks/Revision.org")))))
            org-columns-default-format "%TODO %25ITEM %DEADLINE %SCHEDULED")
   (org-super-agenda-mode 1)
   (:with-mode org-agenda-mode
