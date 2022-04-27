@@ -118,17 +118,17 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 (set-face-attribute 'variable-pitch nil :font "Noto Sans CJK HK" :height 128)
 
 (setup (:pkg (ligature :type git :host github :repo "mickeynp/ligature.el"))
-    (ligature-set-ligatures 't '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
-                                        ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
-                                        "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
-                                        "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
-                                        "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
-                                        "++" "+++" "+>" "=:=" "==" "====" "==>" "=>" "=>>" "<="
-                                        "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
-                                        "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
-                                        "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
-                                        "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
-    (global-ligature-mode 't))
+  (ligature-set-ligatures 't '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
+                               ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
+                               "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
+                               "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
+                               "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
+                               "++" "+++" "+>" "=:=" "==" "====" "==>" "=>" "=>>" "<="
+                               "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
+                               "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
+                               "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
+                               "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
+  (global-ligature-mode 't))
 #+end_src
 
 ** Line numbers
@@ -233,10 +233,10 @@ Inspired by https://github.com/rougier/emacs-splash
 
       (insert-char ?\n padding-top)
 
-    (dolist (line (s-split "\n"(shell-command-to-string "fortune hitchhiker humorists ascii-art")))
-                        (insert (propertize line 'face 'doom-modeline-panel))
-                        (center-line)
-                        (insert "\n"))
+      (dolist (line (s-split "\n"(shell-command-to-string "fortune hitchhiker humorists ascii-art")))
+        (insert (propertize line 'face 'doom-modeline-panel))
+        (center-line)
+        (insert "\n"))
       (read-only-mode t)
 
       (display-buffer-same-window splash-buffer nil)
@@ -249,7 +249,7 @@ Inspired by https://github.com/rougier/emacs-splash
       (local-set-key "q" 'kill-this-buffer))))
 
 (add-to-list 'after-init-hook 'splash-screen)
-    #+end_src
+#+end_src
 
 * Help
 
@@ -395,8 +395,8 @@ Inspired by https://github.com/rougier/emacs-splash
 
 #+begin_src emacs-lisp
 (setup (:pkg consult)
-  ; (consult-customize consult--source-buffer :hidden t :default nil)
-  ; (add-to-list 'consult-buffer-sources persp-consult-source)
+                                        ; (consult-customize consult--source-buffer :hidden t :default nil)
+                                        ; (add-to-list 'consult-buffer-sources persp-consult-source)
   (mal/leader-keys
     "e" '(flycheck-list-errors :which-key "errors")
     "h" '(flycheck-next-error :which-key "next error")
@@ -512,7 +512,7 @@ Inspired by https://github.com/rougier/emacs-splash
 (general-define-key :states 'motion
                     :keymaps 'org-mode-map
                     "RET" '+org/dwim-at-point)
-  #+end_src
+#+end_src
 
 *** ALT-RET DWIM
 
@@ -914,9 +914,9 @@ If on a:
 
 #+begin_src emacs-lisp
 (org-babel-do-load-languages
-'org-babel-load-languages
-'((emacs-lisp . t)
-    (python . t)))
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
 #+end_src
 
 ** Auto-Tangle configuration file
@@ -1225,7 +1225,7 @@ If on a:
  '(mu4e-dashboard :type git :host github :repo "rougier/mu4e-dashboard"))
 
 (evil-set-initial-state 'mu4e-main-mode 'emacs)
-                            #+end_src
+#+end_src
 
 ** Evil Collection
 
