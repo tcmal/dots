@@ -123,7 +123,7 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
                                         "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
                                         "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
                                         "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
-                                        "++" "+++" "+>" "=:=" "==" "===" "==>" "=>" "=>>" "<="
+                                        "++" "+++" "+>" "=:=" "==" "====" "==>" "=>" "=>>" "<="
                                         "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
                                         "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
                                         "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
@@ -335,6 +335,7 @@ Inspired by https://github.com/rougier/emacs-splash
 ** Projectile
 
 #+begin_src emacs-lisp
+(setup (:pkg rg))
 (setup (:pkg projectile)
   (diminish 'projectile-mode)
   (projectile-mode)
@@ -394,6 +395,8 @@ Inspired by https://github.com/rougier/emacs-splash
 
 #+begin_src emacs-lisp
 (setup (:pkg consult)
+  ; (consult-customize consult--source-buffer :hidden t :default nil)
+  ; (add-to-list 'consult-buffer-sources persp-consult-source)
   (mal/leader-keys
     "e" '(flycheck-list-errors :which-key "errors")
     "h" '(flycheck-next-error :which-key "next error")
@@ -1230,4 +1233,17 @@ If on a:
 (setup (:pkg evil-collection)
   (:load-after evil)
   (evil-collection-init))
+#+end_src
+
+** ERC
+
+#+begin_src emacs-lisp
+(defun mal/move-to-persp (persp)
+  (interactive "s")
+  (let ((buf (current-buffer)))
+    (persp-switch persp)
+    (persp-set-buffer buf)
+    (persp-switch-to-buffer buf)))
+
+(add-hook 'erc-mode-hook (lambda () (mal/move-to-persp "irc")))
 #+end_src
