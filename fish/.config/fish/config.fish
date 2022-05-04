@@ -3,6 +3,8 @@ set -gx EDITOR vim
 set -gx GOPATH "$HOME/code/go/"
 set -gx PATH "$PATH:$HOME/.bin/:$HOME/.local/bin/:$GOPATH/bin"
 
+alias s='TERM=xterm ssh'
+
 # Direnv
 function __direnv_export_eval --on-event fish_prompt;
     "/usr/bin/direnv" export fish | source;
@@ -30,3 +32,8 @@ end;
 
 # ASDF
 source ~/.asdf/asdf.fish
+
+# Fortune on startup
+function fish_greeting
+    fortune -s computers linux perl songs-poems hitchhiker
+end
