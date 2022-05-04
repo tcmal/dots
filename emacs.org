@@ -403,7 +403,7 @@ Inspired by https://github.com/rougier/emacs-splash
     "f" '(find-file :which-key "find file")
     "s" '(consult-line :which-key "line search")
     "d" '(consult-imenu :which-key "imenu")
-    "b" '(consult-buffer :which-key "switch buffer")))
+    "b" '(persp-switch-to-buffer* :which-key "switch buffer")))
 #+end_src
 
 * Evil
@@ -474,7 +474,7 @@ Inspired by https://github.com/rougier/emacs-splash
    org-cycle-separator-lines -1
    org-M-RET-may-split-line nil
    org-preview-latex-image-directory (expand-file-name "~/.cache/emacs/ltximg/")
-   org-format-latex-options '(:foreground default :background default :scale 4 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+   org-format-latex-options '(:foreground default :background default :scale 1.2 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                                           ("begin" "$1" "$" "$$" "\\(" "\\["))
    org-log-into-drawer t)
   (:hook mal/org-mode-setup)
@@ -1245,5 +1245,58 @@ If on a:
     (persp-set-buffer buf)
     (persp-switch-to-buffer buf)))
 
+(setup (:pkg znc)
+  (:option znc-servers `(("irc.tcmal.xyz" 6697 t
+                          ((imaginarynet ,(concat "tcmalloc@" system-name "/imaginarynet") ,(shell-command-to-string "secret-tool lookup domain irc.tcmal.xyz")))))))
+
+(defun mal/irc-mode-setup ()
+  (interactive)
+  (variable-pitch-mode)
+  (display-line-numbers-mode 0)
+  (text-scale-set 1.4)
+  (auto-fill-mode 1)
+  (setq line-spacing 3)
+  (visual-fill-column-mode))
+
+(defun mal/org-mode-setup ()
+  (interactive)
+  (org-indent-mode)
+  (if (s-contains? "dashboard" (buffer-file-name))
+      (progn (org-superstar-mode 0)
+             (mu4e-dashboard-mode)
+             (evil-emacs-state))
+    (variable-pitch-mode)
+    (visual-line-mode 1)
+    (auto-fill-mode 0)
+    (display-line-numbers-mode 0)
+    (text-scale-set 1)
+    (setq line-spacing 3)))
+
 (add-hook 'erc-mode-hook (lambda () (mal/move-to-persp "irc")))
+(add-hook 'erc-mode-hook 'mal/irc-mode-setup)
+
+(setq erc-user-full-name "Aria"
+      erc-autojoin-channels-alist '(("irc.tardisproject.uk" "#compsoc" "#random" "#tardis" "#cooking" "#networking"))
+      erc-auto-query 'buffer
+      erc-modules '(pcomplete netsplit button match track completion readonly networks ring autojoin noncommands irccontrols move-to-prompt stamp menu list)
+      erc-hide-list '(; https://git.sr.ht/~mplscorwin/dotfiles/tree/master/item/elisp/init-erc.el#L271
+                      "JOIN" "MODE" "NICK" "PART" "QUIT"
+                      "301"   ; away notice
+                      "305"   ; return from awayness
+                      "306"   ; set awayness
+                      "324"   ; modes
+                      "329"   ; channel creation date
+                      "332"   ; topic notice
+                      "333"   ; who set the topic
+		               "353"   ; Names notice
+		              )
+      erc-hide-timestamps t
+      erc-echo-timestamps t
+      erc-kill-buffer-on-part t)
+
+                                        ; channel specific prompt
+(setq erc-prompt (lambda ()
+                   (if (and (boundp 'erc-default-recipients) (erc-default-target))
+                       (propertize (concat (erc-default-target) ":") 'read-only t 'rear-nonsticky t 'front-nonsticky t)
+                     (propertize (concat "irc:") 'read-only t 'rear-nonsticky t 'front-nonsticky t))))
 #+end_src
