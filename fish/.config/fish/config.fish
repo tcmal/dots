@@ -1,7 +1,9 @@
 # Environment Variables
 set -gx EDITOR vim
 set -gx GOPATH "$HOME/code/go/"
-set -gx PATH "$PATH:$HOME/.bin/:$HOME/.local/bin/:$GOPATH/bin"
+fish_add_path "$HOME/.bin/"
+fish_add_path "$HOME/.local/bin/"
+fish_add_path "$GOPATH/bin/"
 
 alias s='TERM=xterm ssh'
 
