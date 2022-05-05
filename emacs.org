@@ -1254,7 +1254,7 @@ If on a:
   (variable-pitch-mode)
   (display-line-numbers-mode 0)
   (text-scale-set 1.4)
-  (auto-fill-mode 1)
+  (auto-fill-mode 0)
   (setq line-spacing 3)
   (visual-fill-column-mode))
 
