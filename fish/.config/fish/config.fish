@@ -39,3 +39,9 @@ source ~/.asdf/asdf.fish
 function fish_greeting
     fortune -s computers linux perl songs-poems hitchhiker
 end
+
+# Other completions
+kubectl completion fish | source
+
+# Fix skaffold on podman
+set -gx DOCKER_HOST "unix:///run/user/$(id -u)/podman/podman.sock"

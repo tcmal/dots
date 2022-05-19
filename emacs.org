@@ -398,7 +398,7 @@ Inspired by https://github.com/rougier/emacs-splash
                                         ; (consult-customize consult--source-buffer :hidden t :default nil)
                                         ; (add-to-list 'consult-buffer-sources persp-consult-source)
   (mal/leader-keys
-    "e" '(flycheck-list-errors :which-key "errors")
+    "e" '(lsp-ui-flycheck-list :which-key "errors")
     "h" '(flycheck-next-error :which-key "next error")
     "f" '(find-file :which-key "find file")
     "s" '(consult-line :which-key "line search")
@@ -960,12 +960,17 @@ If on a:
            lsp-use-plists t
            lsp-signature-render-documentation nil
            lsp-idle-delay 0.5
+           lsp-eldoc-enable-hover nil
+           lsp-ui-doc-show-with-cursor nil
+           lsp-ui-doc-position 'top
            lsp-enable-which-key-integration t)
-  (:with-hook (js-mode-hook python-mode-hook)
-    (:hook 'lsp))
+  (:with-hook (js-mode-hook python-mode-hook go-mode-hook)
+    (:hook 'lsp-deferred))
   (mal/leader-keys
     "l a" 'lsp-execute-code-action
     "l r" 'lsp-rename
+    "l d" 'lsp-ui-doc-show
+    "l c" 'lsp-ui-doc-hide
     "l f s" 'lsp-ui-find-workspace-symbol
     "l f d" 'lsp-find-definition
     "l f r" 'lsp-find-references
@@ -994,7 +999,7 @@ If on a:
   (global-flycheck-mode))
 #+end_src
 
-*** Completion
+** Completion
 
 #+begin_src emacs-lisp
 (setup (:pkg corfu)
@@ -1004,6 +1009,16 @@ If on a:
   (general-define-key :keymaps 'corfu-map
                       "C-j" 'corfu-next
                       "C-k" 'corfu-previous))
+#+end_src
+
+** Snippets
+
+#+begin_src emacs-lisp
+(setup (:pkg yasnippet)
+  (yas-global-mode 1))
+
+(setup (:pkg yasnippet-snippets)
+  (:load-after yasnippet))
 #+end_src
 
 ** Indentation / Whitespace
@@ -1108,7 +1123,14 @@ If on a:
 ** Go
 
 #+begin_src emacs-lisp
-(setup (:pkg go-mode))
+(setup (:pkg go-mode)
+  (:option flycheck-go-golint-executable (s-trim (shell-command-to-string "which revive")))
+  (add-hook 'go-mode-hook (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
+  (mal/leader-keys
+    "l g i" '(go-goto-imports :which-key "goto imports")
+    "l g a" '(go-import-add :which-key "add import")
+    "l g d" '(go-goto-docstring :which-key "goto docstring")
+    "l g r" '(go-goto-method-receiver :which-key "goto receiver")))
 #+end_src
 
 ** Latex
@@ -1245,9 +1267,13 @@ If on a:
     (persp-set-buffer buf)
     (persp-switch-to-buffer buf)))
 
+(defun lookup-secret (query)
+  (interactive "s")
+  (shell-command-to-string (concat "secret-tool lookup " query)))
+
 (setup (:pkg znc)
   (:option znc-servers `(("irc.tcmal.xyz" 6697 t
-                          ((imaginarynet ,(concat "tcmalloc@" system-name "/imaginarynet") ,(shell-command-to-string "secret-tool lookup domain irc.tcmal.xyz")))))))
+                          ((imaginarynet ,(concat "tcmalloc@" system-name "/imaginarynet") ,(lookup-secret "domain irc.tcmal.xyz")))))))
 
 (defun mal/irc-mode-setup ()
   (interactive)
@@ -1299,4 +1325,16 @@ If on a:
                    (if (and (boundp 'erc-default-recipients) (erc-default-target))
                        (propertize (concat (erc-default-target) ":") 'read-only t 'rear-nonsticky t 'front-nonsticky t)
                      (propertize (concat "irc:") 'read-only t 'rear-nonsticky t 'front-nonsticky t))))
+#+end_src
+
+** Calendar
+
+#+begin_src emacs-lisp
+(setup (:pkg org-gcal)
+  (:option org-gcal-client-id (lookup-secret "domain google.com type oauth_id")
+           org-gcal-client-secret (lookup-secret "domain google.com type oauth_secret")
+           org-gcal-fetch-file-alist '(("oscar.shrimpton@open-cosmos.com" .  "~/tasks/open-cosmos.org"))))
+
+(add-hook 'org-agenda-mode-hook 'org-gcal-sync)
+(add-hook 'org-agenda-mode-hook 'org-agenda-to-appt)
 #+end_src
