@@ -45,3 +45,8 @@ kubectl completion fish | source
 
 # Fix skaffold on podman
 set -gx DOCKER_HOST "unix:///run/user/$(id -u)/podman/podman.sock"
+
+# Hledger GPG
+function hl
+    gpg2 --decrypt ~/tasks/Ledger.ledger.gpg 2>/dev/null | hledger -f- "$argv"
+end
