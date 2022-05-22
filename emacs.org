@@ -1189,12 +1189,12 @@ If on a:
                   (mu4e-trash-folder . "/personal/[Gmail]/Trash")
                   (mu4e-refile-folder . "/personal/[Gmail]/Archive")))
         ,(make-mu4e-context
-          :name "compsoc"
+          :name "opencosmos"
           :match-func (lambda (msg) (when msg
-                                      (string-prefix-p "/compsoc" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address . "vicepresident@comp-soc.com")
+                                      (string-prefix-p "/opencosmos" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address . "oscar.shrimpton@open-cosmos.com")
                   (user-full-name . "Oscar Shrimpton")
-                  (mu4e-get-mail-command . "mbsync compsoc")
+                  (mu4e-get-mail-command . "mbsync opencosmos")
                   (mu4e-sent-folder . "/compsoc/[Gmail]/Sent Mail")
                   (mu4e-drafts-folder . "/compsoc/[Gmail]/Drafts")
                   (mu4e-trash-folder . "/compsoc/[Gmail]/Trash")
@@ -1209,18 +1209,7 @@ If on a:
                   (mu4e-sent-folder . "/student/Sent")
                   (mu4e-drafts-folder . "/student/Drafts")
                   (mu4e-trash-folder . "/student/Trash")
-                  (mu4e-refile-folder . "/student/Archive")))
-        ,(make-mu4e-context
-          :name "library"
-          :match-func (lambda (msg) (when msg
-                                      (string-prefix-p "/staff" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address . "oshrimpt@ed.ac.uk")
-                  (mu4e-get-mail-command . "mbsync staff")
-                  (user-full-name . "Oscar Shrimpton")
-                  (mu4e-sent-folder . "/staff/Sent")
-                  (mu4e-drafts-folder . "/staff/Drafts")
-                  (mu4e-trash-folder . "/staff/Trash")
-                  (mu4e-refile-folder . "/staff/Archive")))))
+                  (mu4e-refile-folder . "/student/Archive")))))
 
 (general-define-key
  :keymaps 'mu4e-main-mode-map
@@ -1236,10 +1225,9 @@ If on a:
       message-sendmail-extra-arguments '("--read-envelope-from")
       message-send-mail-function 'message-send-mail-with-sendmail
       mu4e-maildir-shortcuts '(("/personal/Inbox" . ?a)
-                               ("/compsoc/Inbox" . ?s)
-                               ("/student/Inbox" . ?d)
-                               ("/staff/Inbox" . ?f))
-      mu4e-bookmarks '((:name "All Inboxes" :query "maildir:/personal/Inbox or maildir:/compsoc/Inbox or maildir:/student/Inbox or maildir:/staff/Inbox" :key 112))
+                               ("/opencosmos/Inbox" . ?s)
+                               ("/student/Inbox" . ?d))
+      mu4e-bookmarks '((:name "All Inboxes" :query "maildir:/personal/Inbox or maildir:/opencosmos/Inbox or maildir:/student/Inbox" :key 112))
       mu4e-get-mail-command "mbsync -a"
       mu4e-confirm-quit nil)
 
