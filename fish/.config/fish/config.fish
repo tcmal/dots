@@ -1,6 +1,7 @@
 # Environment Variables
 set -gx EDITOR vim
 set -gx GOPATH "$HOME/code/go/"
+set -gx GOPRIVATE "git.o-c.space*"
 fish_add_path "$HOME/.bin/"
 fish_add_path "$HOME/.local/bin/"
 fish_add_path "$GOPATH/bin/"

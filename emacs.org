@@ -1183,6 +1183,7 @@ If on a:
           :vars '(
                   (user-mail-address . "oscar.shrimpton.personal@gmail.com")
                   (user-full-name . "Aria Shrimpton")
+                  (mu4e-bookmarks . ((:name "Personal Inbox" :query "maildir:/personal/Inbox AND NOT flag:trashed" :key 112)))
                   (mu4e-get-mail-command . "mbsync personal")
                   (mu4e-sent-folder . "/personal/[Gmail]/Sent Mail")
                   (mu4e-drafts-folder . "/personal/[Gmail]/Drafts")
@@ -1194,17 +1195,19 @@ If on a:
                                       (string-prefix-p "/opencosmos" (mu4e-message-field msg :maildir))))
           :vars '((user-mail-address . "oscar.shrimpton@open-cosmos.com")
                   (user-full-name . "Oscar Shrimpton")
+                  (mu4e-bookmarks . ((:name "OpenCosmos Inbox" :query "maildir:/opencosmos/Inbox AND NOT flag:trashed" :key 112)))
                   (mu4e-get-mail-command . "mbsync opencosmos")
-                  (mu4e-sent-folder . "/compsoc/[Gmail]/Sent Mail")
-                  (mu4e-drafts-folder . "/compsoc/[Gmail]/Drafts")
-                  (mu4e-trash-folder . "/compsoc/[Gmail]/Trash")
-                  (mu4e-refile-folder . "/compsoc/[Gmail]/Archive")))
+                  (mu4e-sent-folder . "/opencosmos/[Gmail]/Sent Mail")
+                  (mu4e-drafts-folder . "/opencosmos/[Gmail]/Drafts")
+                  (mu4e-trash-folder . "/opencosmos/[Gmail]/Trash")
+                  (mu4e-refile-folder . "/opencosmos/[Gmail]/Archive")))
         ,(make-mu4e-context
           :name "student"
           :match-func (lambda (msg) (when msg
                                       (string-prefix-p "/student" (mu4e-message-field msg :maildir))))
           :vars '((user-mail-address . "s2080441@ed.ac.uk")
                   (user-full-name . "Aria Shrimpton")
+                  (mu4e-bookmarks . ((:name "Student Inbox" :query "maildir:/student/Inbox AND NOT flag:trashed" :key 112)))
                   (mu4e-get-mail-command . "mbsync student")
                   (mu4e-sent-folder . "/student/Sent")
                   (mu4e-drafts-folder . "/student/Drafts")
@@ -1224,16 +1227,13 @@ If on a:
       message-sendmail-f-is-evil t
       message-sendmail-extra-arguments '("--read-envelope-from")
       message-send-mail-function 'message-send-mail-with-sendmail
-      mu4e-maildir-shortcuts '(("/personal/Inbox" . ?a)
-                               ("/opencosmos/Inbox" . ?s)
-                               ("/student/Inbox" . ?d))
-      mu4e-bookmarks '((:name "All Inboxes" :query "maildir:/personal/Inbox or maildir:/opencosmos/Inbox or maildir:/student/Inbox" :key 112))
       mu4e-get-mail-command "mbsync -a"
       mu4e-confirm-quit nil)
 
 (straight-use-package
  '(mu4e-dashboard :type git :host github :repo "rougier/mu4e-dashboard"))
 
+(add-hook 'mu4e-main-mode-hook (lambda () (mal/move-to-persp "email")))
 (evil-set-initial-state 'mu4e-main-mode 'emacs)
 #+end_src
 
@@ -1321,8 +1321,12 @@ If on a:
 (setup (:pkg org-gcal)
   (:option org-gcal-client-id (lookup-secret "domain google.com type oauth_id")
            org-gcal-client-secret (lookup-secret "domain google.com type oauth_secret")
-           org-gcal-fetch-file-alist '(("oscar.shrimpton@open-cosmos.com" .  "~/tasks/open-cosmos.org"))))
+           org-gcal-fetch-file-alist '(("oscar.shrimpton@open-cosmos.com" .  "~/tasks/open-cosmos.org"))
+           org-gcal-notify-p nil))
 
-(add-hook 'org-agenda-mode-hook 'org-gcal-sync)
-(add-hook 'org-agenda-mode-hook 'org-agenda-to-appt)
+(setup (:pkg org-wild-notifier)
+  (:option alert-default-style 'libnotify
+           org-wild-notifier-alert-time '(1 10 30))
+           org-wild-notifier-keyword-whitelist '(".*" "TODO")
+  (org-wild-notifier-mode 1))
 #+end_src
