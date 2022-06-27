@@ -8,6 +8,7 @@
 
 #+begin_src emacs-lisp
 (setq gc-cons-threshold (* 100 1024 1024))
+(advice-add 'help-window-display-message :around #'ignore)
 #+end_src
 
 ** Package repositories
@@ -16,6 +17,7 @@ Using straight.el
 
 #+begin_src emacs-lisp
 (defvar bootstrap-version)
+(setq straight-check-for-modifications nil)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))
@@ -41,12 +43,6 @@ Using straight.el
 #+begin_src emacs-lisp
 (straight-use-package '(setup :type git :host nil :repo "https://git.sr.ht/~pkal/setup"))
 (require 'setup)
-
-;; (defun dw/log-require (&rest args)
-;;   (with-current-buffer (get-buffer-create "*require-log*")
-;;     (insert (format "%s\n"
-;;                     (file-name-nondirectory (car args))))))
-;; (add-to-list 'after-load-functions #'dw/log-require)
 #+end_src
 
 *** :pkg
@@ -108,7 +104,8 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 (tool-bar-mode -1)          ; Disable the toolbar
 (tooltip-mode -1)           ; Disable tooltips
 (menu-bar-mode -1)          ; Disable the menu bar
-(set-fringe-mode 10)        ; Give some breathing room
+(set-fringe-mode 0)        ; Give some breathing room
+
 #+end_src
 
 ** Font Configuration
@@ -117,18 +114,20 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 (set-face-attribute 'default nil :font "Fira Code" :height 128)
 (set-face-attribute 'variable-pitch nil :font "Noto Sans CJK HK" :height 128)
 
-(setup (:pkg (ligature :type git :host github :repo "mickeynp/ligature.el"))
-  (ligature-set-ligatures 't '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
-                               ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
-                               "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
-                               "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
-                               "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
-                               "++" "+++" "+>" "=:=" "==" "====" "==>" "=>" "=>>" "<="
-                               "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
-                               "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
-                               "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
-                               "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
-  (global-ligature-mode 't))
+(setup (:pkg all-the-icons))
+
+;; (setup (:pkg (ligature :type git :host github :repo "mickeynp/ligature.el"))
+;;   (ligature-set-ligatures 't '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
+;;                                ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
+;;                                "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
+;;                                "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
+;;                                "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
+;;                                "++" "+++" "+>" "=:=" "==" "====" "==>" "=>" "=>>" "<="
+;;                                "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
+;;                                "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
+;;                                "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
+;;                                "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
+;;   (global-ligature-mode 't))
 #+end_src
 
 ** Line numbers
@@ -143,6 +142,7 @@ From [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org#load-after][Dav
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
+                mu4e-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 #+end_src
@@ -222,13 +222,8 @@ Inspired by https://github.com/rougier/emacs-splash
       (read-only-mode 0)
       (goto-char 0)
 
-      (if (one-window-p)
-          (setq mode-line-format nil))
-      (setq cursor-type nil)
       (blink-cursor-mode 0)
-      (setq visible-cursor nil)
-      (setq vertical-scroll-bar nil)
-      (setq horizontal-scroll-bar nil)
+      (setq cursor-type nil)
       (setq fill-column width)
 
       (insert-char ?\n padding-top)
@@ -245,6 +240,8 @@ Inspired by https://github.com/rougier/emacs-splash
 
       (rename-buffer "*splash*")
       (setq buffer-file-name nil)
+      (setq mode-line-format nil)
+      (message nil)
 
       (local-set-key "q" 'kill-this-buffer))))
 
@@ -353,7 +350,8 @@ Inspired by https://github.com/rougier/emacs-splash
 
 #+begin_src emacs-lisp
 (setup (:pkg perspective)
-  (:option persp-initial-frame-name "Main")
+  (:option persp-initial-frame-name "Main"
+           persp-mode-prefix-key (kbd "C-x C-W"))
   (unless (equal persp-mode t)
     (persp-mode))
   (mal/leader-keys
@@ -395,10 +393,14 @@ Inspired by https://github.com/rougier/emacs-splash
 
 #+begin_src emacs-lisp
 (setup (:pkg consult)
-                                        ; (consult-customize consult--source-buffer :hidden t :default nil)
-                                        ; (add-to-list 'consult-buffer-sources persp-consult-source)
+  (setq completion-in-region-function
+        (lambda (&rest args)
+          (apply (if vertico-mode
+                     #'consult-completion-in-region
+                   #'completion--in-region)
+                 args)))
   (mal/leader-keys
-    "e" '(lsp-ui-flycheck-list :which-key "errors")
+    "e" '(consult-lsp-diagnostics :which-key "errors")
     "h" '(flycheck-next-error :which-key "next error")
     "f" '(find-file :which-key "find file")
     "s" '(consult-line :which-key "line search")
@@ -410,12 +412,13 @@ Inspired by https://github.com/rougier/emacs-splash
 
 #+begin_src emacs-lisp
 (setup (:pkg evil)
-  (:option 
+  (:option
    evil-want-integration t
    evil-want-keybinding nil
    evil-want-C-u-scroll t
    evil-want-C-d-scroll t
-   evil-want-C-i-jump nil)
+   evil-want-C-i-jump nil
+   evil-emacs-state-cursor '(bar . 0 ))
   (evil-mode 1)
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
@@ -478,8 +481,7 @@ Inspired by https://github.com/rougier/emacs-splash
                                           ("begin" "$1" "$" "$$" "\\(" "\\["))
    org-log-into-drawer t)
   (:hook mal/org-mode-setup)
-  (:also-load org-tempo)
-  (add-hook 'org-tab-first-hook 'org-end-of-line))
+  (:also-load org-tempo))
 #+end_src
 
 ** Keybinds
@@ -509,6 +511,9 @@ Inspired by https://github.com/rougier/emacs-splash
                                      (interactive)
                                      (org-insert-heading-respect-content)
                                      (evil-append 1)))
+(general-define-key :states 'insert
+                    :keymaps 'org-mode-map
+                    "<return>" 'evil-org-return)
 (general-define-key :states 'motion
                     :keymaps 'org-mode-map
                     "RET" '+org/dwim-at-point)
@@ -963,6 +968,7 @@ If on a:
            lsp-eldoc-enable-hover nil
            lsp-ui-doc-show-with-cursor nil
            lsp-ui-doc-position 'top
+           lsp-keep-workspace-alive nil
            lsp-enable-which-key-integration t)
   (:with-hook (js-mode-hook python-mode-hook go-mode-hook)
     (:hook 'lsp-deferred))
@@ -971,7 +977,7 @@ If on a:
     "l r" 'lsp-rename
     "l d" 'lsp-ui-doc-show
     "l c" 'lsp-ui-doc-hide
-    "l f s" 'lsp-ui-find-workspace-symbol
+    "a" 'consult-lsp-symbols
     "l f d" 'lsp-find-definition
     "l f r" 'lsp-find-references
     "l f c" 'lsp-find-declaration))
@@ -997,6 +1003,12 @@ If on a:
 #+begin_src emacs-lisp
 (setup (:pkg flycheck)
   (global-flycheck-mode))
+#+end_src
+
+*** Consult
+
+#+begin_src emacs-lisp
+(setup (:pkg consult-lsp))
 #+end_src
 
 ** Completion
@@ -1052,7 +1064,7 @@ If on a:
 #+begin_src emacs-lisp
 (setup (:pkg magit)
   (mal/leader-keys
-    "g g" '(magit-status :which-key "git status")))
+    "g" '(magit-status :which-key "git status")))
 #+end_src
 
 ** Rust
@@ -1082,6 +1094,9 @@ If on a:
 
 #+begin_src emacs-lisp
 (setup (:pkg typescript-mode))
+(setup (:pkg '(tsi :type git :host github :repo "orzechowskid/tsi.el")))
+(setup (:pkg '(tsx-mode :type git :host github :repo "orzechowskid/tsx-mode.el"))
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-mode)))
 #+end_src
 
 ** Svelte
@@ -1181,10 +1196,23 @@ If on a:
           :match-func (lambda (msg) (when msg
                                       (string-prefix-p "/personal" (mu4e-message-field msg :maildir))))
           :vars '(
-                  (user-mail-address . "oscar.shrimpton.personal@gmail.com")
-                  (user-full-name . "Aria Shrimpton")
+                  (user-mail-address . "me@aria.rip")
+                  (user-full-name . "Aria")
                   (mu4e-bookmarks . ((:name "Personal Inbox" :query "maildir:/personal/Inbox AND NOT flag:trashed" :key 112)))
                   (mu4e-get-mail-command . "mbsync personal")
+                  (mu4e-sent-folder . "/personal/Sent")
+                  (mu4e-drafts-folder . "/personal/Drafts")
+                  (mu4e-trash-folder . "/personal/Trash")
+                  (mu4e-refile-folder . "/personal/Archive")))
+        ,(make-mu4e-context
+          :name "gmail"
+          :match-func (lambda (msg) (when msg
+                                      (string-prefix-p "/gmail" (mu4e-message-field msg :maildir))))
+          :vars '(
+                  (user-mail-address . "oscar.shrimpton.personal@gmail.com")
+                  (user-full-name . "Aria Shrimpton")
+                  (mu4e-bookmarks . ((:name "Gmail Inbox" :query "maildir:/gmail/Inbox AND NOT flag:trashed" :key 112)))
+                  (mu4e-get-mail-command . "mbsync gmail")
                   (mu4e-sent-folder . "/personal/[Gmail]/Sent Mail")
                   (mu4e-drafts-folder . "/personal/[Gmail]/Drafts")
                   (mu4e-trash-folder . "/personal/[Gmail]/Trash")
@@ -1214,14 +1242,7 @@ If on a:
                   (mu4e-trash-folder . "/student/Trash")
                   (mu4e-refile-folder . "/student/Archive")))))
 
-(general-define-key
- :keymaps 'mu4e-main-mode-map
- :states 'normal
- "f" 'mu4e~headers-jump-to-maildir)
-
 (setq mu4e-headers-leave-behavior 'apply
-      mu4e-sent-folder "/personal/[Gmail]/Sent Mail"
-      mu4e-drafts-folder "/personal/[Gmail]/Drafts"
       sendmail-program "/usr/bin/msmtp"
       send-mail-function 'smtpmail-send-it
       message-sendmail-f-is-evil t
@@ -1230,11 +1251,53 @@ If on a:
       mu4e-get-mail-command "mbsync -a"
       mu4e-confirm-quit nil)
 
-(straight-use-package
- '(mu4e-dashboard :type git :host github :repo "rougier/mu4e-dashboard"))
-
 (add-hook 'mu4e-main-mode-hook (lambda () (mal/move-to-persp "email")))
 (evil-set-initial-state 'mu4e-main-mode 'emacs)
+
+(setup (:pkg (mu4e-dashboard :type git :host github :repo "rougier/mu4e-dashboard"))
+  (evil-set-initial-state 'mu4e-dashboard-mode 'emacs))
+
+(setq mu4e-headers-fields  '((:from-or-to . 20)
+                             (:subject . 98)
+                             (:relative-date  . 10)))
+
+#+end_src
+
+*** Looks
+
+#+begin_src emacs-lisp
+(set-face-attribute 'mu4e-unread-face nil :inherit 'org-priority :weight 'normal)
+(defun mal/mu4e-hook ()
+  (display-line-numbers-mode 0)
+  (setq visual-fill-column-width 140
+        header-line-format nil)
+  (visual-fill-column-mode 1))
+(add-to-list 'mu4e-headers-mode-hook 'mal/mu4e-hook)
+(add-to-list 'mu4e-main-mode-hook 'mal/mu4e-hook)
+#+end_src
+
+*** Relative Date
+
+#+begin_src emacs-lisp
+(defun mu4e-headers-is-today (date)
+  (= (- (time-to-days (current-time)) (time-to-days date)) 0))
+
+(defun mu4e-headers-is-yesterday (date)
+  (= (- (time-to-days (current-time)) (time-to-days date)) 1))
+
+(defun mu4e-headers-relative-date (msg)
+  (let* ((date (mu4e-msg-field msg :date)))
+    (cond ((mu4e-headers-is-today date)
+           (format-time-string "     %H:%M" date))
+          ((mu4e-headers-is-yesterday date)
+           " Yesterday")
+          (t  (format-time-string "%d/%m/%Y" date)))))
+
+(add-to-list 'mu4e-header-info-custom
+             '(:relative-date . (:name "Relative date"
+                                       :shortname ""
+                                       :function mu4e-headers-relative-date)))
+
 #+end_src
 
 ** Evil Collection
@@ -1302,8 +1365,8 @@ If on a:
                       "329"   ; channel creation date
                       "332"   ; topic notice
                       "333"   ; who set the topic
-		               "353"   ; Names notice
-		              )
+                      "353"   ; Names notice
+                      )
       erc-hide-timestamps t
       erc-echo-timestamps t
       erc-kill-buffer-on-part t)
@@ -1324,9 +1387,18 @@ If on a:
            org-gcal-fetch-file-alist '(("oscar.shrimpton@open-cosmos.com" .  "~/tasks/open-cosmos.org"))
            org-gcal-notify-p nil))
 
-(setup (:pkg org-wild-notifier)
-  (:option alert-default-style 'libnotify
-           org-wild-notifier-alert-time '(1 10 30))
-           org-wild-notifier-keyword-whitelist '(".*" "TODO")
-  (org-wild-notifier-mode 1))
+;; (setup (:pkg org-wild-notifier)
+;;   (require 'org-wild-notifier)
+;;   (:option alert-default-style 'libnotify
+;;            org-wild-notifier-alert-time '(1 10 30))
+;;            org-wild-notifier-keyword-whitelist '(".*" "TODO")
+;;   (org-wild-notifier-mode 1))
+#+end_src
+
+** Kubernetes
+
+#+begin_src emacs-lisp
+(setup (:pkg kubernetes))
+(setup (:pkg kubernetes-evil)
+  (:load-after kubernetes))
 #+end_src
