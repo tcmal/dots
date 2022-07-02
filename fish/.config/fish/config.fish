@@ -46,7 +46,7 @@ kubectl completion fish | source
 
 # Hledger GPG
 function hl
-    gpg2 --decrypt ~/tasks/Ledger.ledger.gpg 2>/dev/null | hledger -f- "$argv"
+    gpg2 --decrypt ~/tasks/Ledger.ledger.gpg 2>/dev/null | hledger -f- $argv
 end
 
 # pnpm
