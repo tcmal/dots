@@ -1353,10 +1353,10 @@ other windows. This version just also doesn't open main"
                   (user-full-name . "Aria Shrimpton")
                   (mu4e-bookmarks . ((:name "Gmail Inbox" :query "maildir:/gmail/Inbox AND NOT flag:trashed" :key ?i)))
                   (mu4e-get-mail-command . "mbsync gmail")
-                  (mu4e-sent-folder . "/personal/[Gmail]/Sent Mail")
-                  (mu4e-drafts-folder . "/personal/[Gmail]/Drafts")
-                  (mu4e-trash-folder . "/personal/[Gmail]/Trash")
-                  (mu4e-refile-folder . "/personal/[Gmail]/Archive")))
+                  (mu4e-sent-folder . "/gmail/[Gmail]/Sent Mail")
+                  (mu4e-drafts-folder . "/gmail/[Gmail]/Drafts")
+                  (mu4e-trash-folder . "/gmail/[Gmail]/Trash")
+                  (mu4e-refile-folder . "/gmail/[Gmail]/Archive")))
         ,(make-mu4e-context
           :name "opencosmos"
           :match-func (lambda (msg) (when msg
