@@ -106,9 +106,9 @@ This is particularly useful under Mac OS X and macOS, where GUI
 apps are not started from a shell."
   (interactive)
   (let ((path-from-shell (replace-regexp-in-string
-			  "[ \t\n]*$" "" (shell-command-to-string
-					  "$SHELL --login -c 'string join : $PATH'"
-						    ))))
+                          "[ \t\n]*$" "" (shell-command-to-string
+                                          "$SHELL --login -c 'string join : $PATH'"
+                                          ))))
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
 
@@ -133,9 +133,9 @@ apps are not started from a shell."
 #+begin_src emacs-lisp
 (defun mal/setup-fonts ()
   (interactive)
-    (set-face-attribute 'default nil :font "Fira Code" :height 128)
-    (set-face-attribute 'variable-pitch nil :font "Noto Sans CJK HK" :height 128)
-    (setq doom-modeline-icon t))
+  (set-face-attribute 'default nil :font "Fira Code" :height 128)
+  (set-face-attribute 'variable-pitch nil :font "Noto Sans CJK HK" :height 128)
+  (setq doom-modeline-icon t))
 
 (add-hook 'server-after-make-frame-hook 'mal/setup-fonts)
 (mal/setup-fonts)
@@ -247,7 +247,7 @@ Inspired by https://github.com/rougier/emacs-splash
       (blink-cursor-mode 0)
       (setq cursor-type nil)
       (setq fill-column width)
-        (setq mode-line-format nil)
+      (setq mode-line-format nil)
       (display-line-numbers-mode 0)
 
       (rename-buffer "*splash*")
@@ -315,7 +315,7 @@ A lot of my global keybinds start with ~SPC-~
   "k" '(splash-screen :which-key "dashboard")
   "m" '(switch-to-next-buffer :which-key "next buffer")
   "n" '(switch-to-prev-buffer :which-key "prev buffer")
-"f" '(find-file :which-key "find file")
+  "f" '(find-file :which-key "find file")
 
   ;; quick open config
   "c c" (lambda () (interactive)
@@ -436,7 +436,7 @@ A lot of my global keybinds start with ~SPC-~
 (setup (:pkg perspective)
   (:option persp-initial-frame-name "Main"
            persp-mode-prefix-key (kbd "C-x C-w"))
-(persp-mode 1)
+  (persp-mode 1)
   (mal/leader-keys
     "TAB l" 'persp-next
     "TAB h" 'persp-prev
@@ -741,9 +741,9 @@ If on a:
 
 #+begin_src emacs-lisp
 (setq org-startup-indented t
-   org-ascii-headline-spacing '(1 . 4)
-   org-fontify-quote-and-verse-blocks t
-   org-ellipsis " ▾")
+      org-ascii-headline-spacing '(1 . 4)
+      org-fontify-quote-and-verse-blocks t
+      org-ellipsis " ▾")
 
 
 (setup org-indent
@@ -817,12 +817,12 @@ If on a:
 
 #+begin_src emacs-lisp
 (setq org-image-actual-width '(600)
-   org-preview-latex-image-directory (expand-file-name "~/.cache/emacs/ltximg/")
-   org-format-latex-options '(:foreground default :background default :scale 1.2 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
-                                          ("begin" "$1" "$" "$$" "\\(" "\\["))
-   org-startup-with-inline-images t
-   org-startup-with-latex-preview t
-   org-hide-emphasis-markers t)
+      org-preview-latex-image-directory (expand-file-name "~/.cache/emacs/ltximg/")
+      org-format-latex-options '(:foreground default :background default :scale 1.2 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+                                             ("begin" "$1" "$" "$$" "\\(" "\\["))
+      org-startup-with-inline-images t
+      org-startup-with-latex-preview t
+      org-hide-emphasis-markers t)
 #+end_src
 
 ** Task States
@@ -1099,13 +1099,13 @@ If on a:
 
 #+begin_src emacs-lisp
 (setq lsp-rust-analyzer-cargo-watch-command "clippy"
-           lsp-rust-analyzer-server-display-inlay-hints t
-           lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial"
-           lsp-rust-analyzer-display-chaining-hints t
-           lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil
-           lsp-rust-analyzer-display-closure-return-type-hints t
-           lsp-rust-analyzer-display-parameter-hints nil
-           lsp-rust-analyzer-display-reborrow-hints nil)
+      lsp-rust-analyzer-server-display-inlay-hints t
+      lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial"
+      lsp-rust-analyzer-display-chaining-hints t
+      lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil
+      lsp-rust-analyzer-display-closure-return-type-hints t
+      lsp-rust-analyzer-display-parameter-hints nil
+      lsp-rust-analyzer-display-reborrow-hints nil)
 #+end_src
 
 ** Haskell
