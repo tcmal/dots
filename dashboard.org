@@ -4,7 +4,7 @@
 School ....... [a]                *Dashboard* .. [T]
 Home ......... [s]                *Next Tasks* . [N]
 Societies .... [d]
-Career ....... [f]                *Open Project* [p]
+OpenCosmos ... [f]                *Open Project* [p]
 
 
 * Email
@@ -68,10 +68,10 @@ Student ...... [l] ([[mu:flag:unread and m:/student/Inbox|%3d][---]])   		*Switc
 
 #+KEYMAP: p | call-interactively 'projectile-persp-switch-project
 
-#+KEYMAP: a | find-file (expand-file-name "~/notes/Tasks/School.org")
-#+KEYMAP: s | find-file (expand-file-name "~/notes/Tasks/Home.org")
-#+KEYMAP: d | find-file (expand-file-name "~/notes/Tasks/Societies.org")
-#+KEYMAP: f | find-file (expand-file-name "~/notes/Tasks/Career.org")
+#+KEYMAP: a | find-file (expand-file-name "~/tasks/School.org")
+#+KEYMAP: s | find-file (expand-file-name "~/tasks/Home.org")
+#+KEYMAP: d | find-file (expand-file-name "~/tasks/Societies.org")
+#+KEYMAP: f | find-file (expand-file-name "~/tasks/OpenCosmos.org")
 
 #+KEYMAP: h | mu4e-headers-search "m:/personal/Inbox"
 #+KEYMAP: j | mu4e-headers-search "m:/gmail/Inbox"
