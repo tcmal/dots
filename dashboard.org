@@ -83,7 +83,7 @@ Student ...... [l] ([[mu:flag:unread and m:/student/Inbox|%3d][---]])   		*Switc
 
 #+KEYMAP: M | mu4e
 #+KEYMAP: C | mu4e-compose-new
-#+KEYMAP: U | mu4e-dashboard-update
+#+KEYMAP: U | mu4e-update-mail-and-index nil
 #+KEYMAP: ; | mu4e-context-switch
 
 #+KEYMAP: q | kill-current-buffer
