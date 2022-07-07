@@ -349,6 +349,7 @@ A lot of my global keybinds start with ~SPC-~
 (general-define-key :states 'insert
                     :keymaps 'override
                     "C-g" 'evil-normal-state
+                    "C-SPC" 'completion-at-point
                     "C-s" 'mal/save-normal
                     "C-p" 'mal/paste-dwim)
 
@@ -1098,14 +1099,15 @@ If on a:
 ** Rust
 
 #+begin_src emacs-lisp
-(setq lsp-rust-analyzer-cargo-watch-command "clippy"
-      lsp-rust-analyzer-server-display-inlay-hints t
-      lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial"
-      lsp-rust-analyzer-display-chaining-hints t
-      lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil
-      lsp-rust-analyzer-display-closure-return-type-hints t
-      lsp-rust-analyzer-display-parameter-hints nil
-      lsp-rust-analyzer-display-reborrow-hints nil)
+(setup (:pkg rust-mode)
+  (:option lsp-rust-analyzer-cargo-watch-command "clippy"
+           lsp-rust-analyzer-server-display-inlay-hints t
+           lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial"
+           lsp-rust-analyzer-display-chaining-hints t
+           lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil
+           lsp-rust-analyzer-display-closure-return-type-hints t
+           lsp-rust-analyzer-display-parameter-hints nil
+           lsp-rust-analyzer-display-reborrow-hints nil))
 #+end_src
 
 ** Haskell
@@ -1339,7 +1341,7 @@ other windows. This version just also doesn't open main"
                   (user-mail-address . "me@aria.rip")
                   (user-full-name . "Aria")
                   (mu4e-bookmarks . ((:name "Personal Inbox" :query "maildir:/personal/Inbox AND NOT flag:trashed" :key ?i)))
-                  (mu4e-get-mail-command . "mbsync personal")
+                  (mu4e-get-mail-command . "mbsync personal; exit 0")
                   (mu4e-sent-folder . "/personal/Sent")
                   (mu4e-drafts-folder . "/personal/Drafts")
                   (mu4e-trash-folder . "/personal/Trash")
@@ -1352,7 +1354,7 @@ other windows. This version just also doesn't open main"
                   (user-mail-address . "oscar.shrimpton.personal@gmail.com")
                   (user-full-name . "Aria Shrimpton")
                   (mu4e-bookmarks . ((:name "Gmail Inbox" :query "maildir:/gmail/Inbox AND NOT flag:trashed" :key ?i)))
-                  (mu4e-get-mail-command . "mbsync gmail")
+                  (mu4e-get-mail-command . "mbsync gmail; exit 0")
                   (mu4e-sent-folder . "/gmail/[Gmail]/Sent Mail")
                   (mu4e-drafts-folder . "/gmail/[Gmail]/Drafts")
                   (mu4e-trash-folder . "/gmail/[Gmail]/Trash")
@@ -1364,7 +1366,7 @@ other windows. This version just also doesn't open main"
           :vars '((user-mail-address . "oscar.shrimpton@open-cosmos.com")
                   (user-full-name . "Oscar Shrimpton")
                   (mu4e-bookmarks . ((:name "OpenCosmos Inbox" :query "maildir:/opencosmos/Inbox AND NOT flag:trashed" :key ?i)))
-                  (mu4e-get-mail-command . "mbsync opencosmos")
+                  (mu4e-get-mail-command . "mbsync opencosmos; exit 0")
                   (mu4e-sent-folder . "/opencosmos/[Gmail]/Sent Mail")
                   (mu4e-drafts-folder . "/opencosmos/[Gmail]/Drafts")
                   (mu4e-trash-folder . "/opencosmos/[Gmail]/Trash")
@@ -1376,7 +1378,7 @@ other windows. This version just also doesn't open main"
           :vars '((user-mail-address . "s2080441@ed.ac.uk")
                   (user-full-name . "Aria Shrimpton")
                   (mu4e-bookmarks . ((:name "Student Inbox" :query "maildir:/student/Inbox AND NOT flag:trashed" :key ?i)))
-                  (mu4e-get-mail-command . "mbsync student")
+                  (mu4e-get-mail-command . "mbsync student; exit 0")
                   (mu4e-sent-folder . "/student/Sent")
                   (mu4e-drafts-folder . "/student/Drafts")
                   (mu4e-trash-folder . "/student/Trash")
