@@ -1240,47 +1240,52 @@ If on a:
 (setup (:pkg (mu4e-dashboard :type git :host github :repo "rougier/mu4e-dashboard"))
   (evil-set-initial-state 'mu4e-dashboard-mode 'emacs))
 
+(setup (:pkg mu4e-alert)
+  (:option doom-modeline-mu4e t)
+  (mu4e-alert-set-default-style 'libnotify)
+  (mu4e-alert-enable-notifications))
+
 #+end_src
 
 *** Avoid main
 
 #+begin_src emacs-lisp
-(defun mal/mu4e~headers-quit-buffer ()
-  "Quit the mu4e-headers buffer.
-This is a rather complex function, to ensure we don't disturb
-other windows. This version just also doesn't open main"
-  (interactive)
-  (if (eq mu4e-split-view 'single-window)
-      (progn (mu4e-mark-handle-when-leaving)
-             (kill-buffer))
-    (unless (eq major-mode 'mu4e-headers-mode)
-      (mu4e-error "Must be in mu4e-headers-mode (%S)" major-mode))
-    (mu4e-mark-handle-when-leaving)
-    (let ((curbuf (current-buffer))
-          (curwin (selected-window)))
-      (walk-windows
-       (lambda (win)
-         (with-selected-window win
-           ;; if we the view window connected to this one, kill it
-           (when (and (not (one-window-p win)) (eq mu4e~headers-view-win win))
-             (delete-window win)
-             (setq mu4e~headers-view-win nil)))
-         ;; and kill any _other_ (non-selected) window that shows the current
-         ;; buffer
-         (when (and
-                (eq curbuf (window-buffer win)) ;; does win show curbuf?
-                (not (eq curwin win))             ;; it's not the curwin?
-                (not (one-window-p)))           ;; and not the last one?
-           (delete-window win))))  ;; delete it!
-      ;; now, all *other* windows should be gone. kill ourselves, and return
-      ;; to the main view
-      (kill-buffer))))
+;; (defun mal/mu4e~headers-quit-buffer ()
+;;   "Quit the mu4e-headers buffer.
+;; This is a rather complex function, to ensure we don't disturb
+;; other windows. This version just also doesn't open main"
+;;   (interactive)
+;;   (if (eq mu4e-split-view 'single-window)
+;;       (progn (mu4e-mark-handle-when-leaving)
+;;              (kill-buffer))
+;;     (unless (eq major-mode 'mu4e-headers-mode)
+;;       (mu4e-error "Must be in mu4e-headers-mode (%S)" major-mode))
+;;     (mu4e-mark-handle-when-leaving)
+;;     (let ((curbuf (current-buffer))
+;;           (curwin (selected-window)))
+;;       (walk-windows
+;;        (lambda (win)
+;;          (with-selected-window win
+;;            ;; if we the view window connected to this one, kill it
+;;            (when (and (not (one-window-p win)) (eq mu4e~headers-view-win win))
+;;              (delete-window win)
+;;              (setq mu4e~headers-view-win nil)))
+;;          ;; and kill any _other_ (non-selected) window that shows the current
+;;          ;; buffer
+;;          (when (and
+;;                 (eq curbuf (window-buffer win)) ;; does win show curbuf?
+;;                 (not (eq curwin win))             ;; it's not the curwin?
+;;                 (not (one-window-p)))           ;; and not the last one?
+;;            (delete-window win))))  ;; delete it!
+;;       ;; now, all *other* windows should be gone. kill ourselves, and return
+;;       ;; to the main view
+;;       (kill-buffer))))
 
-(add-hook 'mu4e-headers-mode-hook (lambda ()
-                                    (general-define-key
-                                     :keymaps 'mu4e-headers-mode-map
-                                     :states '(normal)
-                                     "q" 'mal/mu4e~headers-quit-buffer)))
+;; (add-hook 'mu4e-headers-mode-hook (lambda ()
+;;                                     (general-define-key
+;;                                      :keymaps 'mu4e-headers-mode-map
+;;                                      :states '(normal)
+;;                                      "q" 'mal/mu4e~headers-quit-buffer)))
 
 (defun mal/mu4e-straight-to-inbox (name)
   (mu4e-context-switch t name)
