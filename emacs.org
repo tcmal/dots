@@ -1241,7 +1241,18 @@ If on a:
   (evil-set-initial-state 'mu4e-dashboard-mode 'emacs))
 
 (setup (:pkg mu4e-alert)
-  (:option doom-modeline-mu4e t)
+  (:option doom-modeline-mu4e t
+           mu4e-alert-group-by :maildir
+           mu4e-update-interval 500
+           mu4e-alert-interesting-mail-query (concat
+                                              "flag:unread"
+                                              "AND NOT flag:trashed"
+                                              "AND ("
+                                              "maildir:/personal/Inbox"
+                                              "OR maildir:/opencosmos/Inbox"
+                                              "OR maildir:/student/Inbox"
+                                              "OR maildir:/gmail/Inbox"
+                                              ")"))
   (mu4e-alert-set-default-style 'libnotify)
   (mu4e-alert-enable-notifications))
 
@@ -1250,43 +1261,6 @@ If on a:
 *** Avoid main
 
 #+begin_src emacs-lisp
-;; (defun mal/mu4e~headers-quit-buffer ()
-;;   "Quit the mu4e-headers buffer.
-;; This is a rather complex function, to ensure we don't disturb
-;; other windows. This version just also doesn't open main"
-;;   (interactive)
-;;   (if (eq mu4e-split-view 'single-window)
-;;       (progn (mu4e-mark-handle-when-leaving)
-;;              (kill-buffer))
-;;     (unless (eq major-mode 'mu4e-headers-mode)
-;;       (mu4e-error "Must be in mu4e-headers-mode (%S)" major-mode))
-;;     (mu4e-mark-handle-when-leaving)
-;;     (let ((curbuf (current-buffer))
-;;           (curwin (selected-window)))
-;;       (walk-windows
-;;        (lambda (win)
-;;          (with-selected-window win
-;;            ;; if we the view window connected to this one, kill it
-;;            (when (and (not (one-window-p win)) (eq mu4e~headers-view-win win))
-;;              (delete-window win)
-;;              (setq mu4e~headers-view-win nil)))
-;;          ;; and kill any _other_ (non-selected) window that shows the current
-;;          ;; buffer
-;;          (when (and
-;;                 (eq curbuf (window-buffer win)) ;; does win show curbuf?
-;;                 (not (eq curwin win))             ;; it's not the curwin?
-;;                 (not (one-window-p)))           ;; and not the last one?
-;;            (delete-window win))))  ;; delete it!
-;;       ;; now, all *other* windows should be gone. kill ourselves, and return
-;;       ;; to the main view
-;;       (kill-buffer))))
-
-;; (add-hook 'mu4e-headers-mode-hook (lambda ()
-;;                                     (general-define-key
-;;                                      :keymaps 'mu4e-headers-mode-map
-;;                                      :states '(normal)
-;;                                      "q" 'mal/mu4e~headers-quit-buffer)))
-
 (defun mal/mu4e-straight-to-inbox (name)
   (mu4e-context-switch t name)
   (mu4e-headers-search (mu4e-get-bookmark-query ?i)))
@@ -1345,7 +1319,8 @@ If on a:
           :vars '(
                   (user-mail-address . "me@aria.rip")
                   (user-full-name . "Aria")
-                  (mu4e-bookmarks . ((:name "Personal Inbox" :query "maildir:/personal/Inbox AND NOT flag:trashed" :key ?i)))
+                  (mu4e-bookmarks . ((:name "Inbox" :query "maildir:/personal/Inbox AND NOT flag:trashed" :key ?i)
+                                     (:name "Spam" :query "maildir:/personal/Junk AND NOT flag:trashed" :key ?j)))
                   (mu4e-get-mail-command . "mbsync personal; exit 0")
                   (mu4e-sent-folder . "/personal/Sent")
                   (mu4e-drafts-folder . "/personal/Drafts")
@@ -1358,7 +1333,7 @@ If on a:
           :vars '(
                   (user-mail-address . "oscar.shrimpton.personal@gmail.com")
                   (user-full-name . "Aria Shrimpton")
-                  (mu4e-bookmarks . ((:name "Gmail Inbox" :query "maildir:/gmail/Inbox AND NOT flag:trashed" :key ?i)))
+                  (mu4e-bookmarks . ((:name "Inbox" :query "maildir:/gmail/Inbox AND NOT flag:trashed" :key ?i)))
                   (mu4e-get-mail-command . "mbsync gmail; exit 0")
                   (mu4e-sent-folder . "/gmail/[Gmail]/Sent Mail")
                   (mu4e-drafts-folder . "/gmail/[Gmail]/Drafts")
@@ -1370,7 +1345,7 @@ If on a:
                                       (string-prefix-p "/opencosmos" (mu4e-message-field msg :maildir))))
           :vars '((user-mail-address . "oscar.shrimpton@open-cosmos.com")
                   (user-full-name . "Oscar Shrimpton")
-                  (mu4e-bookmarks . ((:name "OpenCosmos Inbox" :query "maildir:/opencosmos/Inbox AND NOT flag:trashed" :key ?i)))
+                  (mu4e-bookmarks . ((:name "Inbox" :query "maildir:/opencosmos/Inbox AND NOT flag:trashed" :key ?i)))
                   (mu4e-get-mail-command . "mbsync opencosmos; exit 0")
                   (mu4e-sent-folder . "/opencosmos/[Gmail]/Sent Mail")
                   (mu4e-drafts-folder . "/opencosmos/[Gmail]/Drafts")
@@ -1382,7 +1357,7 @@ If on a:
                                       (string-prefix-p "/student" (mu4e-message-field msg :maildir))))
           :vars '((user-mail-address . "s2080441@ed.ac.uk")
                   (user-full-name . "Aria Shrimpton")
-                  (mu4e-bookmarks . ((:name "Student Inbox" :query "maildir:/student/Inbox AND NOT flag:trashed" :key ?i)))
+                  (mu4e-bookmarks . ((:name "Inbox" :query "maildir:/student/Inbox AND NOT flag:trashed" :key ?i)))
                   (mu4e-get-mail-command . "mbsync student; exit 0")
                   (mu4e-sent-folder . "/student/Sent")
                   (mu4e-drafts-folder . "/student/Drafts")
